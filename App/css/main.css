@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-custom-blue{
+    background-color: #003366;
+}
+
+.bg-custom-gray{
+    background-color: #757575;
+}
+
+.bg-custom-light-gray{
+    background-color: #E0E0E0;
+}
+
+.text-custom-blue{
+    color: #003366;
+}
