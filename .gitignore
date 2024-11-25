@@ -2,3 +2,5 @@
 *.tar
 #No es guardaran les variables d'entorn a Git ni Github, així no es podran veure les contrasenyes
 .env
+
+vendor/
