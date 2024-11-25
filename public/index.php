@@ -32,7 +32,8 @@ $contenidor = new \App\Container(__DIR__ . "/../App/config.php");
 $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
-$app->route("", "ctrlIndexView");
+$app->route("/inicio", [\App\Controllers\inicio::class, "inicio"]);
+
 $app->route("login", "ctrlLogin");
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
@@ -50,5 +51,4 @@ $app->route("/hola/{id}", function ($request, $response) {
 });
 
 $app->route(Router::DEFAULT_ROUTE, "ctrlError");
-
 $app->execute();
