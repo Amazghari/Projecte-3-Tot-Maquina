@@ -32,7 +32,7 @@ $contenidor = new \App\Container(__DIR__ . "/../App/config.php");
 $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
-$app->route("/postlogin", [\App\Controllers\postlogin::class, "inicio"]);
+$app->route("/inicio", [\App\Controllers\inicio::class, "inicio"]);
 
 $app->route("login", "ctrlLogin");
 $app->route("validar-login", "ctrlValidarLogin");
