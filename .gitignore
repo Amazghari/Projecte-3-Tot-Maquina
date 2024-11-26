@@ -8,10 +8,17 @@ vendor
 dist/
 build/
 
-js/bundle.js
+/bundle.js
+/bundle.js.LICENSE.txt
 
 /public/output.css
 /public/main.css
 
 .tailwindcache/
+package-lock.json
+
+# Ignorar archivos específicos
+main.css
+bundle.js.LICENSE.txt
+bundle.js
 
