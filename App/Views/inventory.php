@@ -18,7 +18,7 @@
                 <div class="flex items-center">
                 </div>
             </div>
-            <table class="min-w-full bg-white">
+            <table class="min-w-full bg-white"> 
                 <thead>
                     <tr class="bg-custom-blue uppercase text-sm leading-normal">
                         <th class="py-3 px-6 text-left text-white">Model</th>
