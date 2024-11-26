@@ -1,6 +1,4 @@
 -- Active: 1729870343985@@127.0.0.1@3306@totmaquina
-create database totMaquina;
-show databases;
 use totmaquina;
 show tables;
 -- Primer init sin fk para probar que funciona
@@ -12,7 +10,7 @@ create table machines (
 	installation_date DATE,
 	location VARCHAR(255),
 	image_url VARCHAR(255),
-	first_answer VARCHAR(255),
+	first_answer VARCHAR(255)
 );
 insert into machines (model,manufacturer,serial_num,installation_date,location,image_url,first_answer) 
 values("model1","manufacturer1","serialNumbe1",CURDATE(),"location1","image1","first_answer");
