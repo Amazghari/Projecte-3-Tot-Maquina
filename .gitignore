@@ -3,4 +3,19 @@
 #No es guardaran les variables d'entorn a Git ni Github, així no es podran veure les contrasenyes
 .env
 node_modules
+<<<<<<< HEAD
 vendor
+=======
+vendor
+
+dist/
+build/
+
+js/bundle.js
+
+/public/output.css
+/public/style.css
+
+.tailwindcache/
+
+>>>>>>> 632be5514a9bbe6b42e86f16db8f8d9a8762796a
