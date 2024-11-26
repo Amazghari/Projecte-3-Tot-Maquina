@@ -1,3 +1,4 @@
+-- Active: 1729870343985@@127.0.0.1@3306@totmaquina
 use totmaquina;
 
 -- Primer init sin fk para probar que funciona

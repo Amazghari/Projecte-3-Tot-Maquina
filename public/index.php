@@ -33,8 +33,8 @@ $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->route("", [\App\Controllers\indexController::class, "indexController"]);
-$app->route("/inicio", [\App\Controllers\inicioController::class, "inicioController"]);
-$app->route("/inventario", [\App\Controllers\inventario::class, "inventario"]);
+$app->route("/inicio", [\App\Controllers\homeController::class, "homeController"]);
+$app->route("/inventory", [\App\Controllers\inventoryController::class, "inventoryController"]);
 $app->route("/incidencias", [\App\Controllers\incidencias::class, "incidencias"]);
 $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
 $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
