@@ -110,5 +110,8 @@
             </table>
         </div>
     </div>
+
+<!-- Footer -->
+<?php include 'Layouts/footer.php'; ?>
 </body>
 </html>
