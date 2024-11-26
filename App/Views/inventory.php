@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="main.css" rel="stylesheet">
-    <title>Inventory</title>
+    <title>Inventario</title>
 </head>
 <body class="bg-custom-light-gray">
 
@@ -14,46 +14,59 @@
                 <img src="/uploads/img/logopng.png" alt="Inventory" class="w-10 h-10 rounded-full mr-2">
                 <h1 class="text-xl font-bold ml-2">Inventario</h1>
             </div>
-            <div class="flex justify-between p-4">
-                <div class="flex items-center">
-                </div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-custom-blue"></h2>
+                <button class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors mt-5">
+                    Crear Máquina
+                </button>
             </div>
-            <table class="min-w-full bg-white"> 
-                <thead>
-                    <tr class="bg-custom-blue uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left text-white">Model</th>
-                        <th class="py-3 px-6 text-left text-white">Manufacturer</th>
-                        <th class="py-3 px-6 text-left text-white">Serial No.</th>
-                        <th class="py-3 px-6 text-left text-white">Install Date</th>
-                        <th class="py-3 px-6 text-left text-white">Location</th>
-                        <th class="py-3 px-6 text-left text-white">Image</th>
-                        <th class="py-3 px-6 text-left text-white">Worker</th>
-                        <th class="py-3 px-6 text-left text-white">ID</th>
-                        <th class="py-3 px-6 text-left pr-10 text-white">Users</th>
+            <table class="min-w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                <thead class="bg-custom-blue text-white">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Modelo</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Fabricante</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">N.Serie</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Data Inst.</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Ubicación</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Trabajador</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Usuarios</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">ID</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
-                    <tr class="border-b bg-white hover-bg-custom-light-gray">
-                        <td class="py-3 px-6">Model 1</td>
-                        <td class="py-3 px-6">Manufacturer 1</td>
-                        <td class="py-3 px-6">12345</td>
-                        <td class="py-3 px-6">01/01/2021</td>
-                        <td class="py-3 px-6">Location 1</td>
-                        <td class="py-3 px-6"><img src="path/to/image1.jpg" alt="Image 1" class="w-10 h-10"></td>
-                        <td class="py-3 px-6">Worker 1</td>
-                        <td class="py-3 px-6">1</td>
-                        <td class="py-3 px-6">User 1</td>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="hover:bg-custom-light-gray">
+                        <td class="px-6 py-4 text-sm">Model 1</td>
+                        <td class="px-6 py-4 text-sm">Manufacturer 1</td>
+                        <td class="px-6 py-4 text-sm">12345</td>
+                        <td class="px-6 py-4 text-sm">01/01/2021</td>
+                        <td class="px-6 py-4 text-sm">Location 1</td>
+                        <td class="px-6 py-4 text-sm">Worker 1</td>
+                        <td class="px-6 py-4 text-sm">
+                            <select class="border border-gray-300 rounded-md">
+                                <option value="usuario1">Usuario 1</option>
+                                <option value="usuario2">Usuario 2</option>
+                                <option value="usuario3">Usuario 3</option>
+                                <option value="usuario4">Usuario 4</option>
+                            </select>
+                        </td>
+                        <td class="px-4 py-4 text-sm">1</td>
                     </tr>
-                    <tr class="border-b bg-white hover-bg-custom-light-gray">
-                        <td class="py-3 px-6">Model 2</td>
-                        <td class="py-3 px-6">Manufacturer 2</td>
-                        <td class="py-3 px-6">67890</td>
-                        <td class="py-3 px-6">02/01/2021</td>
-                        <td class="py-3 px-6">Location 2</td>
-                        <td class="py-3 px-6"><img src="path/to/image2.jpg" alt="Image 2" class="w-10 h-10"></td>
-                        <td class="py-3 px-6">Worker 2</td>
-                        <td class="py-3 px-6">2</td>
-                        <td class="py-3 px-6">User 2</td>
+                    <tr class="hover:bg-custom-light-gray">
+                        <td class="px-6 py-4 text-sm">Model 2</td>
+                        <td class="px-6 py-4 text-sm">Manufacturer 2</td>
+                        <td class="px-6 py-4 text-sm">67890</td>
+                        <td class="px-6 py-4 text-sm">02/01/2021</td> 
+                        <td class="px-6 py-4 text-sm">Location 2</td> 
+                        <td class="px-6 py-4 text-sm">Worker 2</td>
+                        <td class="px-6 py-4 text-sm">
+                            <select class="border border-gray-300 rounded-md">
+                                <option value="usuario1">Usuario 1</option>
+                                <option value="usuario2">Usuario 2</option>
+                                <option value="usuario3">Usuario 3</option>
+                                <option value="usuario4">Usuario 4</option>
+                            </select>
+                        </td>
+                        <td class="px-4 py-4 text-sm">2</td>
                     </tr>
                 </tbody>
             </table>

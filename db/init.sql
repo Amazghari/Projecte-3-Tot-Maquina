@@ -1,6 +1,6 @@
 -- Active: 1729870343985@@127.0.0.1@3306@totmaquina
 use totmaquina;
-show tables;
+
 -- Primer init sin fk para probar que funciona
 create table machines (
 	id INT AUTO_INCREMENT PRIMARY KEY,
