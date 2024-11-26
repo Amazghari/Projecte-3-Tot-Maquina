@@ -27,7 +27,7 @@ include "../App/Middleware/auth.php";
 include "../App/Middleware/test.php";
 
 /* Creem els diferents models */
-$contenidor = new \App\Container(__DIR__ . "/../App/config.php");
+$contenidor = new \App\Container(__DIR__ . "/../App/config.php"); 
 
 $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
