@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Controllers;
 use \Emeset\Contracts\Http\Request;
 use \Emeset\Contracts\Http\Response;
 use \Emeset\Contracts\Container;
@@ -21,10 +22,10 @@ use \Emeset\Contracts\Container;
  * @param array $config  paràmetres de configuració de l'aplicació
  *
  **/
-function ctrlPortada(Request $request, Response $response, Container $container) :Response
+function ctrlIndexView(Request $request, Response $response, Container $container) :Response
 {
     // Comptem quantes vegades has visitat aquesta pàgina
-    $visites = $request->get(INPUT_COOKIE, "visites");
+    /*$visites = $request->get(INPUT_COOKIE, "visites");
     if (!is_null($visites)) {
         $visites = (int)$visites + 1;
     } else {
@@ -39,8 +40,8 @@ function ctrlPortada(Request $request, Response $response, Container $container)
         $missatge = "Hola! Ja has visitat {$visites} pàgines d'aquesta web!";
     }
 
-    $response->set("missatge", $missatge);
-    $response->SetTemplate("portada.php");
+    $response->set("missatge", $missatge);*/
+    $response->SetTemplate("index.php");
 
     return $response;
 }
