@@ -40,7 +40,7 @@ $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_prevent
 $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
 $app->route("/dashboard", [\App\Controllers\dashboard::class, "dashboard"]);
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
-$app->route("/mantenimiento", [\App\Controllers\mantenimiento::class, "mantenimiento"]);
+$app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
   
 $app->route("login", "ctrlLogin");
 $app->route("validar-login", "ctrlValidarLogin");
