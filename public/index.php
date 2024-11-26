@@ -47,6 +47,7 @@ $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 
 
+
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
     return $response;
