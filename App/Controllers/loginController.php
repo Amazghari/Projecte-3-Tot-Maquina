@@ -37,24 +37,35 @@ class loginController{
     //dd($username, $password);
     $users = $container->get("Users");
     $currentUser= $users->getUser($username);
-    
-    $passwordequal = password_verify($password, $currentUser["password"]);
-    if($currentUser["role"]=="administrator"){
-      $response->setSession("user",$currentUser);
-      $response->setSession("logged",true);
-      $response->setSession("isAdmin",true);
-      $response->redirect("location: /inicio");
-    }
-    else if($currentUser && $passwordequal){
-      $response->setSession("user", $currentUser);
-      $response->setSession("logged", true);
-      $response->redirect("location: /inicio");
-    }
-    else {
+    //dd($eqpwd);
+    if(!$currentUser){
       $response->setSession("error", "Usuari o clau incorrectes!");
-        $response->setSession("logged", false);
-        $response->redirect("location:");
+      $response->setSession("logged", false);
+      $response->redirect("location:/"); 
     }
+    else{
+      $passwordequal = password_verify($password, $currentUser["password"]);
+      //dd($username,$password,$passwordequal,$currentUser);
+      $eqpwd=$password==$currentUser["password"];
+       if($currentUser["role"]=="administrator" && $eqpwd){
+        $response->setSession("user",$currentUser);
+        $response->setSession("logged",true);
+        $response->setSession("isAdmin",true);
+        $response->redirect("location: /inicio");
+      }
+      else if($currentUser && $passwordequal){
+        $response->setSession("user", $currentUser);
+        $response->setSession("logged", true);
+        $response->redirect("location: /inicio");
+      }
+
+      else {
+        $response->setSession("error", "Usuari o clau incorrectes!");
+        $response->setSession("logged", false);
+        $response->redirect("location:/"); 
+      }
+    }
+    
     $response->SetTemplate("/inicio");
 
     return $response;
