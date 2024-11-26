@@ -8,10 +8,22 @@ vendor
 dist/
 build/
 
-js/bundle.js
+/bundle.js
+/bundle.js.LICENSE.txt
 
 /public/output.css
 /public/main.css
-
+public\main.css
 .tailwindcache/
+<<<<<<< HEAD
+public/js/bundle.js
+public/js/bundle.js.LICENSE.txt
+
+=======
+public/main.css
+public/js/bundle.js
+public/js/bundle.js.LICENSE.txt
+package.json
+>>>>>>> af87104884e65aa76cc9fdef156cf1de9022fd25
+
 
