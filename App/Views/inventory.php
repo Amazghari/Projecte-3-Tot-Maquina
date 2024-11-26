@@ -55,8 +55,8 @@
                         <td class="px-6 py-4 text-sm">Model 2</td>
                         <td class="px-6 py-4 text-sm">Manufacturer 2</td>
                         <td class="px-6 py-4 text-sm">67890</td>
-                        <td class="px-6 py-4 text-sm">02/01/2021</td>
-                        <td class="px-6 py-4 text-sm">Location 2</td>
+                        <td class="px-6 py-4 text-sm">02/01/2021</td> 
+                        <td class="px-6 py-4 text-sm">Location 2</td> 
                         <td class="px-6 py-4 text-sm">Worker 2</td>
                         <td class="px-6 py-4 text-sm">
                             <select class="border border-gray-300 rounded-md">

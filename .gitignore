@@ -18,5 +18,6 @@ build/
 public/main.css
 public/js/bundle.js
 public/js/bundle.js.LICENSE.txt
+package.json
 
 
