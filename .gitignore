@@ -8,7 +8,8 @@ vendor
 dist/
 build/
 
-js/bundle.js
+/bundle.js
+/bundle.js.LICENSE.txt
 
 /public/output.css
 /public/main.css
@@ -17,5 +18,6 @@ js/bundle.js
 public/main.css
 public/js/bundle.js
 public/js/bundle.js.LICENSE.txt
-main.css
+package.json
+
 

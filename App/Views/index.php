@@ -11,7 +11,7 @@
   <title>Acceso al sistema</title>
 </head>
 
-<body class="bg-custom-light-gray flex items-center justify-center h-screen">
+<body class="bg-custom-light-gray flex items-center justify-center h-screen"> 
   <div class="bg-white rounded-lg shadow-lg p-6 w-96">
     <h2 class="text-center text-xl font-bold mb-4">Acceso al sistema</h2>
     <img src="/uploads/img/logopng.png" alt="Logo" class="w-16 mx-auto mb-4">
