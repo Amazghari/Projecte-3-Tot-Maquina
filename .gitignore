@@ -15,10 +15,8 @@ build/
 /public/main.css
 
 .tailwindcache/
-package-lock.json
+public/main.css
+public/js/bundle.js
+public/js/bundle.js.LICENSE.txt
 
-# Ignorar archivos específicos
-main.css
-bundle.js.LICENSE.txt
-bundle.js
 

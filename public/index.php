@@ -20,7 +20,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 include "../vendor/autoload.php";
 //include "../App/Controllers/index.php";
 include "../App/Controllers/error.php";
-include "../App/Controllers/login.php";
+
 include "../App/Controllers/validarLogin.php";
 include "../App/Controllers/tancarSessio.php";
 include "../App/Middleware/auth.php";
@@ -41,11 +41,12 @@ $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadistica
 $app->route("/dashboard", [\App\Controllers\dashboard::class, "dashboard"]);
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
 $app->route("/mantenimiento", [\App\Controllers\mantenimiento::class, "mantenimiento"]);
-  
-$app->route("login", "ctrlLogin");
+$app->route("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
+
+
 
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");

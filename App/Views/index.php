@@ -15,14 +15,14 @@
   <div class="bg-white rounded-lg shadow-lg p-6 w-96">
     <h2 class="text-center text-xl font-bold mb-4">Acceso al sistema</h2>
     <img src="/uploads/img/logopng.png" alt="Logo" class="w-16 mx-auto mb-4">
-    <form>
+    <form action="/login" method="post">
       <div class="mb-4">
-        <label class="block text-gray-700" for="usuario">Usuario</label>
-        <input class="border border-gray-300 rounded w-full p-2" type="text" id="usuario" placeholder="Ingrese su usuario">
+        <label class="block text-gray-700" for="username">Usuario</label>
+        <input class="border border-gray-300 rounded w-full p-2" type="text" id="username" name="username" placeholder="Ingrese su usuario">
       </div>
       <div class="mb-4">
-        <label class="block text-gray-700" for="contrasena">Contraseña</label>
-        <input class="border border-gray-300 rounded w-full p-2" type="password" id="contrasena" placeholder="Ingrese su contraseña">
+        <label class="block text-gray-700" for="password">Contraseña</label>
+        <input class="border border-gray-300 rounded w-full p-2" type="password" id="password" name="password" placeholder="Ingrese su contraseña">
       </div>
       <button class="bg-custom-blue text-white rounded w-full p-2 hover:bg-custom-blue" type="submit">Inicio Sesión</button>
     </form>
