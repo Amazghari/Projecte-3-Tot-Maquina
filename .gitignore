@@ -11,7 +11,9 @@ build/
 js/bundle.js
 
 /public/output.css
-/public/style.css
+/public/main.css
 
 .tailwindcache/
+
+
 
