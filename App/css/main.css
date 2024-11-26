@@ -18,3 +18,11 @@
 .text-custom-blue{
     color: #003366;
 }
+
+.hover-bg-custom-gray:hover{
+    background-color: #757575;
+}
+
+.hover-bg-custom-light-gray:hover{
+    background-color: #E0E0E0;
+}
