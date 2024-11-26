@@ -2,3 +2,15 @@
 *.tar
 #No es guardaran les variables d'entorn a Git ni Github, així no es podran veure les contrasenyes
 .env
+node_modules
+vendor
+
+dist/
+build/
+
+js/bundle.js
+
+/public/output.css
+/public/style.css
+
+.tailwindcache/
