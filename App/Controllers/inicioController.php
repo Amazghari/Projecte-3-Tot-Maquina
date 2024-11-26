@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-class inicio {
+class inicioController {
 
-    public function inicio($request, $response, $container){
+    public function inicioController($request, $response, $container){
 
         $response->setTemplate("inicio.php");
 
