@@ -35,7 +35,7 @@ services:
     #Variables d'entorn per la bdd.
     environment:
       MYSQL_ROOT_PASSWORD: 12345
-      MYSQL_DATABASE: dbname
+      MYSQL_DATABASE: totmaquina
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypassw0rd
     # La base de dades es crea amb format utf8mb4
