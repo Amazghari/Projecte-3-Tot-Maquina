@@ -151,5 +151,8 @@
             </div>
         </div>
     </div>
+
 </body>
+<!-- Footer -->
+<?php include 'Layouts/footer.php'; ?>
 </html>
