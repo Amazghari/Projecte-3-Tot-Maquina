@@ -8,10 +8,9 @@
 </head>
 <body class="bg-gray-200 min-h-screen flex flex-col items-center">
 
-    <!-- Barra de navegación fija -->
-    <nav class="w-full bg-blue-800 text-white py-4 shadow-md fixed top-0 z-50">
-        <div class="text-center font-semibold text-lg">Nav</div>
-    </nav>
+<!-- Navbar superior -->
+<?php include 'Layouts/navbar.php'; ?>
+
 
     <!-- Espaciado para compensar la barra fija -->
     <div class="w-3/4 max-w-4xl mt-16">
@@ -35,5 +34,7 @@
         </div>
     </div>
 
+<!-- Footer -->
+<?php include 'Layouts/footer.php'; ?>
 </body>
 </html>
