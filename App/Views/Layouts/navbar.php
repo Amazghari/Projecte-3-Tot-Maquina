@@ -1,4 +1,4 @@
-<nav class="bg-custom-blue fixed w-full z-50">
+<nav class="bg-custom-blue w-full z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div class="flex items-center">
                 <img src="../../uploads/img/logopng.png" alt="Logo" class="h-12">
