@@ -8,6 +8,9 @@
 </head>
 <body class="bg-custom-light-gray">
 
+<!-- Navbar superior -->
+<?php include 'Layouts/navbar.php'; ?>
+
     <div class="container mx-auto mt-5">
         <div class=" m-5">
             <div class="bg-custom-blue text-white p-4 rounded-t-lg flex items-center">
@@ -73,5 +76,7 @@
         </div>
     </div>
 
+<!-- Footer -->
+<?php include 'Layouts/footer.php'; ?>
 </body>
 </html>
