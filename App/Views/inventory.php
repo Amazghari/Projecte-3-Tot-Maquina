@@ -1,59 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="main.css" rel="stylesheet">
-    <title>Inventario</title>
+    <title>Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="../../uploads/img/logopng.png">
 </head>
 <body class="bg-custom-light-gray">
-
-<!-- Navbar superior -->
 <?php include 'Layouts/navbar.php'; ?>
 
-    <div class="container mx-auto mt-5">
-        <div class=" m-5">
-           
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold text-custom-blue"></h2>
-                <button class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors mt-5">
-                    Crear Máquina
-                </button>
-            </div>
-           
-        <!-- Tabla de mantenimientos -->
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-6 mt-8">
+            <h2 class="text-2xl font-bold text-custom-blue">Lista de Maquinaria</h2>
+            <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
+                Nueva Maquina
+            </label>
+        </div>
+
+        <!-- Tabla de inventario -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">
                     <thead class="bg-custom-blue text-white">
                         <tr>
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Título</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Tipo</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">ID Máquina</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Acciones</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Nºserie</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">ID Encargado</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Encargado</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-sm text-gray-900">#MNT-001</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">#MAQ-001</td>
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]">Mantenimiento Preventivo Sistema A</p>
+                                <p class="truncate max-w-[200px]">Fresadora</p>
                             </td>
+                            <td class="px-6 py-4">1231232132</td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
-                                    Preventivo
-                                </span>
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Operativa</span>
                             </td>
-                            <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-                                    Completado
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-900">MAQ-123</td>
-                            <td class="px-6 py-4 text-sm text-gray-900">15/03/2024</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">USR-123</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
                             <td class="px-6 py-4 text-sm">
                                 <div class="flex space-x-3">
                                     <button class="text-blue-600 hover:text-blue-800">
@@ -73,10 +65,9 @@
                 </table>
             </div>
         </div>
-        </div>
     </div>
 
+</body>
 <!-- Footer -->
 <?php include 'Layouts/footer.php'; ?>
-</body>
 </html>

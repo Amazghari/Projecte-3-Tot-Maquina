@@ -48,7 +48,7 @@
 <body class="bg-custom-light-gray">
 <?php include 'Layouts/navbar.php'; ?>
 
-    <div class="container mx-auto px-4 pt-20">
+    <div class="container mx-auto px-4 ">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Mantenimientos</h2>
             <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
@@ -117,7 +117,7 @@
                         <tr class="hover:bg-gray-50">
                             <td class="px-6 py-4 text-sm text-gray-900">#MNT-001</td>
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]">Mantenimiento Preventivo Sistema A</p>
+                                <p class="truncate max-w-[200px]">Cambio De Aceite</p>
                             </td>
                             <td class="px-6 py-4">
                                 <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
