@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Middleware;
 use \Emeset\Contracts\Http\Request;
 use \Emeset\Contracts\Http\Response;
 use \Emeset\Contracts\Container;
@@ -13,25 +13,29 @@ use \Emeset\Contracts\Container;
  * @param callable $next  següent middleware o controlador.   
  * @return \Emeset\Contracts\Http\Response resposta HTTP
  */
-function auth(Request $request, Response $response, Container $container, $next) : Response
-{
-
-    $usuari = $request->get("SESSION", "usuari");
-    $logat = $request->get("SESSION", "logat");
-
-    if (!isset($logat)) {
-        $usuari = "";
-        $logat = false;
+class auth{
+    function auth(Request $request, Response $response, Container $container, $next) : Response
+    {
+    
+        $user = $request->get("SESSION", "user");
+        $logged = $request->get("SESSION", "logged");
+    
+        if (!isset($logged)) {
+            $user = "";
+            $logged = false;
+        }
+    
+        $response->set("usuari", $user);
+        $response->set("logat", $logged);
+    
+        // si l'usuari està logat permetem carregar el recurs
+        if ($logged) {
+            $response = \Emeset\Middleware::next($request, $response, $container, $next);
+        } else {
+            $response->redirect("location: '' ");
+        }
+        return $response;
     }
 
-    $response->set("usuari", $usuari);
-    $response->set("logat", $logat);
-
-    // si l'usuari està logat permetem carregar el recurs
-    if ($logat) {
-        $response = \Emeset\Middleware::next($request, $response, $container, $next);
-    } else {
-        $response->redirect("location: /login");
-    }
-    return $response;
 }
+
