@@ -34,12 +34,15 @@ $app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->route("", [\App\Controllers\indexController::class, "indexController"]);
 $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"]);
-$app->route("/inventory", [\App\Controllers\inventoryController::class, "inventoryController"]);
+$app->route("/inventario", [\App\Controllers\inventoryController::class, "inventoryController"]);
 $app->route("/incidencias", [\App\Controllers\incidencias::class, "incidencias"]);
 $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
 $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
-$app->route("/dashboard", [\App\Controllers\dashboard::class, "dashboard"]);
+$app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"]);
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
+$app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
+  
+$app->route("login", "ctrlLogin");
 $app->route("/mantenimiento", [\App\Controllers\mantenimiento::class, "mantenimiento"]);
 $app->route("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("validar-login", "ctrlValidarLogin");
