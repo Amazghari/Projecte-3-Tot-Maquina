@@ -42,7 +42,6 @@ $app->route("/paneladministrador", [\App\Controllers\admindashboardController::c
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
   
-$app->route("login", "ctrlLogin");
 $app->route("/mantenimiento", [\App\Controllers\mantenimiento::class, "mantenimiento"]);
 $app->route("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("validar-login", "ctrlValidarLogin");
