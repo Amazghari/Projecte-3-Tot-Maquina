@@ -6,7 +6,7 @@
     <link href="main.css" rel="stylesheet">
     <link rel="icon" href="../../uploads/img/logopng.png">
     <title>Admin Dashboard</title>
-</head>
+</head> 
 <body class="flex flex-col min-h-screen bg-custom-light-gray">
 <?php include 'Layouts/navbar.php'; ?>
         <div class="flex">
