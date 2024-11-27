@@ -8,41 +8,7 @@
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="../../uploads/img/logopng.png">
     <style>
-        #modal-toggle:checked + #modal {
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 0.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            transform: translateY(0);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .machine-select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 0.5rem center;
-            background-repeat: no-repeat;
-            background-size: 1.5em 1.5em;
-            padding-right: 2.5rem;
-        }
-
-        .machine-select option:hover {
-            background-color: #003366;
-            color: white;
-        }
-
-        @media (max-width: 640px) {
-            .table-responsive {
-                overflow-x: auto;
-            }
-        }
+       
     </style>
 </head>
 <body class="bg-custom-light-gray">
