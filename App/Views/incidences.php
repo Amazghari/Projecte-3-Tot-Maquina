@@ -22,96 +22,59 @@
             </button>
         </div>
 
-        <!-- Tabla de incidencias -->
+
+<!-- Tabla de inventario -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <table class="min-w-full">
-                <thead class="bg-custom-blue justify-between text-white">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-sm font-semibold">Trabajador</th>
-                        <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200">
-                    <!-- Ejemplo de fila 1 -->
-                    <tr class="hover:bg-custom-light-gray ">
-                        <td class="px-6 py-4 text-sm ">#INC-001</td>
-                        <td class="px-6 py-4">
-                        <div class="max-w-xs mx-auto">
-                            <select id="opciones" class="w-full bg-custom-blue text-white px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="opcion0">---</option>
-                                <option value="opcion1">Opción 1</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-                        </div>
-                        </td>
-                        <td class="px-6 py-4">
-                        <div class="max-w-xs mx-auto">
-                            <select id="opciones" class="w-full bg-custom-blue text-white px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="opcion0">---</option>
-                                <option value="opcion1">Opción 1</option><hr>
-                                <option value="opcion2">Opción 2</option><hr>
-                                <option value="opcion3">Opción 3</option><hr>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-                        </div>
-                        </td>
-                        <td class="px-6 py-4 text-sm ">MAQ-123</td>
-                        <td class="px-6 py-4 text-sm">
-                            <div class="flex space-x-3">
-                            <button class="text-blue-600 hover:text-blue-800">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c1.104 0 2-.896 2-2H10c0 1.104.896 2 2 2zm6-6V10c0-3.314-2.686-6-6-6s-6 2.686-6 6v6l-2 2v1h16v-1l-2-2z"/>
-                                </svg>
-                            </button>
-
-
-
+            <div class="table-responsive">
+                <table class="min-w-full">
+                    <thead class="bg-custom-blue text-white">
+                        <tr>
+                            <th class="px-6 py-3 text-center text-sm font-semibold">Trabajador</th>
+                            <th class="px-6 py-3 text-center text-sm font-semibold">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 text-sm text-gray-900">#INC-001</td>
+                            <td class=" py-4 text-sm text-gray-900">
+                            <div class="max-w-xs mx-auto">
+                                <select id="opciones" class="w-full bg-custom-blue text-white py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="opcion0">---</option>
+                                    <option value="opcion1">Opción 1</option>
+                                    <option value="opcion2">Opción 2</option>
+                                    <option value="opcion3">Opción 3</option>
+                                    <option value="opcion4">Opción 4</option>
+                                </select>
                             </div>
-                        </td>
-                    </tr>
-                    <!-- Ejemplo de fila 2 -->
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-6 py-4 text-sm text-gray-900">#INC-002</td>
-                        <td class="px-6 py-4">
-                        <div class="max-w-xs mx-auto">
-                            <select id="opciones" class="w-full bg-custom-blue text-white px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="opcion0">---</option>
-                                <option value="opcion1">Opción 1</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-                        </div>
-                        </td>
-                        <td class="px-6 py-4">
-                        <div class="max-w-xs mx-auto">
-                            <select id="opciones" class="w-full bg-custom-blue text-white px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option value="opcion0">---</option>
-                                <option value="opcion1">Opción 1</option>
-                                <option value="opcion2">Opción 2</option>
-                                <option value="opcion3">Opción 3</option>
-                                <option value="opcion4">Opción 4</option>
-                            </select>
-                        </div>
-                        </td>
-                        <td class="px-6 py-4 text-sm text-gray-900">MAQ-456</td>
-
-                        <td class="px-6 py-4 text-sm">
-                            <div class="flex space-x-3">
-                                <button class="text-blue-600 hover:text-blue-800">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c1.104 0 2-.896 2-2H10c0 1.104.896 2 2 2zm6-6V10c0-3.314-2.686-6-6-6s-6 2.686-6 6v6l-2 2v1h16v-1l-2-2z"/>
-                                    </svg>
-                                </button>
+                            </td>
+                            <td class="px-6 py-4 text-sm text-gray-900">
+                            <div class="max-w-xs mx-auto">
+                                <select id="opciones" class="w-full bg-custom-blue text-white py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="opcion0">---</option>
+                                    <option value="opcion1">Opción 1</option>
+                                    <option value="opcion2">Opción 2</option>
+                                    <option value="opcion3">Opción 3</option>
+                                    <option value="opcion4">Opción 4</option>
+                                </select>
                             </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                            <td class="px-6 py-4 text-sm">
+                                <div class="flex space-x-3">
+                                    <button class="text-blue-600 hover:text-blue-800">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c1.104 0 2-.896 2-2H10c0 1.104.896 2 2 2zm6-6V10c0-3.314-2.686-6-6-6s-6 2.686-6 6v6l-2 2v1h16v-1l-2-2z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+
+
+       
 
 <!-- Footer -->
 <?php include 'Layouts/footer.php'; ?>
