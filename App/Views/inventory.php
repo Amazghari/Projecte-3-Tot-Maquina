@@ -111,12 +111,12 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Imagen</label>
                         <input type="file" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                    </div>
+                    </div> 
                     
                     <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                        <label for="modal-toggle" 
+                        <label for="modal-toggle"  
                                class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
-                            Cancelar
+                            Cancelar  
                         </label>
                         <button type="submit" 
                                 class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
