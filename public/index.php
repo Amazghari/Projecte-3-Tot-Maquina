@@ -35,7 +35,7 @@ $app->middleware([\App\Middleware\App::class, "execute"]);
 $app->route("", [\App\Controllers\indexController::class, "indexController"]);
 $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"], [[\App\Middleware\auth::class, "auth"]]);
 $app->route("/inventario", [\App\Controllers\inventoryController::class, "inventoryController"]);
-$app->route("/incidencias", [\App\Controllers\incidencias::class, "incidencias"]);
+$app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"]);
 $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
 $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
 $app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"]);
@@ -54,6 +54,8 @@ $app->post("/login",[\App\Controllers\loginController::class, "loginController"]
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
+$app->route("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
+$app->route("/inventario/addMachine", [\App\Controllers\inventoryController::class, "addMachine"]);
 
 
 
