@@ -185,5 +185,8 @@ html, body {
 }
 
 /* Estilo para el footer sticky */
+header {
+    position: sticky; /* Hace que el footer sea sticky */
 
+}
 
