@@ -54,6 +54,8 @@ $app->post("/login",[\App\Controllers\loginController::class, "loginController"]
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
+$app->route("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
+$app->route("/inventario/addMachine", [\App\Controllers\inventoryController::class, "addMachine"]);
 
 
 
