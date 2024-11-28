@@ -37,5 +37,46 @@ class auth{
         return $response;
     }
 
+    function isAdmin(Request $request, Response $response, Container $container, $next) : Response{
+        $user = $request->get("SESSION", "user");
+        $logged = $request->get("SESSION", "logged");
+
+        if($user["role"] == "adminstrator" && $logged){
+            return \Emeset\Middleware::next($request, $response, $container, $next);
+        }
+        else {
+            $response->redirect("location: / ");
+        }
+        return $response;
+    }
+
+    function isTechnician(Request $request, Response $response, Container $container, $next) : Response{
+        $user = $request->get("SESSION", "user");
+        $logged = $request->get("SESSION", "logged");
+
+        if(($user["role"] == "tecnico" || $user["role"] == "adminstrator") && $logged){
+            return \Emeset\Middleware::next($request, $response, $container, $next);
+        }
+        else {
+            $response->redirect("location: / ");
+        }
+        return $response;
+    }
+
+    function isSupervisor(Request $request, Response $response, Container $container, $next) : Response{
+        $user = $request->get("SESSION", "user");
+        $logged = $request->get("SESSION", "logged");
+
+        if(($user["role"] == "supervisor" || $user["role"] == "adminstrator") && $logged){
+            return \Emeset\Middleware::next($request, $response, $container, $next);
+        }
+        else {
+            $response->redirect("location: / ");
+        }   
+        return $response;
+    }
+
+
+
 }
 
