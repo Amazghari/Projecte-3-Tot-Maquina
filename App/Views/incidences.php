@@ -91,6 +91,7 @@
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID Incidencia</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nºserie</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Prioridad</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID Trabajador</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Trabajador</th>
@@ -105,7 +106,10 @@
                             </td>
                             <td class="px-6 py-4">1231232132</td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">En Curso</span>
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Media</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">En Proceso</span>
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-900">USR-123</td>
                             <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
