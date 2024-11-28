@@ -4,6 +4,7 @@ use totmaquina;
 -- Primer init sin fk para probar que funciona
 create table machines (
 	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255),
 	model VARCHAR(255),
 	manufacturer VARCHAR(255),
 	serial_num VARCHAR(255),
