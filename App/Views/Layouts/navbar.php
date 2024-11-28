@@ -62,7 +62,7 @@
                     <!-- Foto de perfil -->
                     <li class="ml-6">
                         <a href="/perfil" class="block">
-                            <img src="<?=$_SESSION['user']['img'] ?? '../../uploads/img/perfil.png' ?>" 
+                            <img src="../../perfil.png"
                                  alt="Foto de perfil" 
                                  class="w-10 h-10 rounded-full border-2 border-white">
                         </a>
