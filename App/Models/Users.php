@@ -30,5 +30,35 @@ class Users
         return $result;
     }
 
-
+    public function add($name,$surname,$img,$email,$role,$username,$password){
+        $query= "insert into users (name,surname,img,email,role,username,password) values ('{$name}','{$surname}','{$img}','{$email}','{$role}','{$username}','{$password}')";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+    }
+     // Method to delete a user from the database by their ID.
+     public function delete($id)
+     {
+         // SQL query to delete a user based on their ID.
+         $query = "delete from users where id={$id};";
+         
+         // Prepare and execute the query.
+         $stm = $this->sql->prepare($query);
+         $stm->execute();
+     }
+     //list all the users for the admin dashboard
+     public function list()
+     {
+         // SQL query to fetch users with basic information.
+         $query = "select * from users;";
+         $users = [];
+         
+         // Execute the query and iterate through the results.
+         foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $user) {
+             // Save users in an associative array where the key is the user's ID.
+             $users[$user["id"]] = $user;
+         }
+         
+         // Return the list of users.
+         return $users;
+     }
 }
