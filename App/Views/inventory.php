@@ -82,7 +82,7 @@
                         </svg>
                     </label>
                 </div>
-                
+                 
                 <form class="space-y-4 mt-4" action="/inventario/addMachine" method="post" enctype="multipart/form-data">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre</label>
