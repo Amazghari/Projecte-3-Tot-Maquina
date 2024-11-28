@@ -40,14 +40,40 @@
                 
                 <form class="space-y-4 mt-4">
                     <div>
+                        <label class="block text-sm font-medium text-gray-700">ID Máquina</label>
+                        <input type="text" 
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
                         <label class="block text-sm font-medium text-gray-700">Título</label>
                         <input type="text" 
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
                     </div>
                     <div>
+                        <label class="block text-sm font-medium text-gray-700">Tipo</label>
+                        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                            <option value="preventivo">Preventivo</option>
+                            <option value="correctivo">Correctivo</option>
+                            <option value="emergencia">Emergencia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Estado</label>
+                        <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                            <option value="cancelado">Cancelado</option>
+                            <option value="hecho">Hecho</option>
+                            <option value="programado">Programado</option>
+                        </select>
+                    </div>
+                    <div>
                         <label class="block text-sm font-medium text-gray-700">Fecha</label>
                         <input type="date" 
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Descripción</label>
+                        <textarea rows="4" 
+                                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"></textarea>
                     </div>
                     
                     <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">

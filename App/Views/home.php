@@ -144,6 +144,7 @@
             </div>
         </div>
 <!-- Footer -->
-<?php include 'Layouts/footer.php'; ?>
+
 </body>
+<?php include 'Layouts/footer.php'; ?>
 </html>
