@@ -25,8 +25,8 @@ class auth{
             $logged = false;
         }
     
-        $response->set("usuari", $user);
-        $response->set("logat", $logged);
+        $response->set("user", $user);
+        $response->set("logged", $logged);
     
         // si l'usuari està logat permetem carregar el recurs
         if ($logged) {

@@ -41,8 +41,8 @@ $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadistica
 $app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"]);
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
-
-$app->route("/login",[\App\Controllers\loginController::class, "loginController"]);
+$app->get("/login", [\App\Controllers\loginController::class, "index"]);
+$app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);

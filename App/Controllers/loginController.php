@@ -29,14 +29,24 @@ class loginController{
     {
         $this->contenidor = $contenidor;
     }
+    
+    public function index($request, $response, $container)
+    {
+        $response->SetTemplate("index.php");
+
+        return $response;
+    }
 
   function loginController(Request $request, Response $response, Container $container): Response
   {
     $username = $request->get(INPUT_POST, "username");
     $password = $request->get(INPUT_POST, "password");
-    //dd($username, $password);
+    dd($username, $password);
     $users = $container->get("Users");
     $currentUser= $users->getUser($username);
+    //hashedpwd $2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy
+    // dd(password_hash($password,PASSWORD_BCRYPT));
+    //dd(password_verify($password,'$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy'));
     //dd($eqpwd);
     if(!$currentUser){
       $response->setSession("error", "Usuari o clau incorrectes!");
@@ -46,14 +56,16 @@ class loginController{
     else{
       $passwordequal = password_verify($password, $currentUser["password"]);
       //dd($username,$password,$passwordequal,$currentUser);
-      $eqpwd=$password==$currentUser["password"];
-       if($currentUser["role"]=="administrator" && $eqpwd){
-        $response->setSession("user",$currentUser);
-        $response->setSession("logged",true);
-        $response->setSession("isAdmin",true);
-        $response->redirect("location: /inicio");
-      }
-      else if($currentUser && $passwordequal){
+      //  if($currentUser["role"]=="administrator" && $passwordequal){
+      //   $response->setSession("user",$currentUser);
+      //   $response->setSession("logged",true);
+      //   $response->setSession("isAdmin",true);
+      //   $response->redirect("location: /inicio");
+      // }
+       if($currentUser && $passwordequal){
+        if($currentUser["role"]=="administrator"){
+          $response->setSession("isAdmin",true); 
+        }
         $response->setSession("user", $currentUser);
         $response->setSession("logged", true);
         $response->redirect("location: /inicio");
@@ -70,5 +82,23 @@ class loginController{
 
     return $response;
 }
+
+function logout(Request $request, Response $response, Container $container): Response
+  {
+    if (isset($_SESSION["user"])) {
+
+      // If it exists, delete the user session.
+      $response->unsetSession("user");
+
+      // Redirect the user to the homepage after logging out.
+      $response->redirect("location:index.php");
+    }
+
+    // If no active session, still redirect to the homepage.
+    $response->redirect("location:index.php");
+
+    // Return the final response.
+    return $response;
+  }
 }
 
