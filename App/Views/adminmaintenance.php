@@ -15,9 +15,9 @@
 
    
 
-    <!-- Footer -->
-    <?php include 'Layouts/footer.php'; ?>
 
 </body>
 
+    <!-- Footer -->
+    <?php include 'Layouts/footer.php'; ?>
 </html>

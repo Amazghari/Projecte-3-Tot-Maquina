@@ -43,11 +43,11 @@ $app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class,
 $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController::class, "adminmaintenanceController"]);
 $app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
 $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
+$app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
 
 
 
 
-$app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);

@@ -1,7 +1,9 @@
 <nav class="bg-custom-blue w-full z-50">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <div class="flex items-center">
-                <img src="../../uploads/img/logopng.png" alt="Logo" class="h-12">
+                <a href="/inicio">
+                <img src="uploads/img/logo.png" alt="Logo" class="h-12">
+                </a>
             </div>
             
             <!-- Botón hamburguesa para móvil -->
@@ -62,7 +64,7 @@
                     <!-- Foto de perfil -->
                     <li class="ml-6">
                         <a href="/perfil" class="block">
-                            <img src="../../perfil.png"
+                            <img src="uploads/img/perfil.png"
                                  alt="Foto de perfil" 
                                  class="w-10 h-10 rounded-full border-2 border-white">
                         </a>

@@ -126,7 +126,7 @@
 .nav-button-custom {
     background-color: #003366; /* Fondo azul oscuro */
     color: white; /* Letras blancas */
-    padding: 0.375rem 1rem; /* Reducido para hacer el botón más pequeño */
+    padding: 0.25rem 0.75rem; /* Reducido para hacer el botón más pequeño */
     border-radius: 9999px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
@@ -135,7 +135,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.875rem; /* Tamaño de fuente reducido */
+    font-size: 0.75rem; /* Tamaño de fuente reducido */
     max-width: 150px; /* Establecer un ancho máximo */
     width: 100%; /* O puedes usar un ancho fijo como 150px */
 }
@@ -144,5 +144,29 @@
 .nav-button-custom:hover {
     background-color: white; /* Fondo blanco */
     color: #003366; /* Letras azules */
+}
+
+/* Estilo base del botón de cerrar sesión */
+.nav-button-logout {
+    background-color: white; /* Fondo blanco */
+    color: red; /* Letras rojas */
+    padding: 0.25rem 0.75rem; /* Reducido para hacer el botón más pequeño */
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 300ms;
+    font-weight: 600;
+    border: 2px solid red; /* Borde rojo */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem; /* Tamaño de fuente reducido */
+    max-width: 150px; /* Ancho máximo */
+    width: 100%; /* O puedes usar un ancho fijo como 150px */
+}
+
+/* Efecto hover para el botón de cerrar sesión */
+.nav-button-logout:hover {
+    background-color: red; /* Fondo rojo */
+    color: white; /* Letras blancas */
 }
 
