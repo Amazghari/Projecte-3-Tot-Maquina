@@ -25,7 +25,7 @@ class inventoryController {
         $name = $request->get(INPUT_POST, "name");
         $model = $request->get(INPUT_POST, "model");
         $manufacturer = $request->get(INPUT_POST, "manufacturer");
-        $serial_num = $request->get(INPUT_POST, "serial_num");
+        $serial_num = $request->get(INPUT_POST, "serial_num"); 
         $installation_date = $request->get(INPUT_POST, "installation_date");
         $location = $request->get(INPUT_POST, "location");
         $image_url = $request->get(INPUT_POST, "image_url");
