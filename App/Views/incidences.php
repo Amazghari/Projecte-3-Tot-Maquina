@@ -1,80 +1,80 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incidencias</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="../../uploads/img/logopng.png">
+    <link href="main.css" rel="stylesheet">
+    <title>Inventario</title>
 </head>
 <body class="bg-custom-light-gray">
-    <!-- Navbar superior -->
-    <?php include 'Layouts/navbar.php'; ?>
 
-    <!-- Contenedor principal con padding-top para compensar el navbar fijo -->
-    <div class="container mx-auto px-4 py-8">
-        <!-- Título y botón de nueva incidencia -->
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold flex align-center justify-center text-custom-blue">Gestión de Incidencias</h2>
-            <button class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">
-                Nueva Incidencia
-            </button>
-        </div>
+<!-- Navbar superior -->
+<?php include 'Layouts/navbar.php'; ?>
 
-
-<!-- Tabla de inventario -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="table-responsive">
-                <table class="min-w-full">
-                    <thead class="bg-custom-blue text-white">
-                        <tr>
-                            <th class="px-6 py-3 text-center text-sm font-semibold">Trabajador</th>
-                            <th class="px-6 py-3 text-center text-sm font-semibold">Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-sm text-gray-900">#INC-001</td>
-                            <td class=" py-4 text-sm text-gray-900">
-                            <div class="max-w-xs mx-auto">
-                                <select id="opciones" class="w-full bg-custom-blue text-white py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="opcion0">---</option>
-                                    <option value="opcion1">Opción 1</option>
-                                    <option value="opcion2">Opción 2</option>
-                                    <option value="opcion3">Opción 3</option>
-                                    <option value="opcion4">Opción 4</option>
-                                </select>
-                            </div>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-900">
-                            <div class="max-w-xs mx-auto">
-                                <select id="opciones" class="w-full bg-custom-blue text-white py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="opcion0">---</option>
-                                    <option value="opcion1">Opción 1</option>
-                                    <option value="opcion2">Opción 2</option>
-                                    <option value="opcion3">Opción 3</option>
-                                    <option value="opcion4">Opción 4</option>
-                                </select>
-                            </div>
-                            </td>
-                            <td class="px-6 py-4 text-sm">
-                                <div class="flex space-x-3">
-                                    <button class="text-blue-600 hover:text-blue-800">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c1.104 0 2-.896 2-2H10c0 1.104.896 2 2 2zm6-6V10c0-3.314-2.686-6-6-6s-6 2.686-6 6v6l-2 2v1h16v-1l-2-2z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="container mx-auto mt-5">
+        <div class=" m-5">
+            <div class="bg-custom-blue text-white p-4 rounded-t-lg flex items-center">
+                <img src="/uploads/img/logopng.png" alt="Inventory" class="w-10 h-10 rounded-full mr-2">
+                <h1 class="text-xl font-bold ml-2">Inventario</h1>
             </div>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-custom-blue"></h2>
+                <button class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors mt-5">
+                    Crear Máquina
+                </button>
+            </div>
+            <table class="min-w-full bg-white rounded-lg shadow-lg overflow-hidden">
+                <thead class="bg-custom-blue text-white">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Modelo</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Fabricante</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">N.Serie</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Data Inst.</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Ubicación</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Trabajador</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold">Usuarios</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">ID</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="hover:bg-custom-light-gray">
+                        <td class="px-6 py-4 text-sm">Model 1</td>
+                        <td class="px-6 py-4 text-sm">Manufacturer 1</td>
+                        <td class="px-6 py-4 text-sm">12345</td>
+                        <td class="px-6 py-4 text-sm">01/01/2021</td>
+                        <td class="px-6 py-4 text-sm">Location 1</td>
+                        <td class="px-6 py-4 text-sm">Worker 1</td>
+                        <td class="px-6 py-4 text-sm">
+                            <select class="border border-gray-300 rounded-md">
+                                <option value="usuario1">Usuario 1</option>
+                                <option value="usuario2">Usuario 2</option>
+                                <option value="usuario3">Usuario 3</option>
+                                <option value="usuario4">Usuario 4</option>
+                            </select>
+                        </td>
+                        <td class="px-4 py-4 text-sm">1</td>
+                    </tr>
+                    <tr class="hover:bg-custom-light-gray">
+                        <td class="px-6 py-4 text-sm">Model 2</td>
+                        <td class="px-6 py-4 text-sm">Manufacturer 2</td>
+                        <td class="px-6 py-4 text-sm">67890</td>
+                        <td class="px-6 py-4 text-sm">02/01/2021</td> 
+                        <td class="px-6 py-4 text-sm">Location 2</td> 
+                        <td class="px-6 py-4 text-sm">Worker 2</td>
+                        <td class="px-6 py-4 text-sm">
+                            <select class="border border-gray-300 rounded-md">
+                                <option value="usuario1">Usuario 1</option>
+                                <option value="usuario2">Usuario 2</option>
+                                <option value="usuario3">Usuario 3</option>
+                                <option value="usuario4">Usuario 4</option>
+                            </select>
+                        </td>
+                        <td class="px-4 py-4 text-sm">2</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-
-       
+    </div>
 
 <!-- Footer -->
 <?php include 'Layouts/footer.php'; ?>
