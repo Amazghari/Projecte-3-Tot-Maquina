@@ -32,7 +32,7 @@ class auth{
         if ($logged) {
             $response = \Emeset\Middleware::next($request, $response, $container, $next);
         } else {
-            $response->redirect("location: '' ");
+            $response->redirect("location: / ");
         }
         return $response;
     }

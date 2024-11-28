@@ -41,7 +41,7 @@ class loginController{
   {
     $username = $request->get(INPUT_POST, "username");
     $password = $request->get(INPUT_POST, "password");
-    dd($username, $password);
+    //dd($username, $password);
     $users = $container->get("Users");
     $currentUser= $users->getUser($username);
     //hashedpwd $2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy
