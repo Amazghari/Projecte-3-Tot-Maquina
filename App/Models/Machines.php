@@ -10,9 +10,9 @@ class Machines
         $this->sql = $conn;
     }
 
-    public function add($model,$manufacturer,$serial_num,$installation_date,$location,$image_url)
+    public function add($name,$model,$manufacturer,$serial_num,$installation_date,$location,$image_url)
     {
-        $query="insert into machines (model,manufacturer,serial_num,installation_date,location,image_url) values ('{$model}','{$manufacturer}','{$serial_num}','{$installation_date}','{$location}','{$image_url}')";
+        $query="insert into machines (name,model,manufacturer,serial_num,installation_date,location,image_url) values ('{$name}','{$model}','{$manufacturer}','{$serial_num}','{$installation_date}','{$location}','{$image_url}')";
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
