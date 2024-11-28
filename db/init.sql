@@ -4,6 +4,7 @@ use totmaquina;
 -- Primer init sin fk para probar que funciona
 create table machines (
 	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255),
 	model VARCHAR(255),
 	manufacturer VARCHAR(255),
 	serial_num VARCHAR(255),
@@ -25,7 +26,15 @@ create table users(
 	username varchar(255),
 	password varchar(255)
 );
-insert into users (name,surname,img,email,role,username,password)values("admin","admin","supuestaurl","admin@test.com","administrator","admin","12345678");
+insert into users (name,surname,img,email,role,username,password)values
+("admin","admin","supuestaurl","admin@test.com","administrator","admin","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
+insert into users (name,surname,img,email,role,username,password)values
+("tecnico","tecnico","supuestaurl","tecnico@test.com","tecnico","tecnico","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
+insert into users (name,surname,img,email,role,username,password)values
+("supervisor","supervisor","supuestaurl","supervisor@test.com","supervisor","supervisor","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
+insert into users (name,surname,img,email,role,username,password)values
+("usuario","usuario","supuestaurl","usuario@test.com","usuario","usuario","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
+-- contraseña 12345678
 -- select * from users;
 create table incidence(
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -36,6 +45,15 @@ create table incidence(
 	end_date varchar(255),
 	imputed_hours varchar(255),
 	first_answer varchar(255),
+	id_machine int
+);
+
+create table maintenance(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	state varchar(255),
+	type varchar(255),
+	description varchar(255),
+	status varchar(255),
 	id_machine int
 );
 insert into incidence (state,priority,description,starting_date,end_date,

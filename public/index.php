@@ -33,7 +33,7 @@ $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->route("", [\App\Controllers\indexController::class, "indexController"]);
-$app->route("/inicio", [\App\Controllers\homeController::class, "homeController"]);
+$app->route("/inicio", [\App\Controllers\homeController::class, "homeController"], [[\App\Middleware\auth::class, "auth"]]);
 $app->route("/inventario", [\App\Controllers\inventoryController::class, "inventoryController"]);
 $app->route("/incidencias", [\App\Controllers\incidencias::class, "incidencias"]);
 $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
@@ -49,8 +49,8 @@ $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::cla
 
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
-  
-$app->route("/login",[\App\Controllers\loginController::class, "loginController"]);
+$app->get("/login", [\App\Controllers\loginController::class, "index"]);
+$app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("validar-login", "ctrlValidarLogin");
 $app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
