@@ -84,6 +84,7 @@
                 </div>
                 
                 <form class="space-y-4 mt-4">
+                    <input type="hidden" name="id" id="id" value="<?= $machine['id'] ?>">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre</label>
                         <input type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
