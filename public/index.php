@@ -39,6 +39,14 @@ $app->route("/incidencias", [\App\Controllers\incidencias::class, "incidencias"]
 $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
 $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
 $app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"]);
+$app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class, "admininventoryController"]);
+$app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController::class, "adminmaintenanceController"]);
+$app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
+$app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
+
+
+
+
 $app->route("/perfil", [\App\Controllers\perfil::class, "perfil"]);  
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
   
