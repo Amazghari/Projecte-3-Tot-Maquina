@@ -535,8 +535,14 @@ video {
 .fixed {
   position: fixed;
 }
+.sticky {
+  position: sticky;
+}
 .inset-0 {
   inset: 0px;
+}
+.top-0 {
+  top: 0px;
 }
 .z-50 {
   z-index: 50;
@@ -1177,6 +1183,26 @@ video {
 .nav-button-logout:hover {
     background-color: red; /* Fondo rojo */
     color: white; /* Letras blancas */
+}
+
+/* Asegúrate de que el contenedor principal tenga un mínimo de altura */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.min-h-screen {
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
+}
+
+.flex-grow {
+    flex-grow: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
+}
+
+/* Estilo para el footer sticky */
+header {
+    position: sticky; /* Hace que el footer sea sticky */
+
 }
 .hover\:bg-blue-800:hover {
   --tw-bg-opacity: 1;
