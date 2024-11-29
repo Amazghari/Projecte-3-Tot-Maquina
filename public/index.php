@@ -44,6 +44,8 @@ $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController:
 $app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
 $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
 $app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
+$app->route("/asignar", [\App\Controllers\asignMachineController::class, "asignMachineController"]);
+
 
 
 
