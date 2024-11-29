@@ -11,7 +11,10 @@
 
 <body class="flex flex-col min-h-screen bg-custom-light-gray">
     <?php include 'Layouts/navbar.php'; ?>
+
+
     <?php include 'Layouts/navbaradmin.php'; ?>
+
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Maquinaria</h2>

@@ -14,7 +14,7 @@ class admininventoryController {
 
         $response->set("machines", $machines);
 
-        $response->setTemplate("inventory.php");
+        $response->setTemplate("admininventory.php");
 
         return $response;
     }
