@@ -26,8 +26,8 @@ class Machines
         }
         return $machines;
     }
-    public function update($id,$name,$model,$manufacturer,$serial_num,$installation_date,$location,$image_url){
-        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',serial_num='{$serial_num}',installation_date='{$installation_date}',location='{$location}',image_url='{$image_url}' where id='{$id}'";
+    public function update($id,$name,$model,$manufacturer,$serial_num,$location,$image_url){
+        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',serial_num='{$serial_num}',location='{$location}',image_url='{$image_url}' where id='{$id}'";
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
@@ -54,5 +54,12 @@ class Machines
        }
        $stm = $this->sql->prepare($query2);
         $stm->execute();
+    }
+
+    public function getById($id){
+        $query="select * from machines where id='{$id}'";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 }

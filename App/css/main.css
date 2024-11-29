@@ -87,6 +87,12 @@
     justify-content: center;
 }
 
+#modal-editar:checked + #modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-content {
     background: white;
     width: 90%;
@@ -185,9 +191,18 @@ html, body {
     flex-grow: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
 }
 
-/* Estilo para el footer sticky */
-header {
-    position: sticky; /* Hace que el footer sea sticky */
+    /* Estilo para que los inputs ocupen el 100% del ancho */
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+        width: 100%; /* Asegura que el input ocupe todo el ancho */
+        box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    }
 
-}
 
+       /* Asegúrate de que la imagen ocupe el 100% del ancho de su contenedor */
+       .machine-image {
+        width: 100%; /* Ocupa todo el ancho */
+        height: auto; /* Mantiene la proporción */
+        object-fit: cover; /* Cubre el área del contenedor */
+    }

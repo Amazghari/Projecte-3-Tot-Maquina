@@ -19,6 +19,17 @@ class inventoryController {
         return $response;
     }
 
+    public function editMachine($request, $response, $container){
+        $machines = $container->get("Machines");
+        $id = $request->getParam("id");
+        $machine = $machines->getById($id);
+        
+        $response->set("machine", $machine);
+
+        $response->setTemplate("editmachine.php");
+        return $response;
+    }
+
     public function updateMachine($request, $response, $container){
 
         $id = $request->get(INPUT_POST, "id");
@@ -26,14 +37,12 @@ class inventoryController {
         $model = $request->get(INPUT_POST, "model");
         $manufacturer = $request->get(INPUT_POST, "manufacturer");
         $serial_num = $request->get(INPUT_POST, "serial_num"); 
-        $installation_date = $request->get(INPUT_POST, "installation_date");
         $location = $request->get(INPUT_POST, "location");
         $image_url = $request->get(INPUT_POST, "image_url");
-
         $machines = $container->get("Machines");
-        $machines->update($id,$name,$model,$manufacturer,$serial_num,$installation_date,$location,$image_url);
+        $machines->update($id,$name,$model,$manufacturer,$serial_num,$location,$image_url);
 
-        $response->redirect("location: /inventory");
+        $response->redirect("location: /inventario");
     
         return $response;
     }

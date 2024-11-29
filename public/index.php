@@ -36,16 +36,17 @@ $app->route("", [\App\Controllers\indexController::class, "indexController"]);
 $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"], [[\App\Middleware\auth::class, "auth"]]);
 $app->get("/inventario", [\App\Controllers\inventoryController::class, "index"]);
 $app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"]);
-$app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
-$app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
 $app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"]);
 $app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class, "admininventoryController"]);
 $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController::class, "adminmaintenanceController"]);
 $app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
 $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
 $app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
+$app->route("/asignar", [\App\Controllers\asignMachineController::class, "asignMachineController"]);
+$app->route("/maquina", [\App\Controllers\machineController::class, "machineController"]);
 $app->post("/inventario/eliminar", [\App\Controllers\inventoryController::class, "deleteMachine"],[[\App\Middleware\auth::class, "isAdmin"]]);
-
+$app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
+$app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 
 
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
