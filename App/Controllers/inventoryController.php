@@ -7,7 +7,7 @@ use \Emeset\Contracts\Container;
 
 class inventoryController {
 
-    public function inventoryController($request, $response, $container){
+    public function index($request, $response, $container){
         $machinesModel = $container->get("Machines");
 
         $machines = $machinesModel->list();
@@ -54,6 +54,15 @@ class inventoryController {
        $machines = $container->get("Machines");
        $machines->add($name,$model,$manufacturer,$serial_num,$installation_date,$location,$image_url);
   
+        $response->redirect("location: /inventario");
+        return $response;
+    }
+
+    public function deleteMachine($request, $response, $container){
+        $id = $request->get(INPUT_POST, "id");
+        dd("-----");
+        $machines = $container->get("Machines");
+        $machines->delete($id);
         $response->redirect("location: /inventario");
         return $response;
     }

@@ -91,11 +91,11 @@ function logout(Request $request, Response $response, Container $container): Res
       $response->unsetSession("user");
 
       // Redirect the user to the homepage after logging out.
-      $response->redirect("location:index.php");
+      $response->redirect("location:/");
     }
 
     // If no active session, still redirect to the homepage.
-    $response->redirect("location:index.php");
+    $response->redirect("location:/");
 
     // Return the final response.
     return $response;

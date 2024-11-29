@@ -17,6 +17,12 @@ class Maintenance {
         $stm->execute();
     }
     public function list (){
-        
+        $query = "select * from machines;";
+        $maintenances = [];
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $maintenance) {
+            $maintenances[$maintenance["id"]] = $maintenance;
+        }
+        return $maintenances;
     }
+    public function edit($id)
 }

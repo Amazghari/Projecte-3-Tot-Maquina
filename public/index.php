@@ -34,7 +34,7 @@ $app->middleware([\App\Middleware\App::class, "execute"]);
 
 $app->route("", [\App\Controllers\indexController::class, "indexController"]);
 $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"], [[\App\Middleware\auth::class, "auth"]]);
-$app->route("/inventario", [\App\Controllers\inventoryController::class, "inventoryController"]);
+$app->get("/inventario", [\App\Controllers\inventoryController::class, "index"]);
 $app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"]);
 $app->route("/mantenimiento_preventivo", [\App\Controllers\mantenimiento_preventivo::class, "mantenimiento_preventivo"]);
 $app->route("/estadisticas", [\App\Controllers\estadisticas::class, "estadisticas"]);
@@ -44,21 +44,18 @@ $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController:
 $app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
 $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
 $app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
-
+$app->post("/inventario/eliminar", [\App\Controllers\inventoryController::class, "deleteMachine"],[[\App\Middleware\auth::class, "isAdmin"]]);
 
 
 
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
-$app->route("validar-login", "ctrlValidarLogin");
-$app->route("privat", [\App\Controllers\Privat::class, "privat"], ["auth"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
-$app->route("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
-$app->route("/inventario/addMachine", [\App\Controllers\inventoryController::class, "addMachine"]);
+$app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
+$app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
 
-
-
+// Ruta de prueba
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
     return $response;
