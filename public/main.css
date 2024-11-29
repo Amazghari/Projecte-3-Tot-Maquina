@@ -858,6 +858,9 @@ video {
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
+.p-1 {
+  padding: 0.25rem;
+}
 .p-10 {
   padding: 2.5rem;
 }
@@ -1021,7 +1024,8 @@ video {
 }
 
 
-.bg-custom-blue{
+
+.bg-custom-blue {
     background-color: #003366;
 }
 
