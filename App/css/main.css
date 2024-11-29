@@ -87,6 +87,12 @@
     justify-content: center;
 }
 
+#modal-editar:checked + #modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
 .modal-content {
     background: white;
     width: 90%;

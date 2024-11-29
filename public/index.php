@@ -45,8 +45,8 @@ $app->route("/perfil", [\App\Controllers\profileController::class, "profileContr
 $app->route("/asignar", [\App\Controllers\asignMachineController::class, "asignMachineController"]);
 $app->route("/maquina", [\App\Controllers\machineController::class, "machineController"]);
 
-
-
+$app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
+$app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 
 
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
