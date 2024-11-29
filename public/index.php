@@ -44,8 +44,8 @@ $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController:
 $app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
 $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
 $app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
-
-
+$app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
+$app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 
 
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
