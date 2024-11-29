@@ -66,4 +66,4 @@ class inventoryController {
         $response->redirect("location: /inventario");
         return $response;
     }
-}
+} 

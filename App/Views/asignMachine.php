@@ -13,15 +13,15 @@
     <?php include 'Layouts/navbar.php'; ?>
 
     <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center mb-6 mt-8">
-            <h2 class="text-2xl font-bold text-custom-blue">Asignación de Técnicos a Máquinas</h2>
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
+            <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Técnicos a Máquinas</h2>
             <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Guardar
             </button>
         </div>
 
         <!-- Contenedor para las tablas -->
-        <div class="flex space-x-4">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <!-- Tabla de inventario -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1">
                 <div class="table-responsive">
@@ -43,7 +43,7 @@
                                 <td class="px-6 py-4">1231232132</td>
                                 <td class="px-6 py-4">
                                     <form class="flex items-center">
-                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1">
+                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
                                     </form>
                                 </td>
                             </tr>
@@ -55,7 +55,7 @@
                                 <td class="px-6 py-4">9876543210</td>
                                 <td class="px-6 py-4">
                                     <form class="flex items-center">
-                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1">
+                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
                                     </form>
                                 </td>
                             </tr>
@@ -100,7 +100,6 @@
     <!-- Footer -->
     <?php include 'Layouts/footer.php'; ?>
 
-   
 </body>
 
 </html>
