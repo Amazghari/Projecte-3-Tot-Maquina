@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="../../uploads/img/logopng.png">
 </head>
@@ -189,6 +190,7 @@
         <?php } ?>
     <?php } ?>
 </body>
+
 <!-- Footer -->
 <?php include 'Layouts/footer.php'; ?>
 

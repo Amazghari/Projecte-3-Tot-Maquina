@@ -18,7 +18,7 @@
                 <img src="uploads/img/perfil.png" alt="Foto de perfil" class="w-32 h-32 rounded-full border-4 border-custom-blue mb-4">
                 <div class="flex space-x-2 mb-4">
                     <button class="nav-button-custom flex items-center justify-center">Cambiar Foto de Perfil</button>
-                    <button class="nav-button-logout flex items-center justify-center">Cerrar Sesión</button>
+                    <a href="/logout" class="nav-button-logout flex items-center justify-center"><button>Cerrar Sesión</button></a>
                 </div>
             </div>
             <div class="mb-4 flex space-x-4">

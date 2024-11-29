@@ -76,6 +76,19 @@ class auth{
         return $response;
     }
 
+    function isUser(Request $request, Response $response, Container $container, $next) : Response{
+        $user = $request->get("SESSION", "user");
+        $logged = $request->get("SESSION", "logged");
+
+        if($user["role"] == "usuario" && $logged){
+            $response->redirect("location: / ");
+        }
+        else {
+            return \Emeset\Middleware::next($request, $response, $container, $next);
+        }
+        return $response;
+    }
+
 
 
 }

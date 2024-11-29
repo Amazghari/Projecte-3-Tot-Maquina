@@ -32,6 +32,30 @@ class Machines
         $stm->execute();
     }
 
+    public function delete($id){
+        $query="delete from machines where id={$id};";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+    }
+
+    public function asssignTech($id,$iduser){
+        $query="select * from user_machines where id_machine={$id} and id_user={$iduser}";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        
+        // Fetch the result as an associative array.
+        $result = $stm->fetch(\PDO::FETCH_ASSOC);
+
+       if(!$result){
+        $query2="insert into user_machines (id_user,id_machine) values ('{$iduser}','{$id}');";
+       }
+       else {
+        $query2="update user_machines set id_user='{$iduser}' where id_machine='{$id}'";
+       }
+       $stm = $this->sql->prepare($query2);
+        $stm->execute();
+    }
+
     public function getById($id){
         $query="select * from machines where id='{$id}'";
         $stm = $this->sql->prepare($query);
