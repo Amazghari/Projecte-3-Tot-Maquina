@@ -47,4 +47,4 @@
         </div>
     </div>
 </nav>
-<script src="../js/index.js"></script> <!-- Asegúrate de que esta ruta sea correcta -->
+<script src="../js/navbar.js"></script> <!-- Asegúrate de que esta ruta sea correcta -->
