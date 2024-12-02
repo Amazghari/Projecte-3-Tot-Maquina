@@ -22,11 +22,7 @@ $(document).ready(function() {
     // Add a personalized button for the map
     const addButtonControl = L.control({ position: 'topright' });
 
-    addButtonControl.onAdd = function() {
-        const buttonDiv = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-        buttonDiv.innerHTML = '<button id="addLocationBtn" style="padding:5px;">Añadir Ubicación</button>';
-        return buttonDiv;
-    };
+  
 
     addButtonControl.addTo(map);
 });
