@@ -6,67 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="main.css" rel="stylesheet">
     <link rel="icon" href="../../uploads/img/logopng.png">
-    <title>Panel del Admin </title>
+    <title>Panel del Admin</title>
 </head>
 
 <body class="flex flex-col min-h-screen bg-custom-light-gray">
     <?php include 'Layouts/navbar.php'; ?>
     <?php include 'Layouts/navbaradmin.php'; ?>
+    <div class="container mx-auto px-4 py-8">
 
-     <!-- Tabla de inventario -->
-     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="table-responsive">
-                <table class="min-w-full">
-                    <thead class="bg-custom-blue text-white">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nºserie</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">ID Encargado</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Encargado</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200">
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-sm text-gray-900">#MAQ-001</td>
-                            <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]">Fresadora</p>
-                            </td>
-                            <td class="px-6 py-4">
-                             1231232132
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-                                    Operativa
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-gray-900">USR-123</td>
-                            <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
-                            <td class="px-6 py-4 text-sm">
-                                <div class="flex space-x-3">
-                                    <button class="text-blue-600 hover:text-blue-800">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="text-red-600 hover:text-red-800">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <h1 class="text-4xl font-bold text-custom-blue text-center mb-6 mt-8">Incidencias por Prioridad</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+            <div class="bg-red-600 text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Prioridad Alta</h3>
+                <p class="text-4xl font-bold">10</p>
             </div>
-        </div>  
+            <div class="bg-yellow-600 text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Prioridad Media</h3>
+                <p class="text-4xl font-bold">15</p>
+            </div>
+            <div class="bg-green-600 text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h3 class="text-xl font-semibold">Prioridad Baja</h3>
+                <p class="text-4xl font-bold">5</p>
+            </div>
+        </div>
+        
+        <h1 class="text-4xl font-bold text-custom-blue text-center mb-6 mt-8">Estadísticas de Uso</h1>
 
-    <!-- Footer -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Incidencias Totales</h2>
+                <p class="text-4xl font-bold">150</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Incidencias Completadas</h2>
+                <p class="text-4xl font-bold">120</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Incidencias Abiertas</h2>
+                <p class="text-4xl font-bold">30</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Mantenimientos Totales</h2>
+                <p class="text-4xl font-bold">75</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Mantenimientos Completados</h2>
+                <p class="text-4xl font-bold">50</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Usuarios Totales</h2>
+                <p class="text-4xl font-bold">200</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Máquinas Totales</h2>
+                <p class="text-4xl font-bold">50</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Máquinas Fuera de Servicio</h2>
+                <p class="text-4xl font-bold">5</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Máquinas Operativas</h2>
+                <p class="text-4xl font-bold">45</p>
+            </div>
+        </div>
 
+    </div>
+
+    <?php include 'Layouts/footer.php'; ?>
 </body>
-<?php include 'Layouts/footer.php'; ?>
 
 </html>

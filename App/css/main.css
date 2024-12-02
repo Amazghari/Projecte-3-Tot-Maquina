@@ -191,18 +191,25 @@ html, body {
     flex-grow: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
 }
 
-    /* Estilo para que los inputs ocupen el 100% del ancho */
-    input[type="text"],
-    input[type="date"],
-    input[type="number"] {
-        width: 100%; /* Asegura que el input ocupe todo el ancho */
-        box-sizing: border-box; /* Incluye padding y border en el ancho total */
-    }
+/* Estilo base del botón personalizado invertido */
+.nav-button-invertido {
+    background-color: #003366; /* Fondo azul oscuro */
+    color: white; /* Letras blancas */
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 300ms;
+    font-weight: 600;
+    border: 2px solid #003366; /* Borde azul oscuro */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Efecto hover para el botón personalizado invertido */
+.nav-button-invertido:hover {
+    background-color: white; /* Fondo blanco */
+    color: #003366; /* Letras azules */
+}
 
 
-       /* Asegúrate de que la imagen ocupe el 100% del ancho de su contenedor */
-       .machine-image {
-        width: 100%; /* Ocupa todo el ancho */
-        height: auto; /* Mantiene la proporción */
-        object-fit: cover; /* Cubre el área del contenedor */
-    }
