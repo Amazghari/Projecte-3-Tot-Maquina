@@ -41,7 +41,7 @@
                     </thead>
                     <?php foreach ($machines as $machine) { ?>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
+                            <tr class="hover:bg-gray-50 cursor-pointer" onclick="window.location='/maquina/<?= $machine["id"] ?>'">
                                 <td class="px-6 py-4 text-sm text-gray-900">#MAQ-<?= $machine["id"] ?></td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
                                     <p class="truncate max-w-[200px]"><?= $machine["name"] ?></p>
@@ -85,7 +85,7 @@
                 </label>
             </div>
 
-            <form class="space-y-4 mt-4" action="/inventario/addMachine" method="post" enctype="multipart/form-data">
+            <form class="space-y-4 mt-4" action="/inventario/añadir" method="post" enctype="multipart/form-data">
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Nombre</label>
                     <input type="text" name="machineName" id="machineName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
@@ -107,8 +107,12 @@
                     <input type="date" name="installationDate" id="installationDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Localización</label>
-                    <input type="text" name="location" id="location" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
+                    <label class="block text-sm font-medium text-gray-700">Longitud</label>
+                    <input type="text" name="longitude" id="longitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Latitud</label>
+                    <input type="text" name="latitude" id="latitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Imagen</label>

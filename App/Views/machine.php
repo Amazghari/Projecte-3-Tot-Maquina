@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="main.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="../../uploads/img/logopng.png">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <title>Informacion Maquina</title>
@@ -19,22 +20,22 @@
             <div class="flex flex-row">
                 <!-- Imagen de la máquina -->
                 <div class="flex-shrink-0 w-1/2">
-                    <img src="../../uploads/machines/maquina.jpg" alt="Máquina" class="h-auto w-full object-cover rounded-lg">
+                    <img src="<?= $machine['image_url']?>" alt="Máquina" class="h-auto w-full object-cover rounded-lg">
                     
                 </div>
 
                 <!-- Información de la máquina -->
                 <div class="ml-4 w-1/2 flex flex-col justify-between">
-                    <h2 class="text-4xl font-bold text-custom-blue">Nombre de la Máquina</h2>
-                    <form id="machineForm">
-                        <input type="hidden" name="machineId" value="#MAQ-001"> <!-- ID no editable -->
-                        <label class="text-xl text-gray-600">ID: <span>#MAQ-001</span></label><br>
-                        <label class="text-xl text-gray-600">Modelo: <input type="text" name="model" value="Modelo XYZ" class="border rounded p-1"></label><br>
-                        <label class="text-xl text-gray-600">Fecha de Instalación: <input type="date" name="installationDate" value="2023-01-01" class="border rounded p-1"></label><br>
-                        <label class="text-xl text-gray-600">Técnico Responsable: <input type="text" name="technician" value="Juan Pérez" class="border rounded p-1"></label><br>
+                    <h2 class="text-4xl font-bold text-custom-blue" name="name"><?= $machine['name'] ?></h2>
+                    <form id="machineForm" action="/maquina/updateMachine" method="post">
+                        <input type="hidden" name="machineId" value="<?= $machine['id'] ?>"> <!-- ID no editable -->
+                        <label class="text-xl text-gray-600">ID: <span>#MAQ-<?= $machine['id'] ?></span></label><br>
+                        <label class="text-xl text-gray-600">Modelo: <input type="text" name="model" value="<?= $machine['model'] ?>" class="border rounded p-1"></label><br>
+                        <label class="text-xl text-gray-600">Fecha de Instalación: <input type="date" name="installation_date" value="<?= $machine['installation_date'] ?>" class="border rounded p-1"></label><br>
+                        <label class="text-xl text-gray-600">Técnico Responsable: <input type="text" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="border rounded p-1"></label><br>
                         <label class="text-xl text-gray-600">Número de Incidencias: <input type="number" name="incidents" value="5" class="border rounded p-1"></label><br>
-                        <label class="text-xl text-gray-600">Latitud: <input type="text" name="latitude" value="51.505" class="border rounded p-1"></label><br>
-                        <label class="text-xl text-gray-600">Altitud: <input type="text" name="altitude" value="10" class="border rounded p-1"></label><br>
+                        <label class="text-xl text-gray-600">Longitud: <input type="text" name="latitude" value="<?= $machine['longitude']?>" class="border rounded p-1"></label><br>
+                        <label class="text-xl text-gray-600">Latitud: <input type="text" name="longitude" value="<?= $machine['latitude']?>" class="border rounded p-1"></label><br>
                         <button type="submit" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg">Guardar Cambios</button>
                     </form>
                 </div>

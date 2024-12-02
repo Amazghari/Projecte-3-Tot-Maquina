@@ -47,7 +47,8 @@ $app->route("/maquina", [\App\Controllers\machineController::class, "machineCont
 $app->post("/inventario/eliminar", [\App\Controllers\inventoryController::class, "deleteMachine"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
-
+$app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machineController"]);
+$app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
 
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);

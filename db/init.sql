@@ -9,7 +9,8 @@ create table machines (
 	manufacturer VARCHAR(255),
 	serial_num VARCHAR(255),
 	installation_date DATE,
-	location VARCHAR(255),
+	longitude VARCHAR(255),
+	latitude VARCHAR2(255),
 	image_url VARCHAR(255),
 	first_answer VARCHAR(255)
 );
