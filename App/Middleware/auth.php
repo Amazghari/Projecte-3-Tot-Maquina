@@ -41,7 +41,7 @@ class auth{
         $user = $request->get("SESSION", "user");
         $logged = $request->get("SESSION", "logged");
 
-        if($user["role"] == "adminstrator" && $logged){
+        if($user["role"] == "administrator" && $logged){
             return \Emeset\Middleware::next($request, $response, $container, $next);
         }
         else {
