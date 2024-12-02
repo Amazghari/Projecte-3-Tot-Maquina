@@ -24,5 +24,4 @@ class Maintenance {
         }
         return $maintenances;
     }
-    public function edit($id)
 }
