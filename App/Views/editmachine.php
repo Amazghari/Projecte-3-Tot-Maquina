@@ -38,11 +38,11 @@
         </div>
 
         <div class="mb-4">
-            <label for="imagen" class="block text-sm font-medium text-gray-700">Longitude</label>
+            <label for="imagen" class="block text-sm font-medium text-gray-700">Longitud</label>
             <input type="text" id="imagen" name="longitude" value="<?= $machine['longitude'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
         <div class="mb-4">
-            <label for="imagen" class="block text-sm font-medium text-gray-700">Latitude</label>
+            <label for="imagen" class="block text-sm font-medium text-gray-700">Latitud</label>
             <input type="text" id="imagen" name="latitude" value="<?= $machine['latitude'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
             <div class="mb-4">
@@ -53,10 +53,6 @@
             <div class="mb-4">
                 <label for="manufacturer" class="block text-sm font-medium text-gray-700">Fabricante</label>
                 <input type="text" id="manufacturer" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-            </div>
-            <div class="mb-4">
-                <label for="location" class="block text-sm font-medium text-gray-700">Localización</label>
-                <input type="text" id="location" name="location" value="<?= $machine['location'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
             </div>
 
             <div class="mb-4">
