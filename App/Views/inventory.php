@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="../../uploads/img/logopng.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="bg-custom-light-gray">
@@ -17,6 +18,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Maquinaria</h2>
+            <input type="text" id="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2" />
             <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Asignar Tecnico
             </a>
@@ -192,10 +194,51 @@
         </div>
         </div>
         <?php } ?>
-    <?php } ?> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <script src="js/machine.js"></script>
+    <?php } ?>
+
+    <script>
+        $(document).ready(function () {
+            $("#search").on("input", function () {
+                var searchValue = $(this).val();
+                if (searchValue.length >= 3) {
+                    $.ajax({
+                        type: "GET",
+                        url: "/inventario/buscar", // Cambia esta URL según tu ruta
+                        data: { query: searchValue },
+                        success: function (data) {
+                            // Limpiar la tabla actual
+                            $("#DataSearching").html("");
+                            // Agregar los resultados a la tabla
+                            if (data.length > 0) {
+                                $.each(data, function (index, machine) {
+                                    var row = "<tr class='hover:bg-gray-50'>" +
+                                        "<td class='px-6 py-4 text-sm text-gray-900'>#MAQ-" + machine.id + "</td>" +
+                                        "<td class='px-6 py-4 text-sm text-gray-900'><p class='truncate max-w-[200px]'>" + machine.name + "</p></td>" +
+                                        "<td class='px-6 py-4'>" + machine.serial_num + "</td>" +
+                                        "<td class='px-6 py-4 text-sm text-gray-900'>USR-123</td>" +
+                                        "<td class='px-6 py-4 text-sm text-gray-900'>Miguelito</td>" +
+                                        "<td class='px-6 py-4 text-sm'>" +
+                                        "<div class='flex space-x-3'>" +
+                                        "<a href='/inventario/editar/" + machine.id + "' class='cursor-pointer text-blue-600 hover:text-blue-800'>" +
+                                        "<svg class='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>" +
+                                        "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'/>" +
+                                        "</svg></a>" +
+                                        "<button class='text-red-600 hover:text-red-800' data-id='" + machine.id + "'>" +
+                                        "<svg class='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>" +
+                                        "<path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16' />" +
+                                        "</svg></button>" +
+                                        "</div></td></tr>";
+                                    $("#DataSearching").append(row);
+                                });
+                            } else {
+                                $("#DataSearching").html('<tr style="color:red"><td colspan="6">No se encontraron resultados</td></tr>');
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 <!-- Footer -->

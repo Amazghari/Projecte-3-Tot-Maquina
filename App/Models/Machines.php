@@ -67,4 +67,5 @@ class Machines
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
+    
 }

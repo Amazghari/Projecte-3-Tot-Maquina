@@ -26,7 +26,7 @@ class inventoryController {
         
         $response->set("machine", $machine);
 
-        $response->setTemplate("editmachine.php");
+        $response->setTemplate("Machines.php");
         return $response;
     }
 
@@ -94,4 +94,6 @@ class inventoryController {
             return $response;
         }
     }
+
+
 }
