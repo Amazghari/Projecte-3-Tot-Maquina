@@ -62,5 +62,12 @@ class Machines
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
+
+    public function searchByName($name){
+        $query="select * from machines where name like %'{$name}'%";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
     
 }
