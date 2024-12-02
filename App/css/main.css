@@ -213,3 +213,26 @@ html, body {
 }
 
 
+        /* Map styling */
+        #mapid {
+            height: 70vh;  /* Adjust the map height to 70% of the window */
+            width: 100%;   /* The map occupies the full width of the page */
+            border-radius: 10px; /* Round the corners of the map */
+        }
+
+        /* Styling for the logo (if present) */
+        .logo-img {
+            width: 40px;  /* Adjust the logo size */
+            height: auto; /* Maintain the height-to-width ratio */
+        }
+
+        /* Media query to adapt the map to smaller screens */
+        @media (max-width: 768px) {
+            #mapid {
+                height: 40vh; /* Increase the height on smaller screens if needed */
+                border-radius: 10px; /* Keep the rounded corners */
+            }
+            .navbar-brand span {
+                font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
+            }
+        }
