@@ -13,7 +13,7 @@
 
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
-            <h2 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h2>
+            <h1 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h1>
             <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Nueva Incidencia
             </label>
