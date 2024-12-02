@@ -76,12 +76,5 @@ class inventoryController {
         return $response;
     }
 
-    public function buscar()
-    {
-        $query = $this->input->get('query');
-        $this->load->model('MachineModel'); // Asegúrate de cargar tu modelo
-        $machines = $this->MachineModel->buscarMaquinas($query); // Implementa este método en tu modelo
-        echo json_encode($machines);
-    }
 
 }
