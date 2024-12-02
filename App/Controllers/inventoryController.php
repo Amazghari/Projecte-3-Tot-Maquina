@@ -26,21 +26,25 @@ class inventoryController {
         
         $response->set("machine", $machine);
 
-        $response->setTemplate("Machines.php");
+        $response->setTemplate("editmachine.php");
         return $response;
     }
 
     public function updateMachine($request, $response, $container){
 
+        $directory="/uploads/machines/";
         $id = $request->get(INPUT_POST, "id");
         $name = $request->get(INPUT_POST, "name");
         $model = $request->get(INPUT_POST, "model");
         $manufacturer = $request->get(INPUT_POST, "manufacturer");
         $serial_num = $request->get(INPUT_POST, "serial_num"); 
-        $location = $request->get(INPUT_POST, "location");
-        $image_url = $request->get(INPUT_POST, "image_url");
+        $longitude = $request->get(INPUT_POST, "longitude");
+        $latitude = $request->get(INPUT_POST, "latitude");
+        $image=$request->get("FILES","image");
+        $image_url=$directory.$image["name"];
+        move_uploaded_file($image["tmp_name"],"uploads/machines//".$image["name"]);
         $machines = $container->get("Machines");
-        $machines->update($id,$name,$model,$manufacturer,$serial_num,$location,$image_url);
+        $machines->update($id,$name,$model,$manufacturer,$serial_num,$longitude,$latitude,$image_url);
 
         $response->redirect("location: /inventario");
     
@@ -55,13 +59,14 @@ class inventoryController {
        $manufacturer=$request->get(INPUT_POST,"manufacturer");
        $serial_num=$request->get(INPUT_POST,"serialNumber");
        $installation_date=$request->get(INPUT_POST,"installationDate");
-       $location=$request->get(INPUT_POST,"location");
+       $longitude=$request->get(INPUT_POST,"longitude");
+       $latitude=$request->get(INPUT_POST,"latitude");
        $image=$request->get("FILES","image");
        $image_url=$directory.$image["name"];
        move_uploaded_file($image["tmp_name"],"uploads/machines//".$image["name"]);
        //dd($_POST,$_FILES,$image_url);
        $machines = $container->get("Machines");
-       $machines->add($name,$model,$manufacturer,$serial_num,$installation_date,$location,$image_url);
+       $machines->add($name,$model,$manufacturer,$serial_num,$installation_date,$longitude,$latitude,$image_url);
   
         $response->redirect("location: /inventario");
         return $response;

@@ -10,9 +10,9 @@ class Machines
         $this->sql = $conn;
     }
 
-    public function add($name,$model,$manufacturer,$serial_num,$installation_date,$location,$image_url)
+    public function add($name,$model,$manufacturer,$serial_num,$installation_date,$longitude,$latitude,$image_url)
     {
-        $query="insert into machines (name,model,manufacturer,serial_num,installation_date,location,image_url) values ('{$name}','{$model}','{$manufacturer}','{$serial_num}','{$installation_date}','{$location}','{$image_url}')";
+        $query="insert into machines (name,model,manufacturer,serial_num,installation_date,longitude,latitude,image_url) values ('{$name}','{$model}','{$manufacturer}','{$serial_num}','{$installation_date}','{$longitude}','{$latitude}','{$image_url}')";
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
@@ -26,8 +26,8 @@ class Machines
         }
         return $machines;
     }
-    public function update($id,$name,$model,$manufacturer,$serial_num,$location,$image_url){
-        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',serial_num='{$serial_num}',location='{$location}',image_url='{$image_url}' where id='{$id}'";
+    public function update($id,$name,$model,$manufacturer,$serial_num,$longitude,$latitude,$image_url){
+        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',serial_num='{$serial_num}',longitude='{$longitude}',latitude='{$latitude}',image_url='{$image_url}' where id='{$id}'";
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
@@ -62,6 +62,12 @@ class Machines
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
+    public function updateMachine($id,$name,$model,$manufacturer,$longitude, $latitude){
+        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',longitude='{$longitude}',latitude='{$latitude}' where id='{$id}'";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+    }
+    
 
     public function searchByName($name){
         $query="select * from machines where name like %'{$name}'%";
