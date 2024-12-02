@@ -130,7 +130,7 @@
     </div>
 
     <!-- Modal para editar -->
-    <!-- <?php if (isset($machine)) { ?>
+    <?php if (isset($machine)) { ?>
         <?php foreach ($machines as $machine) { ?>
     <input type="checkbox" id="modal-editar" class="hidden">
     <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
