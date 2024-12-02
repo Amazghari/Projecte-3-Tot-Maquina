@@ -62,4 +62,5 @@ class Machines
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
+    
 }
