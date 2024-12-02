@@ -30,10 +30,11 @@
                     <form id="machineForm" action="/maquina/updateMachine" method="post">
                         <input type="hidden" name="machineId" value="<?= $machine['id'] ?>"> <!-- ID no editable -->
                         <label class="text-xl text-gray-600">ID: <span>#MAQ-<?= $machine['id'] ?></span></label><br>
+                        <label class="text-xl text-gray-600">Nombre: <input type="text" name="name" value="<?= $machine['name'] ?>" class="border rounded p-1"></label><br>
                         <label class="text-xl text-gray-600">Modelo: <input type="text" name="model" value="<?= $machine['model'] ?>" class="border rounded p-1"></label><br>
                         <label class="text-xl text-gray-600">Fecha de Instalación: <input type="date" name="installation_date" value="<?= $machine['installation_date'] ?>" class="border rounded p-1"></label><br>
                         <label class="text-xl text-gray-600">Técnico Responsable: <input type="text" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="border rounded p-1"></label><br>
-                        <label class="text-xl text-gray-600">Número de Incidencias: <input type="number" name="incidents" value="5" class="border rounded p-1"></label><br>
+                        <label class="text-xl text-gray-600">Número de Incidencias: <span><br>5 <!-- <?= $machine[''] ?> !--> </span></label><br>
                         <label class="text-xl text-gray-600">Longitud: <input type="text" name="latitude" value="<?= $machine['longitude']?>" class="border rounded p-1"></label><br>
                         <label class="text-xl text-gray-600">Latitud: <input type="text" name="longitude" value="<?= $machine['latitude']?>" class="border rounded p-1"></label><br>
                         <button type="submit" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg">Guardar Cambios</button>
