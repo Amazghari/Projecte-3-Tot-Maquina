@@ -41,6 +41,12 @@ class Container extends EmesetContainer {
             return $users;
         };
 
+        $this["Incidences"] = function ($c) {
+            $db= $c->get("db");
+            $users = new \App\Models\Incidences($db->getConnection());
+            return $users;
+        };
+
 
     }
 }

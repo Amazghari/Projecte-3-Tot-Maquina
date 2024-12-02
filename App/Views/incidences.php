@@ -35,7 +35,7 @@
             </label>
         </div>
         
-        <form id="incident-form" class="space-y-4 mt-4">
+        <form id="incident-form" class="space-y-4 mt-4" action="/incidencia/añadir" method="post" enctype="multipart/form-data">
             <div>
                 <label class="block text-sm font-medium text-gray-700">Título</label>
                 <input type="text" name="title" id="title" required
@@ -57,13 +57,18 @@
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Estado</label>
-                <select name="status" id="status" required
+                <select name="state" id="state" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
                     <option value="notstarted">No iniciado</option>
                     <option value="inprogress">En proceso</option>
                     <option value="finalized">Finalizado</option>
                     
                 </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Id Maquina</label>
+                <input type="text" name="id_machine" id="id_machine" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
             </div>
 
             <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
