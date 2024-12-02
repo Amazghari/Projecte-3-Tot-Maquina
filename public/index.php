@@ -48,14 +48,13 @@ $app->post("/inventario/eliminar/{id}", [\App\Controllers\inventoryController::c
 $app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
-
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
-
+$app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 // Ruta de prueba
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");

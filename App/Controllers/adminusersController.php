@@ -8,7 +8,11 @@ use \Emeset\Contracts\Container;
 class adminusersController {
 
     public function adminusersController($request, $response, $container){
+        $usersModel = $container->get("Users");
 
+        $users = $usersModel->list();
+
+        $response->set("users", $users);
         $response->setTemplate("adminusers.php");
 
         return $response;
@@ -24,6 +28,15 @@ class adminusersController {
       $password = $request->get(INPUT_POST, "passwordUser");
       $users = $container->get("Users");
       $users->add($name,$surname,$email,$role,$username,$password);
+      $response->redirect("location:/adminusuarios");
+        return $response;
+    }
+
+    function deleteUser(Request $request, Response $response, Container $container): Response 
+    {
+      $id = $request->getParam("id");
+      $users = $container->get("Users");
+      $users->delete($id);
       $response->redirect("location:/adminusuarios");
         return $response;
     }
