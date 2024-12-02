@@ -2,57 +2,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="main.css">
+    <link href="main.css" rel="stylesheet">
     <link rel="icon" href="../../uploads/img/logopng.png">
+    <title>Inicio</title>
 
     <!-- Includes the Leaflet JS to load and manage the map -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Includes the CSS for Leaflet to display the map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
 </head>
 <body class="bg-custom-light-gray">
 <?php include 'Layouts/navbar.php'; ?>
 
-    <div class="w-full overflow-hidden">
-        <script src="../../js/mapahome.js"></script>
-         <!-- Includes the CSS for Leaflet to display the map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        /* Map styling */
-        #mapid {
-            height: 40vh;  /* Adjust the map height to 70% of the window */
-            width: 100%;   /* The map occupies the full width of the page */
-            margin-top: -3%; /* Small margin from the navbar */
-            border-radius: 10px; /* Round the corners of the map */
-        }
-
-        /* Styling for the logo (if present) */
-        .logo-img {
-            width: 40px;  /* Adjust the logo size */
-            height: auto; /* Maintain the height-to-width ratio */
-        }
-
-        /* Media query to adapt the map to smaller screens */
-        @media (max-width: 768px) {
-            #mapid {
-                height: 40vh; /* Increase the height on smaller screens if needed */
-                border-radius: 10px; /* Keep the rounded corners */
-                margin-top: -10%;
-            }
-            .navbar-brand span {
-                font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
-            }
-        }
-    </style>
-</head>
-<script src="../../js/mapahome.js"></script>
-
 <section id="map" style="padding-top: 56px;"> <!-- Adds padding to separate from the navbar -->
+        <script src="../../js/mapahome.js"></script>
     <div id="mapid"></div> <!-- Where the map will be rendered -->
-</section>
 
-    </div>
+</section>
     <!-- Contenedor principal con padding-top para compensar el navbar fijo -->
     <div class="container mx-auto px-4 py-8">
         <!-- Título y botón de nueva incidencia -->
