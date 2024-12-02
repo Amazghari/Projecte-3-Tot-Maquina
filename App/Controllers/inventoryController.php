@@ -26,7 +26,7 @@ class inventoryController {
         
         $response->set("machine", $machine);
 
-        $response->setTemplate("editmachine.php");
+        $response->setTemplate("Machines.php");
         return $response;
     }
 
@@ -75,4 +75,13 @@ class inventoryController {
         $response->redirect("location: /inventario");
         return $response;
     }
+
+    public function buscar()
+    {
+        $query = $this->input->get('query');
+        $this->load->model('MachineModel'); // Asegúrate de cargar tu modelo
+        $machines = $this->MachineModel->buscarMaquinas($query); // Implementa este método en tu modelo
+        echo json_encode($machines);
+    }
+
 }
