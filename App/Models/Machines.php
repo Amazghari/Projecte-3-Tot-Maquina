@@ -62,8 +62,8 @@ class Machines
         $stm->execute();
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
-    public function updateMachine($id,$model,$manufacturer,$longitude, $latitude){
-        $query="update machines set model='{$model}',manufacturer='{$manufacturer}',longitude='{$longitude}',latitude='{$latitude}' where id='{$id}'";
+    public function updateMachine($id,$name,$model,$manufacturer,$longitude, $latitude){
+        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',longitude='{$longitude}',latitude='{$latitude}' where id='{$id}'";
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
