@@ -140,8 +140,10 @@
                 </table>
             </div>
         </div>
-   
+   </div>
 
 
 </body>
+<?php include 'Layouts/footer.php'; ?>
+
 </html>
