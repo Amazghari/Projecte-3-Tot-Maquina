@@ -16,7 +16,7 @@
 <body class="bg-custom-light-gray">
 <?php include 'Layouts/navbar.php'; ?>
 
-<section id="map" style="padding-top: 56px;"> <!-- Adds padding to separate from the navbar -->
+<section id="map"> <!-- Adds padding to separate from the navbar -->
         <script src="../../js/mapahome.js"></script>
     <div id="mapid"></div> <!-- Where the map will be rendered -->
 
