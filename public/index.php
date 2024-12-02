@@ -44,7 +44,7 @@ $app->route("/adminincidencias", [\App\Controllers\adminincidenceController::cla
 $app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
 $app->route("/asignar", [\App\Controllers\asignMachineController::class, "asignMachineController"]);
 $app->route("/maquina", [\App\Controllers\machineController::class, "machineController"]);
-$app->post("/inventario/eliminar", [\App\Controllers\inventoryController::class, "deleteMachine"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->post("/inventario/eliminar/{id}", [\App\Controllers\inventoryController::class, "deleteMachine"]);
 $app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 

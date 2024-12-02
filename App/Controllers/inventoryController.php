@@ -68,11 +68,25 @@ class inventoryController {
     }
 
     public function deleteMachine($request, $response, $container){
-        $id = $request->get(INPUT_POST, "id");
-        dd("-----");
-        $machines = $container->get("Machines");
-        $machines->delete($id);
-        $response->redirect("location: /inventario");
-        return $response;
+        try {
+            $id = $request->getParam('id');
+            error_log("Recibido ID para eliminar: " . $id);
+            
+            if (!$id) {
+                error_log("ID no recibido");
+                $response->setStatus(400);
+                return $response;
+            }
+
+            $machines = $container->get("Machines");
+            $result = $machines->delete($id);
+          
+            
+            return $response;
+        } catch (\Exception $e) {
+            error_log("Error al eliminar el equipo: " . $e->getMessage());
+            
+            return $response;
+        }
     }
 }
