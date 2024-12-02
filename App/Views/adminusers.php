@@ -37,12 +37,12 @@
                     </label>
                 </div>
                 
-                <form id="incident-form" class="space-y-4 mt-4">
-                    <div>
+                <form id="incident-form"  action ="/adminusarios/añadir" class="space-y-4 mt-4" method="post">
+                    <!-- <div>
                         <label class="block text-sm font-medium text-gray-700">ID Usuario</label>
                         <input type="text" name="user_id" id="user_id" required
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                    </div>
+                    </div> -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre</label>
                         <input type="text" name="first_name" id="first_name" required
@@ -62,14 +62,20 @@
                         <label class="block text-sm font-medium text-gray-700">Rol</label>
                         <select name="role" id="role" required
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                            <option value="admin">Admin</option>
-                            <option value="user">Usuario</option>
-                            <option value="technician">Técnico</option>
+                            <option value="administrator">Admin</option>
+                            <option value="usuario">Usuario</option>
+                            <option value="tecnico">Técnico</option>
+                            <option value="supervisor">Supervisor</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre de Usuario</label>
                         <input type="text" name="username" id="username" required
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                        <input type="text" name="passwordUser" id="passwordUser" required
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
                     </div>
                     <div class="flex justify-end">

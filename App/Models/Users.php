@@ -30,8 +30,8 @@ class Users
         return $result;
     }
 
-    public function add($name,$surname,$img,$email,$role,$username,$password){
-        $query= "insert into users (name,surname,img,email,role,username,password) values ('{$name}','{$surname}','{$img}','{$email}','{$role}','{$username}','{$password}')";
+    public function add($name,$surname,$email,$role,$username,$password){
+        $query= "insert into users (name,surname,email,role,username,password) values ('{$name}','{$surname}','{$email}','{$role}','{$username}','{$password}')";
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }

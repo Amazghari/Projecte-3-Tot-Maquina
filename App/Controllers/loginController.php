@@ -100,5 +100,7 @@ function logout(Request $request, Response $response, Container $container): Res
     // Return the final response.
     return $response;
   }
+
+
 }
 
