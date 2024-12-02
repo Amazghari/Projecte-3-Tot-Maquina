@@ -24,8 +24,11 @@ $(document).ready(function() {
             });
         }
     });
-})// Inicializar el mapa
-// // var map = L.map('map').setView([51.505, -0.09], 13);
+
+})
+
+// Inicializar el mapa
+var map = L.map('map').setView([51.505, -0.09], 13);
 
 // // // Añadir la capa de mosaico de OpenStreetMap
 // // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
