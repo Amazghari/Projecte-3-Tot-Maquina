@@ -70,6 +70,7 @@
                     </table>
                 </div>
             </div>
+            
 
             <!-- Nueva tabla al lado -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1">
