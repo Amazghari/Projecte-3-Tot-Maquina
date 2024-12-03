@@ -13,7 +13,7 @@ class Incidences{
     {
         $query="insert into incidence (name,priority,description,state,id_machine,starting_date) values ('{$name}','{$priority}','{$description}','{$state}',$id_machine,CURDATE())";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute(); 
     }
 
 }
