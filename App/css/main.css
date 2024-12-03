@@ -85,12 +85,14 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
+    z-index: 1050;
 }
 
 #modal-editar:checked + #modal {
     display: flex !important;
     align-items: center;
     justify-content: center;
+    z-index: 1050;
 }
 
 .modal-content {
@@ -235,4 +237,9 @@ html, body {
             .navbar-brand span {
                 font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
             }
+        }
+
+        /* Asegúrate de que el navbar tenga un z-index más bajo o no tenga uno definido */
+        .navbar {
+            z-index: 1000;
         }
