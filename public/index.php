@@ -32,24 +32,24 @@ $contenidor = new \App\Container(__DIR__ . "/../App/config.php");
 $app = new \Emeset\Emeset($contenidor);
 $app->middleware([\App\Middleware\App::class, "execute"]);
 
-$app->route("", [\App\Controllers\indexController::class, "indexController"]);
+$app->route("", [\App\Controllers\indexController::class, "indexController"]); //el login
 $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"], [[\App\Middleware\auth::class, "auth"]]);
-$app->get("/inventario", [\App\Controllers\inventoryController::class, "index"]);
-$app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"]);
-$app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"]);
-$app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class, "admininventoryController"]);
+$app->get("/inventario", [\App\Controllers\inventoryController::class, "index"],[[\App\Middleware\auth::class, "auth"]]);
+$app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"],[[\App\Middleware\auth::class, "auth"]]);
+$app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class, "admininventoryController"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController::class, "adminmaintenanceController"]);
-$app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"]);
-$app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"]);
-$app->route("/perfil", [\App\Controllers\profileController::class, "profileController"]);
+$app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->route("/adminincidencias", [\App\Controllers\adminincidenceController::class, "adminincidenceController"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->route("/perfil", [\App\Controllers\profileController::class, "profileController"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/asignar", [\App\Controllers\asignMachineController::class, "asignMachineController"]);
 $app->route("/maquina", [\App\Controllers\machineController::class, "machineController"]);
-$app->post("/inventario/eliminar/{id}", [\App\Controllers\inventoryController::class, "deleteMachine"]);
+$app->post("/inventario/eliminar/{id}", [\App\Controllers\inventoryController::class, "deleteMachine"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 $app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machineController"]);
 $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
-$app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
+$app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"],[[\App\Middleware\auth::class, "auth"]]);
 
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
@@ -57,7 +57,7 @@ $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
-$app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
+$app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
 
