@@ -27,6 +27,9 @@
                     <a href="/inicio" class="nav-button">Inicio</a>
                 </li>
                 <li>
+                    <a href="/mitrabajo" class="nav-button">Mi Trabajo</a>
+                </li>
+                <li>
                     <a href="/inventario" class="nav-button">Inventario</a>
                 </li>
                 <li>
