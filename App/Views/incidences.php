@@ -119,7 +119,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['priority'] ?></span>
-                            </td>
+                            </td> 
                             <td class="px-6 py-4">
                                 <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['state'] ?></span>
                             </td>
