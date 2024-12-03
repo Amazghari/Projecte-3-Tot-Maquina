@@ -11,34 +11,66 @@
     <title>Informacion Maquina</title>
 </head>
 
-<body class="flex flex-col min-h-screen bg-custom-light-gray">
-    <?php include 'Layouts/navbar.php'; ?>
+<?php include 'Layouts/navbar.php'; ?>
 
+
+<body class="flex flex-col min-h-screen bg-custom-light-gray">
+
+
+
+
+
+   
     <div class="container mx-auto px-4 mt-8">
         <div class="bg-white p-6 rounded-lg shadow-lg">
-            <div class="flex flex-row">
-                <div class="flex-shrink-0 w-1/2">
+            <div class="flex flex-col md:flex-row">
+                <div class="flex-shrink-0 w-full md:w-1/2">
                     <img src="<?= $machine['image_url']?>" alt="Máquina" class="h-auto w-full object-cover rounded-lg">
                 </div>
 
-                <div class="ml-4 w-1/2 flex flex-col justify-between">
+                <div class="ml-4 w-full md:w-1/2 flex flex-col justify-between">
                     <h2 class="text-4xl font-bold text-custom-blue" name="name"><?= $machine['name'] ?></h2>
-                    <form id="machineForm" action="/maquina/updateMachine" method="post">
+                    <form id="machineForm" action="/maquina/updateMachine" method="post" class="space-y-4">
                         <input type="hidden" name="machineId" value="<?= $machine['id'] ?>">
-                        <label class="text-xl text-gray-600">ID: <span>#MAQ-<?= $machine['id'] ?></span></label><br>
-                        <label class="text-xl text-gray-600">Nombre: <input type="text" name="name" value="<?= $machine['name'] ?>" class="border rounded p-1" aria-label="Nombre de la máquina"></label><br>
-                        <label class="text-xl text-gray-600">Modelo: <input type="text" name="model" value="<?= $machine['model'] ?>" class="border rounded p-1" aria-label="Modelo de la máquina"></label><br>
-                        <label class="text-xl text-gray-600">Fecha de Instalación: <input type="date" name="installation_date" value="<?= $machine['installation_date'] ?>" class="border rounded p-1" aria-label="Fecha de instalación"></label><br>
-                        <label class="text-xl text-gray-600">Técnico Responsable: <input type="text" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="border rounded p-1" aria-label="Técnico responsable"></label><br>
-                        <label class="text-xl text-gray-600">Número de Incidencias: <span><br>5</span></label><br>
-                        <label class="text-xl text-gray-600">Longitud: <input type="text" name="latitude" value="<?= $machine['longitude']?>" class="border rounded p-1" aria-label="Longitud"></label><br>
-                        <label class="text-xl text-gray-600">Latitud: <input type="text" name="longitude" value="<?= $machine['latitude']?>" class="border rounded p-1" aria-label="Latitud"></label><br>
-                        <button type="submit" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg" aria-label="Guardar cambios">Guardar Cambios</button>
+                        <div>
+                            <label class="text-xl text-gray-600">ID: <span>#MAQ-<?= $machine['id'] ?></span></label>
+                        </div>
+                        <div>
+                            <label class="text-xl text-gray-600">Nombre:</label>
+                            <input type="text" name="name" value="<?= $machine['name'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Nombre de la máquina">
+                        </div>
+                        <div>
+                            <label class="text-xl text-gray-600">Modelo:</label>
+                            <input type="text" name="model" value="<?= $machine['model'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Modelo de la máquina">
+                        </div>
+                        <div>
+                            <label class="text-xl text-gray-600">Fecha de Instalación:</label>
+                            <input type="date" name="installation_date" value="<?= $machine['installation_date'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Fecha de instalación">
+                        </div>
+                        <div>
+                            <label class="text-xl text-gray-600">Técnico Responsable:</label>
+                            <input type="text" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Técnico responsable">
+                        </div>
+                        <div>
+                            <label class="text-xl text-gray-600">Número de Incidencias:</label>
+                            <span class="text-gray-800">5</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label class="text-xl text-gray-600">Longitud:</label>
+                                <input type="text" name="latitude" value="<?= $machine['longitude']?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Longitud">
+                            </div>
+                            <div class="w-1/2">
+                                <label class="text-xl text-gray-600">Latitud:</label>
+                                <input type="text" name="longitude" value="<?= $machine['latitude']?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Latitud">
+                            </div>
+                        </div>
+                        <button type="submit" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200" aria-label="Guardar cambios">Guardar Cambios</button>
                     </form>
                 </div>
             </div>
 
-            <div id="map" class="mt-6" style="height: 400px;"></div>
+            <div id="map" class="mt-6 w-full" style="height: 400px;"></div>
 
             <div class="flex justify-between items-center mb-6 mt-8">
                 <h2 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h2>
@@ -161,9 +193,23 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="/js/machine.js"></script>
+    <script>
+    // Inicializa el mapa
+    var map = L.map('map').setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
 
+    // Capa de los tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Agregar un marcador
+    var marker = L.marker([51.505, -0.09]).addTo(map); // Cambia las coordenadas del marcador
+    marker.bindPopup('Hola Calvo.').openPopup();
+</script>
     <!-- Footer -->
 </body>
+
 
 <?php include 'Layouts/footer.php'; ?>
 

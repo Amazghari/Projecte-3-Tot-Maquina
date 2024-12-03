@@ -26,3 +26,20 @@ $(document).ready(function() {
 
     addButtonControl.addTo(map);
 });
+
+
+
+
+
+    // Inicializa el mapa
+    var map = L.map('map').setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
+
+    // Capa de los tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Agregar un marcador
+    var marker = L.marker([51.505, -0.09]).addTo(map); // Cambia las coordenadas del marcador
+    marker.bindPopup('¡Hola! Soy un marcador.').openPopup();
