@@ -20,9 +20,7 @@
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Maquinaria</h2>
             <input type="text" id="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2" aria-label="Buscar máquinas" />
-            <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Asignar Técnico">
-                Asignar Técnico
-            </a>
+
             <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-haspopup="dialog" aria-controls="modal">
                 Nueva Máquina
             </label>
