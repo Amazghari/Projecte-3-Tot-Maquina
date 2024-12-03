@@ -143,6 +143,15 @@
                     </select>
                 </div>
 
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Tipo de Mantenimiento</label>
+                    <select name="maintenance_type" id="maintenance_type" required
+                            class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm bg-gray-50 focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Tipo de mantenimiento">
+                        <option value="correctivo">Correctivo</option>
+                        <option value="preventivo">Preventivo</option>
+                    </select>
+                </div>
+
                 <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
                     <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
                         Cancelar
