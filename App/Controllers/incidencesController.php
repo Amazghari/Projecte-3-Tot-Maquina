@@ -36,4 +36,15 @@ class incidencesController
         return $response;
     }
 
+    public function editIncidences($request, $response, $container){
+        $incidences = $container->get("Incidences");
+        $id = $request->getParam("id");
+        $machine = $incidences->getById($id);
+        
+        $response->set("incidence", $incidences);
+
+        $response->setTemplate("editIncidence.php");
+        return $response;
+    }
+
 }
