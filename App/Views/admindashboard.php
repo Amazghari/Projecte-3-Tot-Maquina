@@ -21,7 +21,7 @@
                 <h3 class="text-xl font-semibold">Prioridad Alta</h3>
                 <p class="text-4xl font-bold">10</p>
             </div>
-            <div class="bg-yellow-600 text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+            <div class="bg-[#c88802] text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h3 class="text-xl font-semibold">Prioridad Media</h3>
                 <p class="text-4xl font-bold">15</p>
             </div>

@@ -6,7 +6,7 @@
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div class="flex items-center">
             <a href="/inicio">
-                <img src="uploads/img/logo.png" alt="Logo" class="h-12">
+                <img src="/uploads/img/logo.png" alt="Logo" class="h-12">
             </a>
         </div>
         
@@ -40,7 +40,7 @@
                 </li>
                 <li class="ml-6">
                     <a href="/perfil" class="block">
-                        <img src="uploads/img/perfil.png" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
+                        <img src="/uploads/img/perfil.png" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
                     </a>
                 </li>
             </ul>

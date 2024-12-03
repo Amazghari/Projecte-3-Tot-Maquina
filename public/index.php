@@ -49,6 +49,7 @@ $app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::cl
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 $app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machineController"]);
 $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
+$app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
 
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
@@ -59,6 +60,9 @@ $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\
 $app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
+
+$app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
+$app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);
 
 // Ruta de prueba
 $app->route("ajax", function ($request, $response) {

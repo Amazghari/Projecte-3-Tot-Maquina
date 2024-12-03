@@ -43,7 +43,6 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;
-    border: 2px solid #003366;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -63,7 +62,6 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;
-    border: 2px solid #003366;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -85,12 +83,14 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
+    z-index: 1050;
 }
 
 #modal-editar:checked + #modal {
     display: flex !important;
     align-items: center;
     justify-content: center;
+    z-index: 1050;
 }
 
 .modal-content {
@@ -138,7 +138,6 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;
-    border: 2px solid #003366; /* Borde azul oscuro */
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -200,7 +199,6 @@ html, body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;
-    border: 2px solid #003366; /* Borde azul oscuro */
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -213,3 +211,31 @@ html, body {
 }
 
 
+        /* Map styling */
+        #mapid {
+            height: 70vh;  /* Adjust the map height to 70% of the window */
+            width: 100%;   /* The map occupies the full width of the page */
+            border-radius: 10px; /* Round the corners of the map */
+        }
+
+        /* Styling for the logo (if present) */
+        .logo-img {
+            width: 40px;  /* Adjust the logo size */
+            height: auto; /* Maintain the height-to-width ratio */
+        }
+
+        /* Media query to adapt the map to smaller screens */
+        @media (max-width: 768px) {
+            #mapid {
+                height: 40vh; /* Increase the height on smaller screens if needed */
+                border-radius: 10px; /* Keep the rounded corners */
+            }
+            .navbar-brand span {
+                font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
+            }
+        }
+
+        /* Asegúrate de que el navbar tenga un z-index más bajo o no tenga uno definido */
+        .navbar {
+            z-index: 1000;
+        }
