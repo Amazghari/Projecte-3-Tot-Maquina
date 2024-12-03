@@ -52,7 +52,8 @@ $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateM
 $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myworkController"]);
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
-$app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
+$app->route("/mantenimientos", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
+$app->route("/mantenimiento", [\App\Controllers\maintenanceviewController::class, "maintenanceviewController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
