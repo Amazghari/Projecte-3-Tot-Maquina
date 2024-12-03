@@ -14,14 +14,14 @@
 
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
-            <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Incidencias a Técnicos</h2>
+            <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Mantenimientos a Técnicos</h2>
             <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Guardar
             </button>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
             <div class="flex flex-col md:flex-row justify-start items-center">
-                <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Incidencias</h2>
+                <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Mantenimientos</h2>
             </div>
             <div class="flex flex-col md:flex-row justify-end items-center">
                 <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Técnicos</h2>
@@ -70,6 +70,7 @@
                     </table>
                 </div>
             </div>
+            
 
             <!-- Nueva tabla al lado -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1">
