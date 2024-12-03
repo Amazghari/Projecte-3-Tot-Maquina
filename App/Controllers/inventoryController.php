@@ -96,4 +96,28 @@ class inventoryController {
     }
 
 
+    public function searchMachine(Request $request, Response $response, Container $container): Response
+    {
+        try {
+            $machines = $container->get("Machines");
+            $query = $request->get(INPUT_GET, "query");
+
+            if (empty($query)) {
+                header('Content-Type: application/json');
+                echo json_encode([]);
+                exit();
+            }
+
+            $results = $machines->searchByName($query);
+            
+            header('Content-Type: application/json');
+            echo json_encode($results);
+            exit();
+        } catch (\Exception $e) {
+            header('HTTP/1.1 500 Internal Server Error');
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'Error en la búsqueda']);
+            exit();
+        }
+    }
 }

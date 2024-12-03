@@ -58,6 +58,8 @@ $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
+
 // Ruta de prueba
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");

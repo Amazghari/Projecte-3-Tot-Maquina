@@ -70,10 +70,17 @@ class Machines
     
 
     public function searchByName($name){
-        $query="select * from machines where name like %'{$name}'%";
+        $machines = [];
+        $query = "SELECT * FROM machines WHERE name LIKE :name";
         $stm = $this->sql->prepare($query);
+        $searchTerm = "%" . $name . "%";
+        $stm->bindParam(':name', $searchTerm, \PDO::PARAM_STR);
         $stm->execute();
-        return $stm->fetch(\PDO::FETCH_ASSOC);
+        
+        foreach ($stm->fetchAll(\PDO::FETCH_ASSOC) as $machine) {
+            $machines[$machine["id"]] = $machine;
+        }
+        return $machines;
     }
     
 }

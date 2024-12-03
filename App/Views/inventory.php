@@ -17,7 +17,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Maquinaria</h2>
-            <input type="text" id="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2" />
+            <input type="text" id="search" name="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2" />
             <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Asignar Tecnico
             </a>
@@ -40,8 +40,9 @@
                             <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
                         </tr>
                     </thead>
-                    <?php foreach ($machines as $machine) { ?>
-                        <tbody class="divide-y divide-gray-200">
+                    
+                    <tbody class="divide-y divide-gray-200" id="default">
+                        <?php foreach ($machines as $machine) { ?>
                             <tr class="hover:bg-gray-50 cursor-pointer" onclick="window.location='/maquina/<?= $machine["id"] ?>'">
                                 <td class="px-6 py-4 text-sm text-gray-900">#MAQ-<?= $machine["id"] ?></td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
@@ -66,8 +67,11 @@
                                     </div>
                                 </td>
                             </tr>
-                        </tbody>
+                        
                     <?php } ?>
+                </tbody>
+                <tbody class="divide-y divide-gray-200" id="datasearch">
+                </tbody>
                 </table>
             </div>
         </div>
