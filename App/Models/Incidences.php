@@ -36,9 +36,16 @@ class Incidences{
 
     public function listupdate($id,$name,$state,$priority,$description,$id_machine)
     {
-        $query="update incidence set name='{$name}',state='{$state}',priority='{$priority}',description='{$description}',id_machine='{$id_machine}'";
+        $query="update incidences set name=:name,state=:state,priority=:priority,description=:description";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute([
+            ":name"=>$name,
+            ":state"=>$state,
+            ":priority"=>$priority,
+            ":description"=>$description,
+            ":id_machine"=>$id_machine,
+            ":id"=>$id
+        ]);
     }
 
 }
