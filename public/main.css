@@ -986,6 +986,10 @@ video {
   font-size: 1rem;
   line-height: 1.5rem;
 }
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1015,10 +1019,6 @@ video {
 }
 .tracking-tight {
   letter-spacing: -0.025em;
-}
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .text-blue-600 {
   --tw-text-opacity: 1;

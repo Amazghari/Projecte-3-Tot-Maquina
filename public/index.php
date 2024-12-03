@@ -60,6 +60,8 @@ $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\
 $app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
+$app->route("/incidencia", [\App\Controllers\incidenceController::class, "incidenceController"]);
+
 
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);

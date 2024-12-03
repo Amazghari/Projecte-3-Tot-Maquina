@@ -84,7 +84,7 @@
         <!-- script para cerrar modal al guardar form -->
         <script src="js/incidences.js"></script>
 
-        <!-- Tabla de inventario -->
+        <!-- Tabla de users -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">
