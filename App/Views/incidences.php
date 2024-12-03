@@ -45,28 +45,28 @@
                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Descripción</label>
-                <input type="text" name="description" id="description" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-            </div>
-            <div>
                 <label class="block text-sm font-medium text-gray-700">Prioridad</label>
                 <select name="priority" id="priority" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                    <option value="low">Baja</option>
-                    <option value="mid">Media</option>
-                    <option value="high">Alta</option>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
                 </select>
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Estado</label>
                 <select name="state" id="state" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                    <option value="notstarted">No iniciado</option>
-                    <option value="inprogress">En proceso</option>
-                    <option value="finalized">Finalizado</option>
+                    <option value="No iniciada">No iniciado</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado">Finalizado</option>
                     
                 </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Descripción</label>
+                <input type="text" name="description" id="description" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Id Maquina</label>
@@ -90,6 +90,7 @@
 <!-- script para cerrar modal al guardar form -->
 <script src="js/incidences.js"></script>
 
+
         <!-- Tabla de inventario -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
@@ -98,7 +99,7 @@
                         <tr>
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID Incidencia</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nºserie</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Descripcion</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Prioridad</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID Trabajador</th>
@@ -107,20 +108,23 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
+                    <?php foreach ($incidences as $incidence) { ?>
                         <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-sm text-gray-900">#INC-001</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">#INC-<?= $incidence['id'] ?></td>
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]">Incidencia 1</p>
+                                <p class="truncate max-w-[200px]"><?= $incidence['name'] ?></p>
                             </td>
-                            <td class="px-6 py-4">1231232132</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">
+                                <p class="truncate max-w-[200px]"><?= $incidence['description'] ?></p>
+                            </td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Media</span>
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['priority'] ?></span>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">En Proceso</span>
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['state'] ?></span>
                             </td>
-                            <td class="px-6 py-4 text-sm text-gray-900">USR-123</td>
-                            <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
+                            <td class="px-6 py-4 text-sm text-gray-900"></td>
+                            <td class="px-6 py-4 text-sm text-gray-900"></td>
                             <td class="px-6 py-4 text-sm">
                                 <div class="flex space-x-3">
                                     <button class="text-blue-600 hover:text-blue-800">
@@ -136,6 +140,7 @@
                                 </div>
                             </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

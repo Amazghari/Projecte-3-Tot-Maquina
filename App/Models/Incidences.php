@@ -9,11 +9,20 @@ class Incidences{
         $this->sql = $conn;
     }
 
-    public function add($name,$priority,$description,$state,$id_machine)
+    public function add($name,$state,$priority,$description,$id_machine)
     {
-        $query="insert into incidence (name,priority,description,state,id_machine,starting_date) values ('{$name}','{$priority}','{$description}','{$state}',$id_machine,CURDATE())";
+        $query="insert into incidence (name,state,priority,description,id_machine,starting_date) values ('{$name}','{$state}','{$priority}','{$description}',$id_machine,CURDATE())";
         $stm = $this->sql->prepare($query);
         $stm->execute(); 
+    }
+
+    public function list(){
+        $query = "select * from incidence;";
+        $incidences = [];
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $incidence) {
+            $incidences[$incidence["id"]] = $incidence;
+        }
+        return $incidences;
     }
 
 }
