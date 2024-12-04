@@ -51,17 +51,19 @@ $app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machin
 $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
 $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myworkController"]);
-
-
-
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
-$app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
+$app->route("/mantenimientos", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
+$app->route("/mantenimiento", [\App\Controllers\maintenanceviewController::class, "maintenanceviewController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
+$app->route("/incidencia", [\App\Controllers\incidenceController::class, "incidenceController"]);
+
+
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);
 
