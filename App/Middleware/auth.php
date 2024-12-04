@@ -45,7 +45,7 @@ class auth{
             return \Emeset\Middleware::next($request, $response, $container, $next);
         }
         else {
-            $response->redirect("location: / ");
+            $response->redirect("location: /inicio ");
         }
         return $response;
     }
@@ -58,7 +58,7 @@ class auth{
             return \Emeset\Middleware::next($request, $response, $container, $next);
         }
         else {
-            $response->redirect("location: / ");
+            $response->redirect("location: /inicio ");
         }
         return $response;
     }
@@ -71,7 +71,7 @@ class auth{
             return \Emeset\Middleware::next($request, $response, $container, $next);
         }
         else {
-            $response->redirect("location: / ");
+            $response->redirect("location: /inicio ");
         }   
         return $response;
     }
@@ -81,7 +81,7 @@ class auth{
         $logged = $request->get("SESSION", "logged");
 
         if($user["role"] == "usuario" && $logged){
-            $response->redirect("location: / ");
+            $response->redirect("location: /inicio");
         }
         else {
             return \Emeset\Middleware::next($request, $response, $container, $next);

@@ -74,7 +74,7 @@
                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Contraseña del usuario">
                     </div>
                     <div class="flex justify-end">
-                        <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors" aria-label="Guardar nuevo usuario">
+                        <button type="submit" id="saveUserButton" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors" aria-label="Guardar nuevo usuario">
                             Guardar
                         </button>
                     </div>
@@ -84,7 +84,7 @@
         <!-- script para cerrar modal al guardar form -->
         <script src="js/incidences.js"></script>
 
-        <!-- Tabla de inventario -->
+        <!-- Tabla de users -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">
@@ -138,6 +138,8 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/users.js"></script> 
 </body>
 
     <!-- Footer -->
