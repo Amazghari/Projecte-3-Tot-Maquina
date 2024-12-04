@@ -83,15 +83,22 @@ class Machines
     }
 
     public function getById($id){
-        $query="select * from machines where id='{$id}'";
+        $query="select * from machines where id=:id";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute([":id"=>$id]);
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
     public function updateMachine($id,$name,$model,$manufacturer,$longitude, $latitude){
-        $query="update machines set name='{$name}',model='{$model}',manufacturer='{$manufacturer}',longitude='{$longitude}',latitude='{$latitude}' where id='{$id}'";
+        $query="update machines set name=:name,model=:model,manufacturer=:manufacturer,longitude=:longitude,latitude=:latitude where id=:id";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute([
+            ":name"=>$name,
+            ":model"=>$model,
+            ":manufacturer"=>$manufacturer,
+            ":longitude"=>$longitude,
+            ":latitude"=>$latitude,
+            ":id"=>$id
+        ]);
     }
     
 
