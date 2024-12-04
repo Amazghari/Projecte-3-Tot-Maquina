@@ -1,7 +1,3 @@
-
-
-
-
 <nav class="bg-custom-blue w-full z-50  top-0">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <div class="flex items-center">
@@ -27,10 +23,13 @@
                     <a href="/inicio" class="nav-button">Inicio</a>
                 </li>
                 <li>
+                    <a href="/mitrabajo" class="nav-button">Mi Trabajo</a>
+                </li>
+                <li>
                     <a href="/inventario" class="nav-button">Inventario</a>
                 </li>
                 <li>
-                    <a href="/mantenimiento" class="nav-button">Mantenimiento</a>
+                    <a href="/mantenimientos" class="nav-button">Mantenimiento</a>
                 </li>
                 <li>
                     <a href="/incidencias" class="nav-button">Incidencias</a>
