@@ -15,17 +15,21 @@
     <?php include 'Layouts/navbar.php'; ?>
 
     <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center mb-6 mt-8">
-            <h2 class="text-2xl font-bold text-custom-blue">Lista de Maquinaria</h2>
-            <input type="text" id="search" name="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2" />
-            <?php if (isset($_SESSION["user"])&& $_SESSION["user"]["role"] != "usuario") { ?>
-            <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
-                Asignar Tecnico
-            </a>
-            <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
-                Nueva Maquina
-            </label>
-            <?php } ?>
+        <div class="flex flex-col items-center mb-6 mt-8">
+            <h2 class="text-2xl font-bold text-custom-blue text-center">Lista de Maquinaria</h2>
+            
+            <!-- Barra de búsqueda -->
+            <div class="mt-4 w-full max-w-md">
+                <input type="text" id="search" name="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2 w-full" />
+            </div>
+
+            <!-- Botones -->
+            <div class="mt-4 flex space-x-4">
+                <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] != "usuario") { ?>
+                    <a href="/asignar" class="nav-button-custom">Asignar Técnico</a>
+                    <label for="modal-toggle" class="nav-button-custom cursor-pointer">Nueva Máquina</label>
+                <?php } ?>
+            </div>
         </div>
 
         <!-- Tabla de inventario -->
@@ -71,11 +75,10 @@
                                     </div>
                                 </td>
                             </tr>
-                        
-                    <?php } ?>
-                </tbody>
-                <tbody class="divide-y divide-gray-200" id="datasearch">
-                </tbody>
+                        <?php } ?>
+                    </tbody>
+                    <tbody class="divide-y divide-gray-200" id="datasearch">
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -86,7 +89,7 @@
     <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
         <div class="modal-content p-4 mt-20">
             <div class="flex justify-between items-center pb-3 border-b">
-                <h3 class="text-xl font-semibold text-gray-900">Nueva Maquina</h3>
+                <h3 class="text-xl font-semibold text-gray-900">Nueva Máquina</h3>
                 <label for="modal-toggle" class="cursor-pointer text-gray-600 hover:text-gray-800">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
