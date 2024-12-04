@@ -55,11 +55,10 @@ $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::clas
 $app->route("/mantenimiento", [\App\Controllers\maintenanceController::class, "maintenanceController"]);
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
-$app->route("tancar-sessio", "ctrlTancarSessio", ["auth"]);
 $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
-$app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
+$app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"],[[\App\Middleware\auth::class, "auth"]]);
 
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);

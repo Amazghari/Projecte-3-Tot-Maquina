@@ -35,9 +35,11 @@
                 <li>
                     <a href="/incidencias" class="nav-button">Incidencias</a>
                 </li>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'administrator'){?>
                 <li>
                     <a href="/paneladministrador" class="nav-button">Admin</a>
                 </li>
+                <?php } ?>
                 <li class="ml-6">
                     <a href="/perfil" class="block">
                         <img src="/uploads/img/perfil.png" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
