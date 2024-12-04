@@ -8,7 +8,6 @@
     <link rel="icon" href="../../uploads/img/logopng.png">
     <title>Perfil</title>
 </head>
-
 <body class="flex flex-col min-h-screen bg-custom-light-gray">
     <?php include 'Layouts/navbar.php'; ?>
 

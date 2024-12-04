@@ -27,20 +27,22 @@ class profileController {
         $surname = $request->get(INPUT_POST, "surname");
         $username = $request->get(INPUT_POST, "username");
         $role = $request->get(INPUT_POST, "role");
-
         $image=$request->get("FILES","image");
         $image_url = $currentuser['img'];
 
-        if (isset($image) && $image["error"] === UPLOAD_ERR_OK) {
+        if (isset($image)) {
             $image_url = $directory . $image["name"];
-            move_uploaded_file($image["tmp_name"], "uploads/users/" . $image["name"]);
+            move_uploaded_file($image["tmp_name"], "uploads/users//" . $image["name"]);
         }
+        
+        //dd($image_url);
 
         $profiles = $container->get("Users");
         $profiles->updateProfile($id,$name,$surname,$username,$role,$image_url);
         $currentUser= $profiles->getUser($username);
 
         $response->setSession("user", $currentUser);
+        //dd($currentUser);
 
         $response->redirect("location: /perfil");
     
