@@ -36,22 +36,29 @@
 
 /* Estilo base del botón */
 .nav-button {
-    background-color: white;
-    color: #003366;
-    padding: 0.625rem 1.5rem;
-    border-radius: 9999px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 300ms;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    width: 100%; /* Ancho completo para adaptarse en móviles */
+    max-width: 150px; /* Ancho máximo */
+    align-items: center; /* Centrar verticalmente */
+    align-self: center; /* Centrar horizontalmente */
+    background-color: white; /* Fondo blanco */
+    color: #003366; /* Letras azules */
+    padding: 0.75rem; /* Padding uniforme para un buen tamaño */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transition: background-color 300ms, transform 150ms; /* Transiciones suaves */
+    font-weight: 600; /* Peso de la fuente */
+    display: flex; /* Flexbox para alinear contenido */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    margin: 0.5rem 0; /* Margen superior e inferior para separación */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    font-size: 0.875rem; /* Tamaño de fuente consistente */
 }
 
 /* Efecto hover */
 .nav-button:hover {
-    background-color: #003366;
-    color: white;
+    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
 }
 
 .menu-button{
@@ -133,23 +140,25 @@
 .nav-button-custom {
     background-color: #003366; /* Fondo azul oscuro */
     color: white; /* Letras blancas */
-    padding: 0.25rem 0.75rem; /* Reducido para hacer el botón más pequeño */
-    border-radius: 9999px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 300ms;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem; /* Tamaño de fuente reducido */
-    max-width: 150px; /* Establecer un ancho máximo */
-    width: 100%; /* O puedes usar un ancho fijo como 150px */
+    padding: 0.5rem 1rem; /* Aumentado para un mejor tamaño */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    transition: background-color 300ms, transform 150ms; /* Transiciones suaves */
+    font-weight: 600; /* Peso de la fuente */
+    display: flex; /* Flexbox para alinear contenido */
+    align-items: center; /* Centrar verticalmente */
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    font-size: 0.875rem; /* Tamaño de fuente ligeramente mayor */
+    width: 100%; /* Ancho completo para adaptarse en móviles */
+    max-width: 150px; /* Ancho máximo */
+    margin: 0.5rem 0; /* Margen superior e inferior para separación */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
 }
 
-/* Efecto hover para el botón personalizado */
+/* Efecto hover */
 .nav-button-custom:hover {
-    background-color: white; /* Fondo blanco */
-    color: #003366; /* Letras azules */
+    background-color: #00509e; /* Color más claro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
 }
 
 /* Estilo base del botón de cerrar sesión */
@@ -232,6 +241,7 @@ html, body {
             }
             .navbar-brand span {
                 font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
+                gap: 10px;
             }
         }
 
