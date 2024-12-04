@@ -10,13 +10,13 @@
 </head>
 <body class="bg-custom-light-gray">
 <div class="flex justify-start mb-4 mt-4">
-            <a href="/incidencia" class="nav-button-invertido mr-4">Volver</a>
+            <a href="/incidencias" class="nav-button-invertido mr-4">Volver</a>
         </div>
     <div class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
         
         <h2 class="text-2xl font-bold text-custom-blue text-center mb-4">Editar Incidencia</h2>
 
-        <form action="/inventario/updateMachine" method="post" enctype="multipart/form-data">
+        <form action="/incidencia/updateIncidence" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $incidence['id'] ?>">
 
             <div class="mb-4">
@@ -25,12 +25,20 @@
             </div>
             <div class="mb-4">
                 <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
-                <input type="text" id="state" name="state" value="<?= $incidence['state'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                <select id="state" name="state" value="<?= $incidence['state'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    <option value="No iniciada">No iniciado</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado">Finalizado</option>    
+                </select>
             </div>
 
         <div class="mb-4">
             <label for="descripcion" class="block text-sm font-medium text-gray-700">Prioridad</label>
-            <input type="text" id="priority" name="priority" value="<?= $incidence['priority'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+            <select id="priority" name="priority" value="<?= $incidence['priority'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+            </select>
         </div>
         <div class="mb-4">
             <label for="imagen" class="block text-sm font-medium text-gray-700">Descripción</label>
@@ -41,9 +49,25 @@
             <label for="imagen" class="block text-sm font-medium text-gray-700">Id Máquina</label>
             <input type="text" id="imagen" name="id_machine" value="<?= $incidence['id_machine'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
+        <div class="flex justify-end">
+                <button type="submit" class="nav-button-invertido">Guardar Cambios</button>
+        </div>
         </form>
     </div>
 </body>
 <?php include 'Layouts/footer.php'; ?>
 
 </html>
+
+
+
+<div>
+                <label class="block text-sm font-medium text-gray-700">Estado</label>
+                <select name="state" id="state" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    <option value="No iniciada">No iniciado</option>
+                    <option value="En proceso">En proceso</option>
+                    <option value="Finalizado">Finalizado</option>
+                    
+                </select>
+            </div>

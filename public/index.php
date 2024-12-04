@@ -51,6 +51,7 @@ $app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machin
 $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
 $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
 $app->route("/incidencia/editar/{id}", [\App\Controllers\incidencesController::class, "editIncidence"]);
+$app->post("/incidencia/updateIncidence", [\App\Controllers\incidencesController::class, "updateIncidence"]);
 
 
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);

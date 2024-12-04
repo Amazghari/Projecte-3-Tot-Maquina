@@ -36,16 +36,31 @@ class Incidences{
 
     public function listupdate($id,$name,$state,$priority,$description,$id_machine)
     {
-        $query="update incidences set name=:name,state=:state,priority=:priority,description=:description";
+        $query="update incidence set name=:name, state=:state, priority=:priority, description=:description, id_machine=:id_machine where id=:id";
         $stm = $this->sql->prepare($query);
         $stm->execute([
+            ":id"=>$id,
             ":name"=>$name,
             ":state"=>$state,
             ":priority"=>$priority,
             ":description"=>$description,
-            ":id_machine"=>$id_machine,
-            ":id"=>$id
+            ":id_machine"=>$id_machine
         ]);
     }
 
-}
+    public function getById($id){
+
+        $query="select * from incidence where id=:id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":id"=>$id
+        ]);
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateIncidence($id,$name,$state,$priority,$description,$id_machine){
+        $query="update machines set name='{$name}',state='{$state}',priority='{$priority}',description='{$description}',id_machine='{$id_machine}' where id='{$id}'";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+    }
+}        
