@@ -20,7 +20,7 @@ class Users
     }
 
     public function getUser($username){
-        $query= "select * from users where username=:username'";
+        $query= "select * from users where username=:username";
         $stm = $this->sql->prepare($query);
         $stm->execute([":username"=>$username]);
         
