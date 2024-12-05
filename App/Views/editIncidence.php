@@ -25,20 +25,22 @@
             </div>
             <div class="mb-4">
                 <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
-                <select id="state" name="state" value="<?= $incidence['state'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-                    <option value="No iniciada">No iniciado</option>
-                    <option value="En proceso">En proceso</option>
-                    <option value="Finalizado">Finalizado</option>    
+                <select id="state" name="state" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                    <option value="No iniciada" <?= $incidence['state'] === 'No iniciada' ? 'selected' : '' ?>>No iniciada</option>
+                    <option value="En proceso" <?= $incidence['state'] === 'En proceso' ? 'selected' : '' ?>>En proceso</option>
+                    <option value="Finalizado" <?= $incidence['state'] === 'Finalizado' ? 'selected' : '' ?>>Finalizado</option>
                 </select>
+
             </div>
 
         <div class="mb-4">
             <label for="descripcion" class="block text-sm font-medium text-gray-700">Prioridad</label>
-            <select id="priority" name="priority" value="<?= $incidence['priority'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
+            <select id="priority" name="priority" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+                <option value="Baja" <?= $incidence['priority'] === 'Baja' ? 'selected' : '' ?>>Baja</option>
+                <option value="Media" <?= $incidence['priority'] === 'Media' ? 'selected' : '' ?>>Media</option>
+                <option value="Alta" <?= $incidence['priority'] === 'Alta' ? 'selected' : '' ?>>Alta</option>
             </select>
+
         </div>
         <div class="mb-4">
             <label for="imagen" class="block text-sm font-medium text-gray-700">Descripción</label>
