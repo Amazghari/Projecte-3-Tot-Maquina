@@ -229,6 +229,8 @@
                 </tbody>
             </table>
         </div>
+        </div>
+     </div>
     </div>
 </body>
 <?php include 'Layouts/footer.php'; ?>
