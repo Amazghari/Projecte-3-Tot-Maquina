@@ -52,7 +52,7 @@ $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateM
 $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
 $app->route("/incidencia/editar/{id}", [\App\Controllers\incidencesController::class, "editIncidence"]);
 $app->post("/incidencia/updateIncidence", [\App\Controllers\incidencesController::class, "updateIncidence"]);
-
+$app->get("/incidencia/eliminar/{id}", [\App\Controllers\incidencesController::class, "deleteIncidence"]);
 $app->route("/perfil/updateProfile", [\App\Controllers\profileController::class, "updateProfile"]);
 
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myworkController"]);

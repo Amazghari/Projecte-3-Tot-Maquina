@@ -69,4 +69,10 @@ class Incidences{
         $stm = $this->sql->prepare($query);
         $stm->execute();
     }
+
+    public function delete($id){
+        $query="delete from incidence where id=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([":id"=>$id]);
+    }
 }        

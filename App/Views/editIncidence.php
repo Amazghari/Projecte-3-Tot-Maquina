@@ -58,16 +58,3 @@
 <?php include 'Layouts/footer.php'; ?>
 
 </html>
-
-
-
-<div>
-                <label class="block text-sm font-medium text-gray-700">Estado</label>
-                <select name="state" id="state" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                    <option value="No iniciada">No iniciado</option>
-                    <option value="En proceso">En proceso</option>
-                    <option value="Finalizado">Finalizado</option>
-                    
-                </select>
-            </div>

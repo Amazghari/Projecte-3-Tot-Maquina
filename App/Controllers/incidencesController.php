@@ -62,4 +62,24 @@ class incidencesController
         return $response;
     }
 
+    public function deleteIncidence($request, $response, $container){
+    
+            $id = $request->getParam('id');
+            error_log("Recibido ID para eliminar: " . $id);
+            
+            if (!$id) {
+                error_log("ID no recibido");
+                $response->setStatus(400);
+                return $response;
+            }
+
+            $incidences = $container->get("Incidences");
+            $incidences->delete($id);
+            $response->redirect("location: /incidencias");
+
+          
+            
+            return $response;
+        }
+    
 }
