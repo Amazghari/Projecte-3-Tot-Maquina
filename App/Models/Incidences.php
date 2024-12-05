@@ -38,4 +38,39 @@ class Incidences{
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
-}
+    public function listEdit(){
+        $query = "select * from incidence;";
+        $incidences = [];
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $incidence) {
+            $incidences[$incidence["id"]] = $incidence;
+        }
+        return $incidences;
+    }
+
+    public function listupdate($id,$name,$state,$priority,$description,$id_machine)
+    {
+        $query="update incidence set name=:name, state=:state, priority=:priority, description=:description, id_machine=:id_machine where id=:id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":id"=>$id,
+            ":name"=>$name,
+            ":state"=>$state,
+            ":priority"=>$priority,
+            ":description"=>$description,
+            ":id_machine"=>$id_machine
+        ]);
+    }
+
+    public function updateIncidence($id,$name,$state,$priority,$description,$id_machine){
+        $query="update machines set name='{$name}',state='{$state}',priority='{$priority}',description='{$description}',id_machine='{$id_machine}' where id='{$id}'";
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+    }
+
+    public function delete($id){
+        $query="delete from incidence where id=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([":id"=>$id]);
+    }
+}  
+      
