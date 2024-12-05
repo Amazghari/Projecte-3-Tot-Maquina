@@ -71,14 +71,13 @@ class Users
     //     return $profiles;
     // }
 
-     public function updateProfile($id,$name,$surname,$username,$role,$img){
-        $query="update users set name=:name,surname=:surname,username=:username,role=:role,img=:img where id=:id";
+     public function updateProfile($id,$name,$surname,$username,$img){
+        $query="update users set name=:name,surname=:surname,username=:username,img=:img where id=:id";
         $stm = $this->sql->prepare($query);
         $stm->execute([
             ":name"=>$name,
             ":surname"=>$surname,
             ":username"=>$username,
-            ":role"=>$role,
             ":img"=>$img,
             ":id"=>$id
         ]);
