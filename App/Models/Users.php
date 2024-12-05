@@ -61,4 +61,26 @@ class Users
          // Return the list of users.
          return $users;
      }
+
+    //  public function listProfile(){
+    //     $query = "select * from users;";
+    //     $profiles = [];
+    //     foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $profile) {
+    //         $profiles[$profile["id"]] = $profile;
+    //     }
+    //     return $profiles;
+    // }
+
+     public function updateProfile($id,$name,$surname,$username,$role,$img){
+        $query="update users set name=:name,surname=:surname,username=:username,role=:role,img=:img where id=:id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":name"=>$name,
+            ":surname"=>$surname,
+            ":username"=>$username,
+            ":role"=>$role,
+            ":img"=>$img,
+            ":id"=>$id
+        ]);
+     }
 }

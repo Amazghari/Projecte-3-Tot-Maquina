@@ -93,7 +93,7 @@
 <script src="js/incidences.js"></script>
 
 
-        <!-- Tabla de inventario -->
+        <!-- Tabla de incidencias -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">

@@ -17,14 +17,14 @@
         </button>
 
         <!-- Menú de navegación -->
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <div class="hidden  w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col md:flex-row md:space-x-8 items-center">
                 <li>
-                    <a href="/inicio" class="nav-button">Inicio</a>
+                    <a href="/inicio" class="nav-button mb-2">Inicio</a>
                 </li>
                 <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
                 <li>
-                    <a href="/mitrabajo" class="nav-button">Mi Trabajo</a>
+                    <a href="/mitrabajo" class="nav-button ">Mi Trabajo</a>
                 </li>
                 <?php } ?>
                 <li>
