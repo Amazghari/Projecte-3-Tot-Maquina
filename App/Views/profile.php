@@ -54,10 +54,6 @@
                         <input type="text" name="role" class="mt-1 block w-full border border-gray-300 rounded-md p-2 bg-gray-100" value="<?= $userData['role'] ?>" readonly aria-label="Rol" aria-readonly="true">
                     </div>
                 </div>
-                <div class="mb-4">
-                    <label for="user_id" class="block text-sm font-medium text-gray-700">ID de Usuario</label>
-                    <input type="text" id="user_id" name="id" class="mt-1 block w-full border border-gray-300 rounded-md p-2 bg-gray-100" value="USR-<?= $userData['id'] ?>" readonly aria-label="ID de Usuario" aria-readonly="true">
-                </div>
                 <div class="flex justify-center mt-4">
                     <button class="nav-button-custom flex items-center justify-center">Guardar</button>
                 </div>
