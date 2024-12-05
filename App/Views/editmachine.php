@@ -57,9 +57,8 @@
 </div>
 
 <!-- Modal para tomar foto -->
-<input type="checkbox" id="photo-modal-toggle" class="hidden">
-<div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="photo-modal" role="dialog" aria-modal="true">
-    <div class="modal-content p-4 mt-20">
+<div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog" aria-modal="true">
+    <div class="modal-content p-4 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center pb-3 border-b">
             <h3 class="text-xl font-semibold text-gray-900">Tomar Foto</h3>
             <button id="close-modal" class="cursor-pointer text-gray-600 hover:text-gray-800">
@@ -70,47 +69,22 @@
         </div>
 
         <div class="flex flex-col items-center">
-            <video id="video" class="w-full rounded-md" autoplay></video>
+            <video id="video" class="w-3/4 rounded-md" autoplay></video>
             <button id="capture" class="mt-4 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Hacer Foto</button>
             <canvas id="canvas" class="hidden"></canvas>
             <img id="photo" class="mt-4 rounded-md hidden" alt="Captured Photo" />
         </div>
 
         <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-            <label for="photo-modal-toggle" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">Cancelar</label>
+            <button id="save-photo" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar Foto</button>
+            <button id="cancel-photo" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">Cancelar</button>
         </div>
     </div>
 </div>
 
 <?php include 'Layouts/footer.php'; ?>
 
-<script>
-    // Acceder a la cámara
-    const video = document.getElementById('video');
-    const photoModal = document.getElementById('photo-modal');
-    const openCameraButton = document.getElementById('open-camera');
-    const closeModalButton = document.getElementById('close-modal');
-
-
-    openCameraButton.addEventListener('click', async () => {
-        photoModal.classList.remove('hidden');
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        video.srcObject = stream;
-    });
-
-    // Capturar la foto
-    document.getElementById('capture').addEventListener('click', () => {
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        const dataUrl = canvas.toDataURL('image/png');
-        document.getElementById('photo').src = dataUrl;
-        document.getElementById('photo').classList.remove('hidden');
-        document.getElementById('image').value = dataUrl; // Asignar la imagen al input
-    });
-</script>
+<script src="/js/bundle.js"></script>
 
 </body>
 </html>
