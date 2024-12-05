@@ -25,7 +25,6 @@ class profileController {
         $name = $request->get(INPUT_POST, "name");
         $surname = $request->get(INPUT_POST, "surname");
         $username = $request->get(INPUT_POST, "username");
-        $role = $request->get(INPUT_POST, "role");
         $image=$request->get("FILES","image");
 
         $image_url = $currentuser['img'];
@@ -39,7 +38,7 @@ class profileController {
         //dd($image_url);
 
         $profiles = $container->get("Users");
-        $profiles->updateProfile($id,$name,$surname,$username,$role,$image_url);
+        $profiles->updateProfile($id,$name,$surname,$username,$image_url);
         $currentUser2= $profiles->getUser($username);
 
         $response->setSession("user", $currentUser2);
