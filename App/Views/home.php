@@ -78,7 +78,6 @@
         </div>
     </div>
 <!-- Footer -->
-<script src="/js/bundle.js"></script>
 
 
 </body>

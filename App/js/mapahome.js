@@ -1,4 +1,5 @@
-$(document).ready(function() {
+
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize the map
     const map = L.map('mapid').setView([42.2674, 2.9556], 13);
 
@@ -13,7 +14,7 @@ $(document).ready(function() {
         .openPopup();
 
     // Function for add locations
-    function addMarker(lat, lng) {
+    window.addMarker = function(lat, lng) {
         L.marker([lat, lng]).addTo(map)
             .bindPopup(`Nueva ubicación: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
             .openPopup();

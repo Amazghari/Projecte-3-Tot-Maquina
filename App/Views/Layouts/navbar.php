@@ -48,6 +48,5 @@
         </div>
     </div>
 </nav>
-<script src="../js/navbar.js"></script>
 <script src="/js/bundle.js"></script>
 
