@@ -45,7 +45,7 @@
                 <?php } ?>
                 <li class="ml-6">
                     <a href="/perfil" class="block">
-                        <img src="<?= $userData['img'] ?>" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
+                        <img src="<?= $_SESSION['user']['img'] ?>" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
                     </a>
                 </li>
             </ul>
