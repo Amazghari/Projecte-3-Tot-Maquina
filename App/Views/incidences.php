@@ -91,7 +91,7 @@
 <script src="js/incidences.js"></script>
 
 
-        <!-- Tabla de incidencia -->
+        <!-- Tabla de incidencias -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">

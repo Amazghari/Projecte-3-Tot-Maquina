@@ -12,9 +12,15 @@ class Maintenance {
     }
 
     public function add($state,$type,$description,$date,$idmachine){
-        $query="insert into maintenance (state,type,description,maintenance_date,id_machine) values ('{$state}','{$type}','{$description}','{$date}','{$idmachine}')";
+        $query="insert into maintenance (state,type,description,maintenance_date,id_machine) values (:state ,:type,:description,:date,:idmachine)";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute([
+            ":state"=>$state,
+            ":type"=>$type,
+            ":description"=>$description,
+            ":date"=>$date,
+            ":idmachine"=>$idmachine
+        ]);
     }
     public function list (){
         $query = "select * from machines;";

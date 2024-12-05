@@ -13,7 +13,7 @@
 
 <body class="bg-custom-light-gray flex items-center justify-center h-screen"> 
   <div class="bg-white rounded-lg shadow-lg p-6 w-96">
-    <h2 class="text-center text-xl font-bold mb-4">Acceso al sistema</h2>
+    <h1 class="text-center text-xl font-bold mb-4">Acceso al sistema</h1>
     <img src="/uploads/img/logopng.png" alt="Logo" class="w-16 mx-auto mb-4">
     <form action="/login" method="post">
       <div class="mb-4">

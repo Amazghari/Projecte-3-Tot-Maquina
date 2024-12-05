@@ -25,7 +25,7 @@ class adminusersController {
       $email = $request->get(INPUT_POST, "email");
       $role = $request->get(INPUT_POST, "role");
       $username = $request->get(INPUT_POST, "username");
-      $password = $request->get(INPUT_POST, "passwordUser");
+      $password = password_hash($request->get(INPUT_POST, "passwordUser"),PASSWORD_BCRYPT);
       $users = $container->get("Users");
       $users->add($name,$surname,$email,$role,$username,$password);
       $response->redirect("location:/adminusuarios");

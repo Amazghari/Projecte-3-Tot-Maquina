@@ -20,9 +20,9 @@ class Users
     }
 
     public function getUser($username){
-        $query= "select * from users where username='{$username}'";
+        $query= "select * from users where username=:username";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute([":username"=>$username]);
         
         // Fetch the result as an associative array.
         $result = $stm->fetch(\PDO::FETCH_ASSOC);
@@ -31,19 +31,19 @@ class Users
     }
 
     public function add($name,$surname,$email,$role,$username,$password){
-        $query= "insert into users (name,surname,email,role,username,password) values ('{$name}','{$surname}','{$email}','{$role}','{$username}','{$password}')";
+        $query= "insert into users (name,surname,email,role,username,password) values (:name,:surname,:email,:role,:username,:password)";
         $stm = $this->sql->prepare($query);
-        $stm->execute();
+        $stm->execute([":name"=>$name,":surname"=>$surname,":email"=>$email,":role"=>$role,":username"=>$username,":password"=>$password]);
     }
      // Method to delete a user from the database by their ID.
      public function delete($id)
      {
          // SQL query to delete a user based on their ID.
-         $query = "delete from users where id={$id};";
+         $query = "delete from users where id=:id;";
          
          // Prepare and execute the query.
          $stm = $this->sql->prepare($query);
-         $stm->execute();
+         $stm->execute([":id"=>$id]);
      }
      //list all the users for the admin dashboard
      public function list()
@@ -60,5 +60,27 @@ class Users
          
          // Return the list of users.
          return $users;
+     }
+
+    //  public function listProfile(){
+    //     $query = "select * from users;";
+    //     $profiles = [];
+    //     foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $profile) {
+    //         $profiles[$profile["id"]] = $profile;
+    //     }
+    //     return $profiles;
+    // }
+
+     public function updateProfile($id,$name,$surname,$username,$role,$img){
+        $query="update users set name=:name,surname=:surname,username=:username,role=:role,img=:img where id=:id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":name"=>$name,
+            ":surname"=>$surname,
+            ":username"=>$username,
+            ":role"=>$role,
+            ":img"=>$img,
+            ":id"=>$id
+        ]);
      }
 }
