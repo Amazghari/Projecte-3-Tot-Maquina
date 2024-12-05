@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
-class incidenceController {
+class incidenceController
+{
 
-    public function incidenceController($request, $response, $container){
+    public function incidenceController($request, $response, $container)
+    {
 
         $incidencesModel = $container->get("Incidences");
         $id = $request->getParam("id");
