@@ -22,15 +22,19 @@
                 <li>
                     <a href="/inicio" class="nav-button">Inicio</a>
                 </li>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
                 <li>
                     <a href="/mitrabajo" class="nav-button">Mi Trabajo</a>
                 </li>
+                <?php } ?>
                 <li>
                     <a href="/inventario" class="nav-button">Inventario</a>
                 </li>
+                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
                 <li>
                     <a href="/mantenimientos" class="nav-button">Mantenimiento</a>
                 </li>
+                <?php } ?>
                 <li>
                     <a href="/incidencias" class="nav-button">Incidencias</a>
                 </li>
