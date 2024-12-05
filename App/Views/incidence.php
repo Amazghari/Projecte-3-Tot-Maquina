@@ -53,7 +53,7 @@
                                             <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Técnico</span>
                                         </td>
                                         <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
-                                       
+
                                     </tr>
                                     <!-- Puedes añadir más filas aquí -->
                                 </tbody>
@@ -76,46 +76,46 @@
                     <input type="datetime-local" name="response_time" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" required>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Descripción</label>
-                    <textarea name="description" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" required></textarea>
-                </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700"><?= $incidence['description'] ?></label>
+                        <textarea name="description" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" required></textarea>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Usuario que ha creado la incidencia</h3>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden mt-8">
+                            <div class="table-responsive">
+                                <table class="min-w-full">
+                                    <thead class="bg-custom-blue text-white">
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-sm font-semibold">ID Usuario</th>
+                                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
+                                            <th class="px-6 py-3 text-left text-sm font-semibold">Apellido</th>
+                                            <th class="px-6 py-3 text-left text-sm font-semibold">Email</th>
+                                            <th class="px-6 py-3 text-left text-sm font-semibold">Rol</th>
+                                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre de Usuario</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-6 py-4 text-sm text-gray-900">#USR-001</td>
+                                            <td class="px-6 py-4 text-sm text-gray-900">Juan</td>
+                                            <td class="px-6 py-4">Pérez</td>
+                                            <td class="px-6 py-4">
+                                                <p class="truncate max-w-[200px]">juan.perez@example.com</p>
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Técnico</span>
+                                            </td>
+                                            <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
 
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800">Usuario que ha creado la incidencia</h3>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden mt-8">
-                        <div class="table-responsive">
-                            <table class="min-w-full">
-                                <thead class="bg-custom-blue text-white">
-                                    <tr>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">ID Usuario</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Apellido</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Email</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Rol</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Nombre de Usuario</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50">
-                                        <td class="px-6 py-4 text-sm text-gray-900">#USR-001</td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">Juan</td>
-                                        <td class="px-6 py-4">Pérez</td>
-                                        <td class="px-6 py-4">
-                                            <p class="truncate max-w-[200px]">juan.perez@example.com</p>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Técnico</span>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
-                                        
-                                    </tr>
-                                    <!-- Puedes añadir más filas aquí -->
-                                </tbody>
-                            </table>
+                                        </tr>
+                                        <!-- Puedes añadir más filas aquí -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Fecha de Inicio</label>

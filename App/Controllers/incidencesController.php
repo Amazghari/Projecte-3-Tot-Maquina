@@ -20,7 +20,7 @@ class incidencesController
             $response->setTemplate("incidences.php");
     
             return $response;
-        }
+    }
 
     public function addIncidences(Request $request, Response $response, Container $container): Response
     {

@@ -31,4 +31,11 @@ class Incidences{
         return $incidences;
     }
 
+    public function getById($id){
+        $query="select * from incidence where id=:id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([":id"=>$id]);
+        return $stm->fetch(\PDO::FETCH_ASSOC);
+    }
+
 }
