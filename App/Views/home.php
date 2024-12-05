@@ -78,6 +78,8 @@
         </div>
     </div>
 <!-- Footer -->
+<script src="/js/bundle.js"></script>
+
 
 </body>
 <?php include 'Layouts/footer.php'; ?>
