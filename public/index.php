@@ -67,8 +67,8 @@ $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController
 $app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
 $app->route("/incidencia", [\App\Controllers\incidenceController::class, "incidenceController"]);
 $app->route("/asignarincidencia", [\App\Controllers\asignIncidencesController::class, "asignIncidencesController"]);
-
-
+$app->route("/mantenimiento/añadir",[\App\Controllers\maintenanceController::class, "addMaintenance"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->route("/mantenimiento/{id}", [\App\Controllers\maintenanceController::class, "maintenanceView"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);
 

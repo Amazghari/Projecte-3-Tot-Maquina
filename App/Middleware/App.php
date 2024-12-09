@@ -12,6 +12,14 @@ class App {
         // Code before FrontConroller
 
         $response->set("app_config", $container["config"]);
+        $user= $request->get("SESSION", "user");
+        $logged = $request->get("SESSION", "logged");
+
+        if (isset($logged) && $logged) {
+            $response->set("app_logged", $logged);
+            $response->set("app_user", $user);
+        }
+        
         //echo "App Middleware";
         $response = \Emeset\Middleware::next($request, $response, $container, $next);
         // Code after FrontConroller

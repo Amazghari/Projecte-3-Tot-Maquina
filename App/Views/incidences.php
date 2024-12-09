@@ -16,9 +16,11 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h1 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h1>
-            <a href="/asignarincidencia" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Asignar Técnico">
+            <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
+            <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Asignar Técnico">
                 Asignar Técnico
             </a>
+            <?php } ?>
             <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Nueva Incidencia
             </label>
@@ -151,6 +153,8 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/incidences.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
