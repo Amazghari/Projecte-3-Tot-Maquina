@@ -20,7 +20,8 @@
                 <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                     Nuevo Usuario
                 </label>
-                <button class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">Crear Usuario Random</button>
+                <button id='create-random-user-supervisor' class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">Usuario Random Supervisor</button>
+                <button id='create-random-user-technical' class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">Usuario Random Tecnico</button>
             </div>
         </div>
 
@@ -43,12 +44,12 @@
                 <form id="incident-form" action="/adminusarios/añadir" class="space-y-4 mt-4" method="post">
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre</label>
-                        <input type="text" name="first_name" id="first_name" required
+                        <input type="text" name="name" id="first_name" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Nombre del usuario">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Apellido</label>
-                        <input type="text" name="last_name" id="last_name" required
+                        <input type="text" name="surname" id="last_name" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Apellido del usuario">
                     </div>
                     <div>
@@ -142,7 +143,8 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/users.js"></script> 
+    <script src="js/users.js"></script>
+    <script src="js/randomuser.js"></script>
 </body>
 
 <!-- Footer -->

@@ -600,6 +600,9 @@ video {
 .mt-6 {
   margin-top: 1.5rem;
 }
+.mt-7 {
+  margin-top: 1.75rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
@@ -662,6 +665,9 @@ video {
 }
 .w-16 {
   width: 4rem;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .w-32 {
   width: 8rem;
@@ -1301,7 +1307,7 @@ html, body {
     background-color: #003366; /* Fondo azul oscuro */
     color: white; /* Letras blancas */
     padding: 0.625rem 1.5rem;
-    border-radius: 9999px;
+    border-radius: 5px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;

@@ -79,6 +79,7 @@
     </div>
 <!-- Footer -->
 
+
 </body>
 <?php include 'Layouts/footer.php'; ?>
 </html>

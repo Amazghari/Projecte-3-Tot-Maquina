@@ -52,4 +52,5 @@
         </div>
     </div>
 </nav>
-<script src="../js/navbar.js"></script> <!-- Asegúrate de que esta ruta sea correcta -->
+<script src="/js/bundle.js"></script>
+

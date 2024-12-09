@@ -28,6 +28,12 @@
                 <?php if (isset($app_user) && $app_user["role"] != "usuario") { ?>
                     <a href="/asignar" class="nav-button-custom">Asignar Técnico</a>
                     <label for="modal-toggle" class="nav-button-custom cursor-pointer">Nueva Máquina</label>
+                    <?php if(isset($_SESSION['user']) && 
+                    ($_SESSION['user']['role'] == 'administrator' || 
+                     $_SESSION['user']['role'] == 'supervisor')) { ?>
+                    <button class="nav-button-custom">Importar CSV</button>
+                    <?php } ?>
+
                 <?php } ?>
             </div>
         </div>
@@ -87,7 +93,7 @@
     <!-- Modal usando solo CSS -->
     <input type="checkbox" id="modal-toggle" class="hidden">
     <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
-        <div class="modal-content p-4 mt-20">
+        <div class="modal-content p-4 mt-7">
             <div class="flex justify-between items-center pb-3 border-b">
                 <h3 class="text-xl font-semibold text-gray-900">Nueva Máquina</h3>
                 <label for="modal-toggle" class="cursor-pointer text-gray-600 hover:text-gray-800">
@@ -128,7 +134,7 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Imagen</label>
-                    <input type="file" name="image" id="image" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    <input type="file" name="image" id="image" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" capture="camera" required>
                 </div>
 
                 <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
