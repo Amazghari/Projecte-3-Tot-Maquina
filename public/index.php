@@ -45,7 +45,7 @@ $app->route("/perfil", [\App\Controllers\profileController::class, "profileContr
 $app->route("/asignar", [\App\Controllers\asignMachineController::class, "asignMachineController"]);
 $app->route("/maquina", [\App\Controllers\machineController::class, "machineController"]);
 $app->post("/inventario/eliminar/{id}", [\App\Controllers\inventoryController::class, "deleteMachine"],[[\App\Middleware\auth::class, "isAdmin"]]);
-$app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"],[[\App\Middleware\auth::class, "isTechnician"]]);
+$app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::class, "editMachine"]);
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 $app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machineController"]);
 $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
@@ -63,7 +63,7 @@ $app->route("/mantenimiento", [\App\Controllers\maintenanceviewController::class
 $app->get("/login", [\App\Controllers\loginController::class, "index"]);
 $app->post("/login",[\App\Controllers\loginController::class, "loginController"]);
 $app->get("/logout", [\App\Controllers\loginController::class, "logout"],[[\App\Middleware\auth::class, "auth"]]);
-$app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"],[[\App\Middleware\auth::class, "isTechnician"]]);
+$app->route("/inventario/añadir", [\App\Controllers\inventoryController::class, "addMachine"]);
 $app->get("/adminusuarios/eliminar/{id}", [\App\Controllers\adminusersController::class, "deleteUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "searchMachine"]);
 $app->route("/incidencia", [\App\Controllers\incidenceController::class, "incidenceController"]);
