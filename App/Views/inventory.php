@@ -28,7 +28,12 @@
                 <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] != "usuario") { ?>
                     <a href="/asignar" class="nav-button-custom">Asignar Técnico</a>
                     <label for="modal-toggle" class="nav-button-custom cursor-pointer">Nueva Máquina</label>
+                    <?php if(isset($_SESSION['user']) && 
+                    ($_SESSION['user']['role'] == 'administrator' || 
+                     $_SESSION['user']['role'] == 'supervisor')) { ?>
                     <button class="nav-button-custom">Importar CSV</button>
+                    <?php } ?>
+
                 <?php } ?>
             </div>
         </div>

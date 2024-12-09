@@ -22,15 +22,32 @@
                 <li>
                     <a href="/inicio" class="nav-button mb-2">Inicio</a>
                 </li>
+                <?php if(isset($_SESSION['user']) && 
+                    ($_SESSION['user']['role'] == 'administrator' || 
+                     $_SESSION['user']['role'] == 'tecnico' || 
+                     $_SESSION['user']['role'] == 'supervisor')) { ?>
                 <li>
                     <a href="/mitrabajo" class="nav-button ">Mi Trabajo</a>
                 </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['user']) && 
+                    ($_SESSION['user']['role'] == 'administrator' || 
+                     $_SESSION['user']['role'] == 'tecnico' || 
+                     $_SESSION['user']['role'] == 'supervisor')) { ?>
                 <li>
                     <a href="/inventario" class="nav-button">Inventario</a>
                 </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['user']) && 
+                    ($_SESSION['user']['role'] == 'administrator' || 
+                     $_SESSION['user']['role'] == 'tecnico' || 
+                     $_SESSION['user']['role'] == 'supervisor')) { ?>
+
                 <li>
                     <a href="/mantenimientos" class="nav-button">Mantenimiento</a>
                 </li>
+                <?php } ?>
+
                 <li>
                     <a href="/incidencias" class="nav-button">Incidencias</a>
                 </li>

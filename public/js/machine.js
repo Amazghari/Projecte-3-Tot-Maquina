@@ -29,7 +29,7 @@ $(document).ready(function() {
 $(document).ready(function () {
     $("#search").on("keyup", function () {
         var searchValue = $(this).val();
-        if (searchValue.length >= 3) {
+        if (searchValue.length >= 1) {
             $.ajax({
                 type: "GET",
                 url: "/inventario/buscar", // Cambia esta URL según tu ruta
@@ -123,16 +123,4 @@ $("#search").on("keyup", function() {
     }
 });
 
-// Inicializar el mapa
-var map = L.map('map').setView([51.505, -0.09], 13);
 
-// // // Añadir la capa de mosaico de OpenStreetMap
-// // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-// //     maxZoom: 19,
-// //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-// // }).addTo(map);
-
-// // // Añadir un marcador (opcional)
-// // var marker = L.marker([51.505, -0.09]).addTo(map);
-// // marker.bindPopup("<b>Mi vida sin ti!</b><br>Es como una vista del gerard").openPopup();
-// //  del gerard").openPopup();
