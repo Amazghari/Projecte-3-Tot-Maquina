@@ -30,10 +30,10 @@ class Users
         return $result;
     }
 
-    public function add($name,$surname,$email,$role,$username,$password){
-        $query= "insert into users (name,surname,email,role,username,password) values (:name,:surname,:email,:role,:username,:password)";
+    public function add($name,$surname,$email,$role,$username,$img,$password){
+        $query= "insert into users (name,surname,email,role,username,img,password) values (:name,:surname,:email,:role,:username,:img,:password)";
         $stm = $this->sql->prepare($query);
-        $stm->execute([":name"=>$name,":surname"=>$surname,":email"=>$email,":role"=>$role,":username"=>$username,":password"=>$password]);
+        $stm->execute([":name"=>$name,":surname"=>$surname,":email"=>$email,":role"=>$role,":username"=>$username,":img"=>$img,":password"=>$password]);
     }
      // Method to delete a user from the database by their ID.
      public function delete($id)
