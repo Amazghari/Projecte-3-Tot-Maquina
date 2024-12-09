@@ -7,6 +7,7 @@ import "./navbar.js";
 import "./mapahome.js"
 
  
+
 import {Example, obj} from "./example.ts";
 
 $(function() {
@@ -14,4 +15,4 @@ $(function() {
     hola();
     console.log("Example", obj);
 });
-
+ 

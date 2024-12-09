@@ -27,7 +27,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addButtonControl.addTo(map);
 });
-
-
-
-
