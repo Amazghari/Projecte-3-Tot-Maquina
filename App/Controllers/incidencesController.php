@@ -29,8 +29,13 @@ class incidencesController
         $priority = $request->get(INPUT_POST, "priority");
         $description = $request->get(INPUT_POST, "description");
         $id_machine = $request->get(INPUT_POST, "id_machine");
+
+        if ($id_machine === "") {
+            $id_machine = NULL;
+        }
+        
         $incidences = $container->get("Incidences");
-        $incidences->add($name,$state,$priority,$description,$id_machine);
+        $incidences->add($name, $state, $priority, $description, $id_machine);
 
         $response->redirect("location: /incidencias");
         return $response;
