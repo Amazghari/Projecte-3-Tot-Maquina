@@ -22,7 +22,7 @@
                 <li>
                     <a href="/inicio" class="nav-button mb-2">Inicio</a>
                 </li>
-                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
+                <?php if(isset($app_user) && $app_user['role'] != 'usuario'){?>
                 <li>
                     <a href="/mitrabajo" class="nav-button ">Mi Trabajo</a>
                 </li>
@@ -30,7 +30,7 @@
                 <li>
                     <a href="/inventario" class="nav-button">Inventario</a>
                 </li>
-                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
+                <?php if(isset($app_user) && $app_user['role'] != 'usuario'){?>
                 <li>
                     <a href="/mantenimientos" class="nav-button">Mantenimiento</a>
                 </li>
@@ -38,14 +38,14 @@
                 <li>
                     <a href="/incidencias" class="nav-button">Incidencias</a>
                 </li>
-                <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] == 'administrator'){?>
+                <?php if(isset($app_user) && $app_user['role'] == 'administrator'){?>
                 <li>
                     <a href="/paneladministrador" class="nav-button">Admin</a>
                 </li>
                 <?php } ?>
                 <li class="ml-6">
                     <a href="/perfil" class="block">
-                        <img src="<?= $_SESSION['user']['img'] ?>" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
+                        <img src="<?= $app_user['img'] ?>" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
                     </a>
                 </li>
             </ul>

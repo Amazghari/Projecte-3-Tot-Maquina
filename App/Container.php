@@ -47,6 +47,14 @@ class Container extends EmesetContainer {
             return $users;
         };
 
+        $this["Maintenances"] = function ($c) {
+            $db= $c->get("db");
+            $maintenances = new \App\Models\Maintenance($db->getConnection());
+            return $maintenances;
+        };
 
     }
+
+
+    
 }

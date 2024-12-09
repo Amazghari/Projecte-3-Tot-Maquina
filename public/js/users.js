@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#passwordUser").on("change", function () {
+    $("#passwordUser").on("keyup", function () {
         var password = $(this).val();
         var exp = "/(?=^.{6,13})(?=\w)/";
 
