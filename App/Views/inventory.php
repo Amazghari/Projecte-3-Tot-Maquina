@@ -25,7 +25,7 @@
 
             <!-- Botones -->
             <div class="mt-4 flex space-x-4">
-                <?php if (isset($_SESSION["user"]) && $_SESSION["user"]["role"] != "usuario") { ?>
+                <?php if (isset($app_user) && $app_user["role"] != "usuario") { ?>
                     <a href="/asignar" class="nav-button-custom">Asignar Técnico</a>
                     <label for="modal-toggle" class="nav-button-custom cursor-pointer">Nueva Máquina</label>
                     <?php if(isset($_SESSION['user']) && 
