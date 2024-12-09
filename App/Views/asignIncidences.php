@@ -14,14 +14,14 @@
 
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
-            <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Maquinas a Técnicos</h2>
+            <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Incidencias a Técnicos</h2>
             <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
                 Guardar
             </button>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
             <div class="flex flex-col md:flex-row justify-start items-center">
-                <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Maquinas</h2>
+                <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Incidencias</h2>
             </div>
             <div class="flex flex-col md:flex-row justify-end items-center">
                 <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Técnicos</h2>
@@ -37,17 +37,17 @@
                             <tr>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Nº serie</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Técnico</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Descripcion</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Asignar Tecnico</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
                             <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#MAQ-001</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">#INC-001</td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Fresadora 1</p>
+                                    <p class="truncate max-w-[200px]">Fallo al enceder</p>
                                 </td>
-                                <td class="px-6 py-4">1231232132</td>
+                                <td class="px-6 py-4">Cuando enciendo la maquina no arranca</td>
                                 <td class="px-6 py-4">
                                     <form class="flex items-center">
                                         <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
@@ -55,11 +55,11 @@
                                 </td>
                             </tr>
                             <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#MAQ-002</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">#INC-002</td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Fresadora 2</p>
+                                    <p class="truncate max-w-[200px]">Fallo al cortar</p>
                                 </td>
-                                <td class="px-6 py-4">9876543210</td>
+                                <td class="px-6 py-4">Cuando Corto el material la maquina se para sola</td>
                                 <td class="px-6 py-4">
                                     <form class="flex items-center">
                                         <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
