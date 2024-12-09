@@ -13,8 +13,8 @@ create table machines (
 	image_url VARCHAR(255),
 	first_answer VARCHAR(255)
 );
-insert into machines (model,manufacturer,serial_num,installation_date,location,image_url,first_answer) 
-values("model1","manufacturer1","serialNumbe1",CURDATE(),"location1","image1","first_answer");
+insert into machines (model,manufacturer,serial_num,installation_date,longitude,latitude,image_url,first_answer) 
+values("model1","manufacturer1","serialNumbe1",CURDATE(),"123","123""image1","first_answer");
 -- select * from machines;
 create table users(
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +33,7 @@ insert into users (name,surname,img,email,role,username,password)values
 insert into users (name,surname,img,email,role,username,password)values
 ("supervisor","supervisor","supuestaurl","supervisor@test.com","supervisor","supervisor","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
 insert into users (name,surname,img,email,role,username,password)values
-("usuario","usuario","supuestaurl","usuario@test.com","usuario","usuario","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
+	("usuario","usuario","supuestaurl","usuario@test.com","usuario","usuario","$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy");
 -- contraseña 12345678
 -- select * from users;
 create table incidence(

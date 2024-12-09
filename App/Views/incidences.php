@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/incidence.js"></script>
+
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="../../uploads/img/logopng.png">
 </head>
@@ -70,7 +72,7 @@
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Id Maquina</label>
-                <input type="text" name="id_machine" id="id_machine" required
+                <input type="text" name="id_machine" id="id_machine" 
                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
             </div>
 
@@ -151,7 +153,6 @@
     </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/js/incidence.js"></script>
 </body>
 <!-- Footer -->
 <?php include 'Layouts/footer.php'; ?>
