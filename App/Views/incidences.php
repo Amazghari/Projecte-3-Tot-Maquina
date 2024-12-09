@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/incidence.js"></script>
+
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="../../uploads/img/logopng.png">
 </head>
@@ -153,6 +155,8 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/incidences.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 <!-- Footer -->
 <?php include 'Layouts/footer.php'; ?>

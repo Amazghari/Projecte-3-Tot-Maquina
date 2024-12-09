@@ -5,8 +5,9 @@ namespace App\Controllers;
 class asignIncidencesController {
 
     public function asignIncidencesController($request, $response, $container){
+        
 
-        $response->setTemplate("asignIncidences.php");
+        $response->setTemplate("asignincidences.php");
 
         return $response;
     }

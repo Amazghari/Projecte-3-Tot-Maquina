@@ -15,13 +15,13 @@
 
     <link rel="icon" href="../../uploads/img/logopng.png">
 
- 
+
 
 </head>
 
 <body class="bg-custom-light-gray">
 
-<?php include 'Layouts/navbar.php'; ?>
+    <?php include 'Layouts/navbar.php'; ?>
 
 
 
@@ -51,17 +51,17 @@
 
         <input type="checkbox" id="modal-toggle" class="hidden">
 
-        <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" 
+        <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
 
-             id="modal"
+            id="modal"
 
-             role="dialog"
+            role="dialog"
 
-             aria-modal="true"
+            aria-modal="true"
 
-             aria-labelledby="modal-title"
+            aria-labelledby="modal-title"
 
-             aria-describedby="modal-description">
+            aria-describedby="modal-description">
 
             <div class="modal-content p-6" role="document">
 
@@ -73,7 +73,7 @@
 
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
 
                         </svg>
 
@@ -81,7 +81,7 @@
 
                 </div>
 
-                
+
 
                 <form class="space-y-4 mt-4" aria-labelledby="modal-title" action="/mantenimiento/añadir" method="post">
 
@@ -93,17 +93,17 @@
 
                         <select name="id_machine" id="id_machine"
 
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
 
-                               aria-required="true">
+                            aria-required="true">
 
-                               <option value="" selected disabled hidden>Elige id maquina</option>
+                            <option value="" selected disabled hidden>Elige id maquina</option>
 
-                               <?php foreach ($machines as $machine){ ?>
+                            <?php foreach ($machines as $machine) { ?>
 
-                                <option value="<?php echo $machine['id']; ?>"><?php echo $machine['id']." - ". $machine['name']; ?></option>
+                                <option value="<?php echo $machine['id']; ?>"><?php echo $machine['id'] . " - " . $machine['name']; ?></option>
 
-                                <?php } ?>
+                            <?php } ?>
 
                         </select>
 
@@ -115,11 +115,11 @@
 
                         <label class="block text-sm font-medium text-gray-700" for="title">Título</label>
 
-                        <input type="text" id="title" name="title" 
+                        <input type="text" id="title" name="title"
 
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
 
-                               aria-required="true">
+                            aria-required="true">
 
                     </div>
 
@@ -175,9 +175,9 @@
 
                         <input type="date" id="date" name="date"
 
-                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
 
-                               aria-required="true">
+                            aria-required="true">
 
                     </div>
 
@@ -185,29 +185,29 @@
 
                         <label class="block text-sm font-medium text-gray-700" for="description">Descripción</label>
 
-                        <textarea id="description" rows="4" name="description" 
+                        <textarea id="description" rows="4" name="description"
 
-                                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
 
-                                  aria-required="true"></textarea>
+                            aria-required="true"></textarea>
 
                     </div>
 
-                    
+
 
                     <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
 
-                        <label for="modal-toggle" 
+                        <label for="modal-toggle"
 
-                               class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer" aria-label="Cancelar">
+                            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer" aria-label="Cancelar">
 
                             Cancelar
 
                         </label>
 
-                        <button type="submit" 
+                        <button type="submit"
 
-                                class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors" aria-label="Guardar">
+                            class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors" aria-label="Guardar">
 
                             Guardar
 
@@ -255,83 +255,83 @@
 
                     <tbody class="divide-y divide-gray-200">
 
-                        <?php foreach ($maintenances as $maintenance) { 
-                            
+                        <?php foreach ($maintenances as $maintenance) {
+
                             $date = new DateTime($maintenance["maintentance_date"]);
 
                             $maintenance["maintentance_date"] = $date->format('d/m/Y');
-                            
-                            ?>
 
-                        <tr class="hover:bg-gray-50">
+                        ?>
 
-                            <td class="px-6 py-4 text-sm text-gray-900">#MNT-<?= $maintenance["id"] ?></td>
+                            <tr class="hover:bg-gray-50">
 
-                            <td class="px-6 py-4 text-sm text-gray-900">
+                                <td class="px-6 py-4 text-sm text-gray-900">#MNT-<?= $maintenance["id"] ?></td>
 
-                                <p class="truncate max-w-[200px]"><?= $maintenance["title"] ?></p>
+                                <td class="px-6 py-4 text-sm text-gray-900">
 
-                            </td>
+                                    <p class="truncate max-w-[200px]"><?= $maintenance["title"] ?></p>
 
-                            <td class="px-6 py-4">
+                                </td>
 
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
+                                <td class="px-6 py-4">
 
-                                    <?= $maintenance["type"] ?>
+                                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
 
-                                </span>
+                                        <?= $maintenance["type"] ?>
 
-                            </td>
+                                    </span>
 
-                            <td class="px-6 py-4">
+                                </td>
 
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
+                                <td class="px-6 py-4">
 
-                                    <?= $maintenance["state"] ?>
+                                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
 
-                                </span>
+                                        <?= $maintenance["state"] ?>
 
-                            </td>
+                                    </span>
 
-                            <td class="px-6 py-4 text-sm text-gray-900">MAQ-<?= $maintenance["id_machine"] ?></td>
+                                </td>
 
-                            <td class="px-6 py-4 text-sm text-gray-900"><?= $maintenance["maintentance_date"] ?></td>
+                                <td class="px-6 py-4 text-sm text-gray-900">MAQ-<?= $maintenance["id_machine"] ?></td>
 
-                            <td class="px-6 py-4 text-sm">
+                                <td class="px-6 py-4 text-sm text-gray-900"><?= $maintenance["maintentance_date"] ?></td>
 
-                                <div class="flex space-x-3">
+                                <td class="px-6 py-4 text-sm">
 
-                                    <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/mantenimiento/<?= $maintenance["id"] ?>'" aria-label="Ver detalles del mantemiento #MNT-<?= $maintenance["id"] ?>">
+                                    <div class="flex space-x-3">
 
-                                        <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
+                                        <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/mantenimiento/<?= $maintenance["id"] ?>'" aria-label="Ver detalles del mantemiento #MNT-<?= $maintenance["id"] ?>">
 
-                                    </button>
+                                            <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
 
-                                    <a href="/mantenimiento/editar/<?= $maintenance["id"] ?>" class="cursor-pointer text-blue-600 hover:text-blue-800" aria-label="Editar mantenimiento #MNT-001">
+                                        </button>
 
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <a href="/mantenimiento/editar/<?= $maintenance["id"] ?>" class="cursor-pointer text-blue-600 hover:text-blue-800" aria-label="Editar mantenimiento #MNT-001">
 
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
-                                        </svg>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
 
-                                    </a>
+                                            </svg>
 
-                                    <button class="text-red-600 hover:text-red-800" data-id="<?= $maintenance["id"] ?>" id="eliminarMantenimiento" aria-label="Eliminar mantenimiento #MNT-"<?= $maintenance["id"] ?>">
+                                        </a>
 
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <button class="text-red-600 hover:text-red-800" data-id="<?= $maintenance["id"] ?>" id="eliminarMantenimiento" aria-label="Eliminar mantenimiento #MNT-" <?= $maintenance["id"] ?>">
 
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
-                                        </svg>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 
-                                    </button>
+                                            </svg>
 
-                                </div>
+                                        </button>
 
-                            </td>
+                                    </div>
 
-                        </tr>
+                                </td>
+
+                            </tr>
 
                         <?php } ?>
 
@@ -343,7 +343,7 @@
 
         </div>
 
-   </div>
+    </div>
 
 
 
