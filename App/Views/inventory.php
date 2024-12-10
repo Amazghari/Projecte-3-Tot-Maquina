@@ -28,18 +28,18 @@
                 <?php if (isset($app_user) && $app_user["role"] != "usuario") { ?>
                     <a href="/asignar" class="nav-button-custom">Asignar Técnico</a>
                     <label for="modal-toggle" class="nav-button-custom cursor-pointer">Nueva Máquina</label>
-                    <?php if(isset($app_user) && 
-                    ($app_user['role'] == 'administrator' || 
-                     $app_user['role'] == 'supervisor')) { ?>
-                    <form action="/inventar/importar" method="post" enctype="multipart/form-data" class="mt-4">
-                        <label for="csvFile" class="nav-button-custom cursor-pointer">Seleccionar CSV</label>
-                        <input type="file" name="csvFile" id="csvFile" accept=".csv" class="hidden" required>
-                        <button type="submit" class="nav-button-custom">guardar CSV</button>
-                    </form>
-                    <?php } ?>
-
                 <?php } ?>
             </div>
+            <!-- Botón para importar CSV -->
+            <?php if(isset($app_user) && 
+            ($app_user['role'] == 'administrator' || 
+             $app_user['role'] == 'supervisor')) { ?>
+            <form action="/inventar/importar" method="post" enctype="multipart/form-data" class="mt-4">
+                <label for="csvFile" class="nav-button-custom cursor-pointer">Seleccionar CSV</label>
+                <input type="file" name="csvFile" id="csvFile" accept=".csv" class="hidden" required>
+                <button type="submit" class="nav-button-custom">Guardar </button>
+            </form>
+            <?php } ?>
         </div>
 
         <!-- Tabla de inventario -->
