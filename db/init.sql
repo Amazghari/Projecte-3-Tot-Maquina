@@ -50,10 +50,13 @@ create table incidence(
 
 create table maintenance(
 	id int AUTO_INCREMENT PRIMARY KEY,
+	title varchar(255),
+	frequency varchar(255),
 	state varchar(255),
 	type varchar(255),
 	description varchar(255),
 	status varchar(255),
+	maintentance_date varchar(255),
 	id_machine int
 );
 insert into incidence (state,priority,description,starting_date,end_date,
