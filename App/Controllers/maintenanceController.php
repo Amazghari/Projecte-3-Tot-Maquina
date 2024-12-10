@@ -60,4 +60,35 @@ class maintenanceController {
 
         return $response;
     }
+
+    public function maintenanceEdit($request, $response, $container){
+        $maintenances = $container->get("Maintenances");
+        $id = $request->getParam("id");
+        $maintenance = $maintenances->getById($id);
+        
+        $response->set("maintenance", $maintenance);
+
+        $response->setTemplate("editmaintenance.php");
+        return $response;
+    }
+
+    public function updateMaintenance($request, $response, $container){
+
+        $id = $request->get(INPUT_POST, "id");
+        $title = $request->get(INPUT_POST, "title");
+        $state = $request->get(INPUT_POST, "state");
+        $description = $request->get(INPUT_POST, "description");
+
+        // dd($_POST);
+        
+
+        $machines = $container->get("Maintenances");
+        $machines->update($id,$title,$state,$description);
+
+        
+
+        $response->redirect("location: /mantenimientos");
+    
+        return $response;
+    }
 }
