@@ -60,6 +60,16 @@ insert into incidence (state,priority,description,starting_date,end_date,
 imputed_hours,first_answer,id_machine) values
 ("unresolved","high","description1","today","tomorrow","2","2","1");
 
+create table notification(
+	id int AUTO_INCREMENT PRIMARY KEY,
+	title varchar(255),
+	message varchar(255),
+	state varchar(255),
+	date varchar(255),
+	id_user int
+
+);
+
 create table user_incidence(
 	id int AUTO_INCREMENT PRIMARY key,
 	id_user int,
@@ -80,3 +90,5 @@ create table user_maintenance(
 	id_maintenance int
 );
 insert into user_maintenance (id_user,id_maintenance) values (1,1);
+
+
