@@ -103,4 +103,15 @@ class Maintenance {
         }
         return $maintenances;
     }
+
+    public function update($id,$title,$state,$description){
+        $query="update maintenance set title=:title,state=:state,description=:description where id=:id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":title"=>$title,
+            ":state"=>$state,
+            ":description"=>$description,
+            ":id"=>$id
+        ]);
+    }
 }
