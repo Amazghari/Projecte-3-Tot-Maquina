@@ -103,7 +103,7 @@ class maintenanceController {
             return $response;
         }
 
-        $maintenance = $container->get("Maintenance");
+        $maintenance = $container->get("Maintenances");
         $maintenance->delete($id);
         $response->redirect("location: /mantenimientos");
 

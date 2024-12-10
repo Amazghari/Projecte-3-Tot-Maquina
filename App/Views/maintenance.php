@@ -15,6 +15,8 @@
 
     <link rel="icon" href="../../uploads/img/logopng.png">
 
+    <script src="/js/delete-maintenance.js"></script>
+
 
 
 </head>
@@ -317,7 +319,7 @@
 
                                         </a>
 
-                                        <button class="text-red-600 hover:text-red-800" data-id="<?= $maintenance["id"] ?>" id="eliminarMantenimiento" aria-label="Eliminar mantenimiento #MNT-" <?= $maintenance["id"] ?>">
+                                        <button class="text-red-600 hover:text-red-800" data-id="<?= $maintenance["id"] ?>" id="eliminarMantenimiento" aria-label="Eliminar mantenimiento #MNT-<?= $maintenance["id"] ?>">
 
                                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 
@@ -350,6 +352,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="/js/maintenance.js"></script>
+
+    <script src="/js/delete-maintenance.js"></script>
+
 
 </body>
 
