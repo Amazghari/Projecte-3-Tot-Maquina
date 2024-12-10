@@ -68,11 +68,11 @@ $app->get("/inventario/buscar", [\App\Controllers\inventoryController::class, "s
 $app->route("/incidencia", [\App\Controllers\incidenceController::class, "incidenceController"]);
 $app->route("/asignarincidencia", [\App\Controllers\asignIncidencesController::class, "asignIncidencesController"]);
 $app->route("/mantenimiento/añadir",[\App\Controllers\maintenanceController::class, "addMaintenance"],[[\App\Middleware\auth::class, "isUser"]]);
-// $app->route("/mantenimiento/{id}", [\App\Controllers\maintenanceController::class, "maintenanceView"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->route("/mantenimiento/updateMantenimiento", [\App\Controllers\maintenanceController::class, "updateMaintenance"]);
+$app->route("/mantenimiento/{id}", [\App\Controllers\maintenanceController::class, "maintenanceView"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);
 $app->route("/mantenimiento/editar/{id}", [\App\Controllers\maintenanceController::class, "maintenanceEdit"]);
-$app->route("/mantenimiento/updateMantenimiento", [\App\Controllers\maintenanceController::class, "updateMaintenance"]);
 
 // Ruta de prueba
 $app->route("ajax", function ($request, $response) {
