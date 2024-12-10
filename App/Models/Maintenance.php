@@ -114,4 +114,10 @@ class Maintenance {
             ":id"=>$id
         ]);
     }
+
+    public function delete($id){
+        $query="delete from maintenance where id=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([":id"=>$id]);
+    }
 }
