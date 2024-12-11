@@ -8,7 +8,7 @@ class Incidences{
     {
         $this->sql = $conn;
     }
-
+// add new incidance
     public function add($name,$state,$priority,$description,$id_machine)
     {
         $query="insert into incidence (name,state,priority,description,id_machine,starting_date) values (:name,:state,:priority,:description,:id_machine,CURDATE())";
@@ -21,7 +21,7 @@ class Incidences{
             ":id_machine"=>$id_machine
         ]); 
     }
-
+//select from incidances
     public function list(){
         $query = "select * from incidence;";
         $incidences = [];
@@ -30,14 +30,14 @@ class Incidences{
         }
         return $incidences;
     }
-
+// get incidences by ID
     public function getById($id){
         $query="select * from incidence where id=:id";
         $stm = $this->sql->prepare($query);
         $stm->execute([":id"=>$id]);
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
-
+// get all incidences
     public function listEdit(){
         $query = "select * from incidence;";
         $incidences = [];

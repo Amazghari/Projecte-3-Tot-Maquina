@@ -8,90 +8,91 @@ use \Emeset\Contracts\Container;
 class inventoryController {
 
     public function index($request, $response, $container){
-        $machinesModel = $container->get("Machines");
+        $machinesModel = $container->get("Machines"); // Get Machines model
 
-        $machines = $machinesModel->list();
+        $machines = $machinesModel->list(); // List all machines
 
-        $response->set("machines", $machines);
+        $response->set("machines", $machines); // Set machines in response
 
-        $response->setTemplate("inventory.php");
+        $response->setTemplate("inventory.php"); // Set the template for the response
 
-        return $response;
+        return $response; // Return the response
     }
 
     public function editMachine($request, $response, $container){
-        $machines = $container->get("Machines");
-        $id = $request->getParam("id");
-        $machine = $machines->getById($id);
+        $machines = $container->get("Machines"); // Get Machines model
+        $id = $request->getParam("id"); // Get machine ID from request
+        $machine = $machines->getById($id); // Get machine details by ID
         
-        $response->set("machine", $machine);
+        $response->set("machine", $machine); // Set machine details in response
 
-        $response->setTemplate("editmachine.php");
-        return $response;
+        $response->setTemplate("editmachine.php"); // Set the template for editing machine
+        return $response; // Return the response
     }
 
     public function updateMachine($request, $response, $container){
+        $directory = "/uploads/machines/"; // Directory for machine uploads
+        $id = $request->get(INPUT_POST, "id"); // Get machine ID from POST request
+        $name = $request->get(INPUT_POST, "name"); // Get machine name from POST request
+        $model = $request->get(INPUT_POST, "model"); // Get machine model from POST request
+        $manufacturer = $request->get(INPUT_POST, "manufacturer"); // Get manufacturer from POST request
+        $serial_num = $request->get(INPUT_POST, "serial_num"); // Get serial number from POST request
+        $longitude = $request->get(INPUT_POST, "longitude"); // Get longitude from POST request
+        $latitude = $request->get(INPUT_POST, "latitude"); // Get latitude from POST request
+        $image = $request->get("FILES", "image"); // Get uploaded image
 
-        $directory="/uploads/machines/";
-        $id = $request->get(INPUT_POST, "id");
-        $name = $request->get(INPUT_POST, "name");
-        $model = $request->get(INPUT_POST, "model");
-        $manufacturer = $request->get(INPUT_POST, "manufacturer");
-        $serial_num = $request->get(INPUT_POST, "serial_num"); 
-        $longitude = $request->get(INPUT_POST, "longitude");
-        $latitude = $request->get(INPUT_POST, "latitude");
-        $image=$request->get("FILES","image");
-        $image_url=$directory.$image["name"];
-        move_uploaded_file($image["tmp_name"],"uploads/machines//".$image["name"]);
-        $machines = $container->get("Machines");
-        $machines->update($id,$name,$model,$manufacturer,$serial_num,$longitude,$latitude,$image_url);
+        $image_url = $directory . $image["name"]; // Set image URL
+        move_uploaded_file($image["tmp_name"], "uploads/machines/" . $image["name"]); // Move uploaded file
 
-        $response->redirect("location: /inventario");
-    
-        return $response;
+        $machines = $container->get("Machines"); // Get Machines model
+        $machines->update($id, $name, $model, $manufacturer, $serial_num, $longitude, $latitude, $image_url); // Update machine details
+
+        $response->redirect("location: /inventario"); // Redirect to inventory page
+
+        return $response; // Return the response
     }
 
     public function addMachine(Request $request, Response $response, Container $container) :Response
     {
-        $directory="/uploads/machines/"; 
-       $name=$request->get(INPUT_POST,"machineName");
-       $model=$request->get(INPUT_POST,"model");
-       $manufacturer=$request->get(INPUT_POST,"manufacturer");
-       $serial_num=$request->get(INPUT_POST,"serialNumber");
-       $installation_date=$request->get(INPUT_POST,"installationDate");
-       $longitude=$request->get(INPUT_POST,"longitude");
-       $latitude=$request->get(INPUT_POST,"latitude");
-       $image=$request->get("FILES","image");
-       $image_url=$directory.$image["name"];
-       move_uploaded_file($image["tmp_name"],"uploads/machines//".$image["name"]);
+        $directory="/uploads/machines/"; // Directory for machine uploads
+       $name=$request->get(INPUT_POST,"machineName"); // Get machine name from POST request
+       $model=$request->get(INPUT_POST,"model"); // Get machine model from POST request
+       $manufacturer=$request->get(INPUT_POST,"manufacturer"); // Get manufacturer from POST request
+       $serial_num=$request->get(INPUT_POST,"serialNumber"); // Get serial number from POST request
+       $installation_date=$request->get(INPUT_POST,"installationDate"); // Get installation date from POST request
+       $longitude=$request->get(INPUT_POST,"longitude"); // Get longitude from POST request
+       $latitude=$request->get(INPUT_POST,"latitude"); // Get latitude from POST request
+       $image=$request->get("FILES","image"); // Get uploaded image
+       $image_url=$directory.$image["name"]; // Set image URL
+       move_uploaded_file($image["tmp_name"],"uploads/machines//".$image["name"]); // Move uploaded file
        //dd($_POST,$_FILES,$image_url);
-       $machines = $container->get("Machines");
-       $machines->add($name,$model,$manufacturer,$serial_num,$installation_date,$longitude,$latitude,$image_url);
+       $machines = $container->get("Machines"); // Get Machines model
+       $machines->add($name,$model,$manufacturer,$serial_num,$installation_date,$longitude,$latitude,$image_url); // Add new machine
   
-        $response->redirect("location: /inventario");
-        return $response;
+        $response->redirect("location: /inventario"); // Redirect to inventory page
+        return $response; // Return the response
     }
 
     public function deleteMachine($request, $response, $container){
         try {
-            $id = $request->getParam('id');
-            error_log("Recibido ID para eliminar: " . $id);
+            $id = $request->getParam('id'); // Get machine ID from request
+            error_log("Received ID to delete: " . $id); // Log the received ID
             
             if (!$id) {
-                error_log("ID no recibido");
-                $response->setStatus(400);
-                return $response;
+                error_log("ID not received"); // Log if ID is not received
+                $response->setStatus(400); // Set response status to 400
+                return $response; // Return the response
             }
 
-            $machines = $container->get("Machines");
-            $result = $machines->delete($id);
+            $machines = $container->get("Machines"); // Get Machines model
+            $result = $machines->delete($id); // Delete machine by ID
           
             
-            return $response;
+            return $response; // Return the response
         } catch (\Exception $e) {
-            error_log("Error al eliminar el equipo: " . $e->getMessage());
+            error_log("Error deleting machine: " . $e->getMessage()); // Log any errors
             
-            return $response;
+            return $response; // Return the response
         }
     }
 
@@ -99,24 +100,24 @@ class inventoryController {
     public function searchMachine(Request $request, Response $response, Container $container): Response
     {
         try {
-            $machines = $container->get("Machines");
-            $query = $request->get(INPUT_GET, "query");
+            $machines = $container->get("Machines"); // Get Machines model
+            $query = $request->get(INPUT_GET, "query"); // Get search query from request
 
             if (empty($query)) {
                 header('Content-Type: application/json');
-                echo json_encode([]);
+                echo json_encode([]); // Return empty JSON if query is empty
                 exit();
             }
 
-            $results = $machines->searchByName($query);
+            $results = $machines->searchByName($query); // Search machines by name
             
             header('Content-Type: application/json');
-            echo json_encode($results);
+            echo json_encode($results); // Return search results as JSON
             exit();
         } catch (\Exception $e) {
             header('HTTP/1.1 500 Internal Server Error');
             header('Content-Type: application/json');
-            echo json_encode(['error' => 'Error en la búsqueda']);
+            echo json_encode(['error' => 'Search error']); // Return error message as JSON
             exit();
         }
     }
