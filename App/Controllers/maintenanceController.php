@@ -22,12 +22,16 @@ class maintenanceController {
         return $response; // Return the response
     }
 
-    public function maintenanceView($request, $response, $container) {
-        $maintenanceModel = $container->get("Maintenances"); // Get Maintenances model
-        $id = $request->getParam("id"); // Get maintenance ID from request
-        $maintenance = $maintenanceModel->getById($id); // Get maintenance by ID
+    public function maintenanceView($request, $response, $container){
+
+        $maintenanceModel = $container->get("Maintenances");
+        $id=$request->getParam("id");
+        $maintenance = $maintenanceModel->getById($id);
+        $machinesModel = $container->get("Machines");
+        $machines = $machinesModel->list();
         
-        $response->set("maintenance", $maintenance); // Set maintenance in response
+        $response->set("machines", $machines);
+        $response->set("maintenance", $maintenance);
 
         $response->setTemplate("maintenanceview.php"); // Set the template for the response
 
