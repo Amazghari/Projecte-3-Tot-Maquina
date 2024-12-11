@@ -13,6 +13,7 @@
     <?php include 'Layouts/navbar.php'; ?>
 
     <div class="container mx-auto px-4">
+        <form action="/asignarincidenciatecnico" method="post">
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Incidencias a Técnicos</h2>
             <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
@@ -102,11 +103,11 @@
                 </div>
             </div>
         </div>
+</form>
     </div>
 
     <!-- Footer -->
     <?php include 'Layouts/footer.php'; ?>
-
 </body>
 
 </html>

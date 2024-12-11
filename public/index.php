@@ -72,8 +72,13 @@ $app->route("/mantenimiento/añadir",[\App\Controllers\maintenanceController::cl
 $app->route("/mantenimiento/{id}", [\App\Controllers\maintenanceController::class, "maintenanceView"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);
+$app->post("/asignarmaquinatecnico",[\App\Controllers\asignMachineController::class, "asignMachineTech"]);
+$app->post("/asignarmantenimientotecnico",[\App\Controllers\asignMantainmentController::class, "asignMaintenanceTech"]);
+$app->post("/asignarincidenciatecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidenceTech"]);
 
-// Ruta de prueba
+
+
+
 $app->route("ajax", function ($request, $response) {
     $response->set("result", "ok");
     return $response;
