@@ -28,7 +28,7 @@ class auth{
         $response->set("user", $user);
         $response->set("logged", $logged);
     
-        // si l'usuari està logat permetem carregar el recurs
+        // If the user is logged in, let us load the resource
         if ($logged) {
             $response = \Emeset\Middleware::next($request, $response, $container, $next);
         } else {

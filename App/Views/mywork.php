@@ -12,7 +12,7 @@
 <body class="flex flex-col min-h-screen bg-custom-light-gray" role="document">
     <?php include 'Layouts/navbar.php'; ?>
 
-    <!-- Sección de Notificaciones -->
+    <!-- Notifications Section -->
     <main class="container mx-auto px-4 mt-8" role="main">
         <header class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-bold text-custom-blue" id="notificaciones">Notificaciones</h2>
@@ -57,7 +57,7 @@
             <h2 class="text-2xl font-bold text-custom-blue">Mis Mantenimientos</h2>
         </div>
 
-        <!-- Tabla de mantenimientos -->
+        <!-- Maintenance table -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">
@@ -120,7 +120,7 @@
 
 
    
-        <!-- Tabla de inventario -->
+        <!-- Inventory table -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">
@@ -182,7 +182,7 @@
     </div>
 
     
-    <!-- Tabla de inventario -->
+    <!-- Inventory table -->
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="table-responsive">
             <table class="min-w-full" role="table">

@@ -18,19 +18,19 @@
         <div class="flex flex-col items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue text-center">Lista de Maquinaria</h2>
             
-            <!-- Barra de búsqueda -->
+            <!-- Search bar -->
             <div class="mt-4 w-full max-w-md">
                 <input type="text" id="search" name="search" placeholder="Buscar máquinas..." class="border rounded-md px-4 py-2 w-full" />
             </div>
 
-            <!-- Botones -->
+            <!-- Buttons -->
             <div class="mt-4 flex space-x-4">
                 <?php if (isset($app_user) && $app_user["role"] != "usuario") { ?>
                     <a href="/asignar" class="nav-button-custom">Asignar Técnico</a>
                     <label for="modal-toggle" class="nav-button-custom cursor-pointer">Nueva Máquina</label>
                 <?php } ?>
             </div>
-            <!-- Botón para importar CSV -->
+            <!-- CSV import button -->
             <?php if(isset($app_user) && 
             ($app_user['role'] == 'administrator' || 
              $app_user['role'] == 'supervisor')) { ?>
@@ -42,7 +42,7 @@
             <?php } ?>
         </div>
 
-        <!-- Tabla de inventario -->
+        <!-- Inventory table -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-    <!-- Modal usando solo CSS -->
+    <!-- Modal  -->
     <input type="checkbox" id="modal-toggle" class="hidden">
     <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
         <div class="modal-content p-4 mt-7">
@@ -155,7 +155,7 @@
         </div>
     </div>
 
-    <!-- Modal para editar -->
+    <!-- Modal to edit -->
     <?php if (isset($machine)) { ?>
         <?php foreach ($machines as $machine) { ?>
     <input type="checkbox" id="modal-editar" class="hidden">

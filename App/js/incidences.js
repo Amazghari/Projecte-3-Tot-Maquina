@@ -1,21 +1,21 @@
-    // Obtener el formulario y el botón de envío
+    // Get the form and submit button
     const form = document.getElementById('incident-form');
     const submitButton = document.getElementById('submit-button');
 
-    // Añadir evento al botón de guardar
+// Add event to save button
     submitButton.addEventListener('click', function() {
-        // Validar los campos del formulario
+         // Validate the form fields
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const priority = document.getElementById('priority').value;
         const status = document.getElementById('status').value;
 
-        // Comprobar que los campos no estén vacíos
+        // Check that the fields are not empty
         if (title && description && priority && status) {
-            // Si todos los campos están completos, enviar el formulario
+            // If all fields are complete, submit the form
             form.submit();
         } else {
-            // Si algún campo está vacío, mostrar alerta
+            // If any field is empty, show alert
             alert('Por favor, completa todos los campos');
         }
     });

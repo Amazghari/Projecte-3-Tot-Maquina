@@ -25,11 +25,11 @@
                 <div class="mb-4 flex justify-center">
                     <input hidden name="iduser" value="<?= $userData["id"] ?>">
                     <div class="flex flex-col items-center">
-                        <!-- Etiqueta estilizada como botón -->
+                        <!-- Label stylized as a button -->
                         <label for="image" class="nav-button-custom flex items-center justify-center cursor-pointer">
                             Cambiar Foto de Perfil
                         </label>
-                        <!-- Campo oculto para subir archivo -->
+                        <!-- Hidden field to upload file -->
                         <input type="file" id="image" name="image" class="hidden" aria-label="Foto de perfil">
                     </div>
                 </div>

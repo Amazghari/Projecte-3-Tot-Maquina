@@ -27,9 +27,9 @@
                 <h2 class="text-2xl font-bold text-custom-blue md:mb-0">Técnicos</h2>
             </div>
         </div>
-        <!-- Contenedor para las tablas -->
+        <!-- Container for tables -->
         <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-            <!-- Tabla de inventario -->
+            <!-- Inventory table -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1">
                 <div class="table-responsive">
                     <table class="min-w-full">
@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <!-- Nueva tabla al lado -->
+            <!-- New table next -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1">
                 <div class="table-responsive">
                     <table class="min-w-full">

@@ -94,4 +94,24 @@ class maintenanceController {
     
         return $response;
     }
+
+    public function deleteMaintenance($request, $response, $container){
+    
+        $id = $request->getParam('id');
+        error_log("Recibido ID para eliminar: " . $id);
+        
+        if (!$id) {
+            error_log("ID no recibido");
+            $response->setStatus(400);
+            return $response;
+        }
+
+        $maintenance = $container->get("Maintenances");
+        $maintenance->delete($id);
+        $response->redirect("location: /mantenimientos");
+
+      
+        
+        return $response;
+    }
 }

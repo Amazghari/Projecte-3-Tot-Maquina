@@ -38,7 +38,7 @@ class Maintenance {
             ":idmachine"=>$data["id_machine"]
         ]);
 
-        $lastInsertId = $this->sql->lastInsertId(); // para conseguir el id del mantenimiento
+        $lastInsertId = $this->sql->lastInsertId(); // to get the maintenance id
         $query2="insert into user_maintenance (id_user,id_maintenance) values (:iduser,:idmaintenance)";
         $stm = $this->sql->prepare($query2);
         $stm->execute([
@@ -46,7 +46,7 @@ class Maintenance {
             ":idmaintenance"=>$lastInsertId
         ]);
     }
-    //aqui si es preventivo
+    //here if it is preventive
     else{
         
         switch($data["preventive_time"]){
@@ -113,5 +113,11 @@ class Maintenance {
             ":description"=>$description,
             ":id"=>$id
         ]);
+    }
+
+    public function delete($id){
+        $query="delete from maintenance where id=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([":id"=>$id]);
     }
 }

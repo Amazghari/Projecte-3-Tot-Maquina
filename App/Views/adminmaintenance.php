@@ -89,8 +89,7 @@
             </div>
         </div>
 
-        <!-- Tabla de mantenimientos -->
-        <!-- Tabla de mantenimientos -->
+        <!-- Table pf mantinances -->
 
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
 

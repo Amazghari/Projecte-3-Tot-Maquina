@@ -46,7 +46,6 @@
                                         <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
 
                                     </tr>
-                                    <!-- Puedes añadir más filas aquí -->
                                 </tbody>
                             </table>
                         </div>
@@ -95,7 +94,6 @@
                                         <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
 
                                     </tr>
-                                    <!-- Puedes añadir más filas aquí -->
                                 </tbody>
                             </table>
                         </div>

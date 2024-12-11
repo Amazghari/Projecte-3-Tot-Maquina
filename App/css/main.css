@@ -2,66 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .bg-custom-blue {
     background-color: #003366;
 }
 
-
-
-.bg-custom-gray{
+.bg-custom-gray {
     background-color: #757575;
 }
 
-.bg-custom-light-gray{
+.bg-custom-light-gray {
     background-color: #E0E0E0;
 }
 
-.text-custom-blue{
+.text-custom-blue {
     color: #003366;
 }
 
-.hover-bg-custom-gray:hover{
+.hover-bg-custom-gray:hover {
     background-color: #757575;
 }
 
-.hover-bg-custom-light-gray:hover{
+.hover-bg-custom-light-gray:hover {
     background-color: #E0E0E0;
 }
 
-.text-custom-gray{
+.text-custom-gray {
     color: #757575;
 }
 
-/* Estilo base del botón */
+/* Base style for the button */
 .nav-button {
-    width: 100%; /* Ancho completo para adaptarse en móviles */
-    max-width: 150px; /* Ancho máximo */
-    align-items: center; /* Centrar verticalmente */
-    align-self: center; /* Centrar horizontalmente */
-    background-color: white; /* Fondo blanco */
-    color: #003366; /* Letras azules */
-    padding: 0.75rem; /* Padding uniforme para un buen tamaño */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    transition: background-color 300ms, transform 150ms; /* Transiciones suaves */
-    font-weight: 600; /* Peso de la fuente */
-    display: flex; /* Flexbox para alinear contenido */
-    justify-content: center; /* Centrar contenido horizontalmente */
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    margin: 0.5rem 0; /* Margen superior e inferior para separación */
-    cursor: pointer; /* Cambiar cursor al pasar el mouse */
-    font-size: 0.875rem; /* Tamaño de fuente consistente */
+    width: 100%; /* Full width to adapt on mobile */
+    max-width: 150px; /* Maximum width */
+    align-items: center; /* Center vertically */
+    align-self: center; /* Center horizontally */
+    background-color: white; /* White background */
+    color: #003366; /* Blue text */
+    padding: 0.75rem; /* Uniform padding for a good size */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: background-color 300ms, transform 150ms; /* Smooth transitions */
+    font-weight: 600; /* Font weight */
+    display: flex; /* Flexbox to align content */
+    justify-content: center; /* Center content horizontally */
+    gap: 0.5rem; /* Space between icon and text */
+    margin: 0.5rem 0; /* Top and bottom margin for separation */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 0.875rem; /* Consistent font size */
 }
 
-/* Efecto hover */
+/* Hover effect */
 .nav-button:hover {
-    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+    background-color: #f0f0f0; /* Background color on hover */
+    transform: translateY(-2px); /* Elevation effect */
 }
 
-.menu-button{
+.menu-button {
     background-color: #003366;
     color: #ffffff;
     padding: 0.625rem 1.5rem;
@@ -74,18 +70,19 @@
     gap: 0.5rem;
 }
 
-.menu-button:hover{
+/* Hover effect for the menu button */
+.menu-button:hover {
     background-color: #ffffff;
     color: #003366;
 }
 
 .banner-image {
     width: 100%;
-    height: 20rem; /* equivalente a h-48 de Tailwind */
+    height: 20rem; /* Equivalent to h-48 of Tailwind */
     object-fit: cover;
 }
 
-/* Estilos para el modal */
+/* Styles for the modal */
 #modal-toggle:checked + #modal {
     display: flex !important;
     align-items: center;
@@ -110,7 +107,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Estilos para el select de máquinas */
+/* Styles for the machine select */
 .machine-select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
@@ -120,89 +117,89 @@
     padding-right: 2.5rem;
 }
 
-/* Estilo hover para opciones del select */
+/* Hover style for select options */
 .machine-select option:hover {
     background-color: #003366;
     color: white;
 }
 
-/* Agregar estilos para el diseño responsive */
+/* Add styles for responsive design */
 @media (max-width: 768px) {
     aside {
-        width: 100%; /* Ocupa el 100% en pantallas pequeñas */
+        width: 100%; /* Occupies 100% on small screens */
     }
     .table-responsive {
-        overflow-x: auto; /* Permitir desplazamiento horizontal en la tabla */
+        overflow-x: auto; /* Allow horizontal scrolling in the table */
     }
 }
 
-/* Estilo base del botón personalizado */
+/* Base style for the custom button */
 .nav-button-custom {
-    background-color: #003366; /* Fondo azul oscuro */
-    color: white; /* Letras blancas */
-    padding: 0.5rem 1rem; /* Aumentado para un mejor tamaño */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    transition: background-color 300ms, transform 150ms; /* Transiciones suaves */
-    font-weight: 600; /* Peso de la fuente */
-    display: flex; /* Flexbox para alinear contenido */
-    align-items: center; /* Centrar verticalmente */
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    font-size: 0.875rem; /* Tamaño de fuente ligeramente mayor */
-    width: 100%; /* Ancho completo para adaptarse en móviles */
-    max-width: 150px; /* Ancho máximo */
-    margin: 0.5rem 0; /* Margen superior e inferior para separación */
-    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
+    padding: 0.5rem 1rem; /* Increased for better size */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: background-color 300ms, transform 150ms; /* Smooth transitions */
+    font-weight: 600; /* Font weight */
+    display: flex; /* Flexbox to align content */
+    align-items: center; /* Center vertically */
+    gap: 0.5rem; /* Space between icon and text */
+    font-size: 0.875rem; /* Slightly larger font size */
+    width: 100%; /* Full width to adapt on mobile */
+    max-width: 150px; /* Maximum width */
+    margin: 0.5rem 0; /* Top and bottom margin for separation */
+    cursor: pointer; /* Change cursor on hover */
 }
 
-/* Efecto hover */
+/* Hover effect */
 .nav-button-custom:hover {
-    background-color: #00509e; /* Color más claro al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+    background-color: #00509e; /* Lighter color on hover */
+    transform: translateY(-2px); /* Elevation effect */
 }
 
-/* Estilo base del botón de cerrar sesión */
+/* Base style for the logout button */
 .nav-button-logout {
-    background-color: white; /* Fondo blanco */
-    color: red; /* Letras rojas */
-    padding: 0.25rem 0.75rem; /* Reducido para hacer el botón más pequeño */
+    background-color: white; /* White background */
+    color: red; /* Red text */
+    padding: 0.25rem 0.75rem; /* Reduced to make the button smaller */
     border-radius: 9999px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;
-    border: 2px solid red; /* Borde rojo */
+    border: 2px solid red; /* Red border */
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem; /* Tamaño de fuente reducido */
-    max-width: 150px; /* Ancho máximo */
-    width: 100%; /* O puedes usar un ancho fijo como 150px */
+    font-size: 0.75rem; /* Reduced font size */
+    max-width: 150px; /* Maximum width */
+    width: 100%; /* Or you can use a fixed width like 150px */
 }
 
-/* Efecto hover para el botón de cerrar sesión */
+/* Hover effect for the logout button */
 .nav-button-logout:hover {
-    background-color: red; /* Fondo rojo */
-    color: white; /* Letras blancas */
+    background-color: red; /* Red background */
+    color: white; /* White text */
 }
 
-/* Asegúrate de que el contenedor principal tenga un mínimo de altura */
+/* Ensure the main container has a minimum height */
 html, body {
     height: 100%;
     margin: 0;
 }
 
 .min-h-screen {
-    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
+    min-height: 100vh; /* Ensures the container occupies at least 100% of the window height */
 }
 
 .flex-grow {
-    flex-grow: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
+    flex-grow: 1; /* Allows the main content to grow and push the footer down */
 }
 
-/* Estilo base del botón personalizado invertido */
+/* Base style for the inverted custom button */
 .nav-button-invertido {
-    background-color: #003366; /* Fondo azul oscuro */
-    color: white; /* Letras blancas */
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
     padding: 0.625rem 1.5rem;
     border-radius: 5px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -213,39 +210,38 @@ html, body {
     gap: 0.5rem;
 }
 
-/* Efecto hover para el botón personalizado invertido */
+/* Hover effect for the inverted custom button */
 .nav-button-invertido:hover {
-    background-color: white; /* Fondo blanco */
-    color: #003366; /* Letras azules */
+    background-color: white; /* White background */
+    color: #003366; /* Blue text */
 }
 
+/* Map styling */
+#mapid {
+    height: 70vh;  /* Adjust the map height to 70% of the window */
+    width: 100%;   /* The map occupies the full width of the page */
+    border-radius: 10px; /* Round the corners of the map */
+}
 
-        /* Map styling */
-        #mapid {
-            height: 70vh;  /* Adjust the map height to 70% of the window */
-            width: 100%;   /* The map occupies the full width of the page */
-            border-radius: 10px; /* Round the corners of the map */
-        }
+/* Styling for the logo (if present) */
+.logo-img {
+    width: 40px;  /* Adjust the logo size */
+    height: auto; /* Maintain the height-to-width ratio */
+}
 
-        /* Styling for the logo (if present) */
-        .logo-img {
-            width: 40px;  /* Adjust the logo size */
-            height: auto; /* Maintain the height-to-width ratio */
-        }
+/* Media query to adapt the map to smaller screens */
+@media (max-width: 768px) {
+    #mapid {
+        height: 40vh; /* Increase the height on smaller screens if needed */
+        border-radius: 10px; /* Keep the rounded corners */
+    }
+    .navbar-brand span {
+        font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
+        gap: 10px;
+    }
+}
 
-        /* Media query to adapt the map to smaller screens */
-        @media (max-width: 768px) {
-            #mapid {
-                height: 40vh; /* Increase the height on smaller screens if needed */
-                border-radius: 10px; /* Keep the rounded corners */
-            }
-            .navbar-brand span {
-                font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
-                gap: 10px;
-            }
-        }
-
-        /* Asegúrate de que el navbar tenga un z-index más bajo o no tenga uno definido */
-        .navbar {
-            z-index: 1000;
-        }
+/* Ensure the navbar has a lower z-index or no defined one */
+.navbar {
+    z-index: 1000;
+}
