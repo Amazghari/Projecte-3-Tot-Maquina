@@ -28,7 +28,10 @@ class maintenanceController {
         $maintenanceModel = $container->get("Maintenances");
         $id=$request->getParam("id");
         $maintenance = $maintenanceModel->getById($id);
+        $machinesModel = $container->get("Machines");
+        $machines = $machinesModel->list();
         
+        $response->set("machines", $machines);
         $response->set("maintenance", $maintenance);
 
         $response->setTemplate("maintenanceview.php");
