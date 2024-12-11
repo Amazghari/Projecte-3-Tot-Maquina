@@ -91,11 +91,11 @@
         </form>
     </div>
 </div>
-<!-- script para cerrar modal al guardar form -->
+<!-- script to close modal when saving form -->
 <script src="js/incidences.js"></script>
 
 
-        <!-- Tabla de incidencias -->
+        <!-- Incident table -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">

@@ -25,7 +25,7 @@
         </label>
     </div>
 
-    <!-- Tabla de inventario -->
+    <!-- table of inventary -->
     <div class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="table-responsive">
             <table class="min-w-full" role="table">

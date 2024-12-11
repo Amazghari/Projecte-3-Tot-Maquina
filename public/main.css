@@ -1102,66 +1102,62 @@ video {
   transition-duration: 200ms;
 }
 
-
-
 .bg-custom-blue {
     background-color: #003366;
 }
 
-
-
-.bg-custom-gray{
+.bg-custom-gray {
     background-color: #757575;
 }
 
-.bg-custom-light-gray{
+.bg-custom-light-gray {
     background-color: #E0E0E0;
 }
 
-.text-custom-blue{
+.text-custom-blue {
     color: #003366;
 }
 
-.hover-bg-custom-gray:hover{
+.hover-bg-custom-gray:hover {
     background-color: #757575;
 }
 
-.hover-bg-custom-light-gray:hover{
+.hover-bg-custom-light-gray:hover {
     background-color: #E0E0E0;
 }
 
-.text-custom-gray{
+.text-custom-gray {
     color: #757575;
 }
 
-/* Estilo base del botón */
+/* Base style for the button */
 .nav-button {
-    width: 100%; /* Ancho completo para adaptarse en móviles */
-    max-width: 150px; /* Ancho máximo */
-    align-items: center; /* Centrar verticalmente */
-    align-self: center; /* Centrar horizontalmente */
-    background-color: white; /* Fondo blanco */
-    color: #003366; /* Letras azules */
-    padding: 0.75rem; /* Padding uniforme para un buen tamaño */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    transition: background-color 300ms, transform 150ms; /* Transiciones suaves */
-    font-weight: 600; /* Peso de la fuente */
-    display: flex; /* Flexbox para alinear contenido */
-    justify-content: center; /* Centrar contenido horizontalmente */
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    margin: 0.5rem 0; /* Margen superior e inferior para separación */
-    cursor: pointer; /* Cambiar cursor al pasar el mouse */
-    font-size: 0.875rem; /* Tamaño de fuente consistente */
+    width: 100%; /* Full width to adapt on mobile */
+    max-width: 150px; /* Maximum width */
+    align-items: center; /* Center vertically */
+    align-self: center; /* Center horizontally */
+    background-color: white; /* White background */
+    color: #003366; /* Blue text */
+    padding: 0.75rem; /* Uniform padding for a good size */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: background-color 300ms, transform 150ms; /* Smooth transitions */
+    font-weight: 600; /* Font weight */
+    display: flex; /* Flexbox to align content */
+    justify-content: center; /* Center content horizontally */
+    gap: 0.5rem; /* Space between icon and text */
+    margin: 0.5rem 0; /* Top and bottom margin for separation */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 0.875rem; /* Consistent font size */
 }
 
-/* Efecto hover */
+/* Hover effect */
 .nav-button:hover {
-    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+    background-color: #f0f0f0; /* Background color on hover */
+    transform: translateY(-2px); /* Elevation effect */
 }
 
-.menu-button{
+.menu-button {
     background-color: #003366;
     color: #ffffff;
     padding: 0.625rem 1.5rem;
@@ -1174,19 +1170,20 @@ video {
     gap: 0.5rem;
 }
 
-.menu-button:hover{
+/* Hover effect for the menu button */
+.menu-button:hover {
     background-color: #ffffff;
     color: #003366;
 }
 
 .banner-image {
     width: 100%;
-    height: 20rem; /* equivalente a h-48 de Tailwind */
+    height: 20rem; /* Equivalent to h-48 of Tailwind */
     -o-object-fit: cover;
        object-fit: cover;
 }
 
-/* Estilos para el modal */
+/* Styles for the modal */
 #modal-toggle:checked + #modal {
     display: flex !important;
     align-items: center;
@@ -1211,7 +1208,7 @@ video {
     transition: all 0.3s ease-in-out;
 }
 
-/* Estilos para el select de máquinas */
+/* Styles for the machine select */
 .machine-select {
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -1223,89 +1220,89 @@ video {
     padding-right: 2.5rem;
 }
 
-/* Estilo hover para opciones del select */
+/* Hover style for select options */
 .machine-select option:hover {
     background-color: #003366;
     color: white;
 }
 
-/* Agregar estilos para el diseño responsive */
+/* Add styles for responsive design */
 @media (max-width: 768px) {
     aside {
-        width: 100%; /* Ocupa el 100% en pantallas pequeñas */
+        width: 100%; /* Occupies 100% on small screens */
     }
     .table-responsive {
-        overflow-x: auto; /* Permitir desplazamiento horizontal en la tabla */
+        overflow-x: auto; /* Allow horizontal scrolling in the table */
     }
 }
 
-/* Estilo base del botón personalizado */
+/* Base style for the custom button */
 .nav-button-custom {
-    background-color: #003366; /* Fondo azul oscuro */
-    color: white; /* Letras blancas */
-    padding: 0.5rem 1rem; /* Aumentado para un mejor tamaño */
-    border-radius: 5px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-    transition: background-color 300ms, transform 150ms; /* Transiciones suaves */
-    font-weight: 600; /* Peso de la fuente */
-    display: flex; /* Flexbox para alinear contenido */
-    align-items: center; /* Centrar verticalmente */
-    gap: 0.5rem; /* Espacio entre icono y texto */
-    font-size: 0.875rem; /* Tamaño de fuente ligeramente mayor */
-    width: 100%; /* Ancho completo para adaptarse en móviles */
-    max-width: 150px; /* Ancho máximo */
-    margin: 0.5rem 0; /* Margen superior e inferior para separación */
-    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
+    padding: 0.5rem 1rem; /* Increased for better size */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: background-color 300ms, transform 150ms; /* Smooth transitions */
+    font-weight: 600; /* Font weight */
+    display: flex; /* Flexbox to align content */
+    align-items: center; /* Center vertically */
+    gap: 0.5rem; /* Space between icon and text */
+    font-size: 0.875rem; /* Slightly larger font size */
+    width: 100%; /* Full width to adapt on mobile */
+    max-width: 150px; /* Maximum width */
+    margin: 0.5rem 0; /* Top and bottom margin for separation */
+    cursor: pointer; /* Change cursor on hover */
 }
 
-/* Efecto hover */
+/* Hover effect */
 .nav-button-custom:hover {
-    background-color: #00509e; /* Color más claro al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+    background-color: #00509e; /* Lighter color on hover */
+    transform: translateY(-2px); /* Elevation effect */
 }
 
-/* Estilo base del botón de cerrar sesión */
+/* Base style for the logout button */
 .nav-button-logout {
-    background-color: white; /* Fondo blanco */
-    color: red; /* Letras rojas */
-    padding: 0.25rem 0.75rem; /* Reducido para hacer el botón más pequeño */
+    background-color: white; /* White background */
+    color: red; /* Red text */
+    padding: 0.25rem 0.75rem; /* Reduced to make the button smaller */
     border-radius: 9999px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: all 300ms;
     font-weight: 600;
-    border: 2px solid red; /* Borde rojo */
+    border: 2px solid red; /* Red border */
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.75rem; /* Tamaño de fuente reducido */
-    max-width: 150px; /* Ancho máximo */
-    width: 100%; /* O puedes usar un ancho fijo como 150px */
+    font-size: 0.75rem; /* Reduced font size */
+    max-width: 150px; /* Maximum width */
+    width: 100%; /* Or you can use a fixed width like 150px */
 }
 
-/* Efecto hover para el botón de cerrar sesión */
+/* Hover effect for the logout button */
 .nav-button-logout:hover {
-    background-color: red; /* Fondo rojo */
-    color: white; /* Letras blancas */
+    background-color: red; /* Red background */
+    color: white; /* White text */
 }
 
-/* Asegúrate de que el contenedor principal tenga un mínimo de altura */
+/* Ensure the main container has a minimum height */
 html, body {
     height: 100%;
     margin: 0;
 }
 
 .min-h-screen {
-    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
+    min-height: 100vh; /* Ensures the container occupies at least 100% of the window height */
 }
 
 .flex-grow {
-    flex-grow: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
+    flex-grow: 1; /* Allows the main content to grow and push the footer down */
 }
 
-/* Estilo base del botón personalizado invertido */
+/* Base style for the inverted custom button */
 .nav-button-invertido {
-    background-color: #003366; /* Fondo azul oscuro */
-    color: white; /* Letras blancas */
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
     padding: 0.625rem 1.5rem;
     border-radius: 5px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -1316,129 +1313,128 @@ html, body {
     gap: 0.5rem;
 }
 
-/* Efecto hover para el botón personalizado invertido */
+/* Hover effect for the inverted custom button */
 .nav-button-invertido:hover {
-    background-color: white; /* Fondo blanco */
-    color: #003366; /* Letras azules */
+    background-color: white; /* White background */
+    color: #003366; /* Blue text */
 }
 
+/* Map styling */
+#mapid {
+    height: 70vh;  /* Adjust the map height to 70% of the window */
+    width: 100%;   /* The map occupies the full width of the page */
+    border-radius: 10px; /* Round the corners of the map */
+}
 
-        /* Map styling */
-        #mapid {
-            height: 70vh;  /* Adjust the map height to 70% of the window */
-            width: 100%;   /* The map occupies the full width of the page */
-            border-radius: 10px; /* Round the corners of the map */
-        }
+/* Styling for the logo (if present) */
+.logo-img {
+    width: 40px;  /* Adjust the logo size */
+    height: auto; /* Maintain the height-to-width ratio */
+}
 
-        /* Styling for the logo (if present) */
-        .logo-img {
-            width: 40px;  /* Adjust the logo size */
-            height: auto; /* Maintain the height-to-width ratio */
-        }
+/* Media query to adapt the map to smaller screens */
+@media (max-width: 768px) {
+    #mapid {
+        height: 40vh; /* Increase the height on smaller screens if needed */
+        border-radius: 10px; /* Keep the rounded corners */
+    }
+    .navbar-brand span {
+        font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
+        gap: 10px;
+    }
+}
 
-        /* Media query to adapt the map to smaller screens */
-        @media (max-width: 768px) {
-            #mapid {
-                height: 40vh; /* Increase the height on smaller screens if needed */
-                border-radius: 10px; /* Keep the rounded corners */
-            }
-            .navbar-brand span {
-                font-size: 1rem; /* Reduce the font size of the logo on mobile devices */
-                gap: 10px;
-            }
-        }
-
-        /* Asegúrate de que el navbar tenga un z-index más bajo o no tenga uno definido */
-        .navbar {
-            z-index: 1000;
-        }
-        .hover\:scale-105:hover {
+/* Ensure the navbar has a lower z-index or no defined one */
+.navbar {
+    z-index: 1000;
+}
+.hover\:scale-105:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-        .hover\:bg-blue-700:hover {
+.hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
-        .hover\:bg-blue-800:hover {
+.hover\:bg-blue-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
-        .hover\:bg-blue-900:hover {
+.hover\:bg-blue-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
-        .hover\:bg-gray-200:hover {
+.hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
-        .hover\:bg-gray-50:hover {
+.hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
-        .hover\:bg-orange-500:hover {
+.hover\:bg-orange-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
 }
-        .hover\:bg-red-800:hover {
+.hover\:bg-red-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity));
 }
-        .hover\:text-blue-800:hover {
+.hover\:text-blue-800:hover {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity));
 }
-        .hover\:text-gray-800:hover {
+.hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
-        .hover\:text-red-800:hover {
+.hover\:text-red-800:hover {
   --tw-text-opacity: 1;
   color: rgb(153 27 27 / var(--tw-text-opacity));
 }
-        .hover\:underline:hover {
+.hover\:underline:hover {
   text-decoration-line: underline;
 }
-        .focus\:border-blue-500:focus {
+.focus\:border-blue-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
-        .focus\:outline-none:focus {
+.focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-        .focus\:ring:focus {
+.focus\:ring:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-        .focus\:ring-2:focus {
+.focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-        .focus\:ring-4:focus {
+.focus\:ring-4:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
-        .focus\:ring-blue-300:focus {
+.focus\:ring-blue-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
 }
-        .focus\:ring-blue-500:focus {
+.focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
-        .focus\:ring-red-300:focus {
+.focus\:ring-red-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
 }
-        .focus\:ring-opacity-50:focus {
+.focus\:ring-opacity-50:focus {
   --tw-ring-opacity: 0.5;
 }
-        @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 
   .dark\:border-gray-500 {
     --tw-border-opacity: 1;
@@ -1520,7 +1516,7 @@ html, body {
     --tw-ring-color: rgb(127 29 29 / var(--tw-ring-opacity));
   }
 }
-        @media (min-width: 640px) {
+@media (min-width: 640px) {
 
   .sm\:mb-0 {
     margin-bottom: 0px;
@@ -1547,7 +1543,7 @@ html, body {
     text-align: left;
   }
 }
-        @media (min-width: 768px) {
+@media (min-width: 768px) {
 
   .md\:mb-0 {
     margin-bottom: 0px;
@@ -1612,7 +1608,7 @@ html, body {
     line-height: 2.25rem;
   }
 }
-        @media (min-width: 1024px) {
+@media (min-width: 1024px) {
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));

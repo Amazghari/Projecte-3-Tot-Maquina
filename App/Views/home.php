@@ -23,16 +23,16 @@
     <div id="mapid"></div> <!-- Where the map will be rendered -->
 
 </section>
-    <!-- Contenedor principal con padding-top para compensar el navbar fijo -->
+    <!-- Main container with padding-top to compensate for the fixed navbar -->
     <div class="container mx-auto px-4 py-8">
-        <!-- Título y botón de nueva incidencia -->
+        <!-- Title and new issue button -->
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h2>
         </div>
 
-        <!-- Tabla de inventario -->
+        <!-- Inventory table -->
        
-        <!-- Tabla de incidencias -->
+        <!-- Incident table -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">

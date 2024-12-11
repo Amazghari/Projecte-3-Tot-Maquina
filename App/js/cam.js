@@ -1,5 +1,5 @@
 
-// Acceder a la cámara
+// // Access the camera
 const video = document.getElementById('video');
 const photoModal = document.getElementById('photo-modal');
 const openCameraButton = document.getElementById('open-camera');
@@ -16,7 +16,7 @@ if (openCameraButton != null){
     });
 }
 
-// Capturar la foto
+// Capture the photo
 if (capture != null){
     capture.addEventListener('click', () => {
         const canvas = document.getElementById('canvas');
@@ -30,12 +30,12 @@ if (capture != null){
     });
 }
 
-// Guardar la foto
+// save the photo
 if (savephoto != null){
     savephoto.addEventListener('click', async () => {
     const dataUrl = document.getElementById('photo').src;
 
-    // Enviar la imagen al servidor
+    // Send image to server
     const response = await fetch('/upload.php', {
         method: 'POST',
         body: JSON.stringify({ image: dataUrl }),
@@ -46,8 +46,8 @@ if (savephoto != null){
 
     const result = await response.json();
     if (result.success) {
-        document.getElementById('image').value = result.filePath; // Asignar la ruta de la imagen al input
-        photoModal.classList.add('hidden'); // Cerrar el modal
+        document.getElementById('image').value = result.filePath; // Assign the image path to the input
+        photoModal.classList.add('hidden'); // close el modal
     } else {
         alert('Error al guardar la imagen');
     }
@@ -55,15 +55,15 @@ if (savephoto != null){
 
 }
 
-// Cerrar el modal
+// close  modal
 if (closeModalButton != null){
     closeModalButton.addEventListener('click', () => {
-        photoModal.classList.add('hidden'); // Cerrar el modal
+        photoModal.classList.add('hidden'); // close modal
     });
 }
 
 if (cancelPhotoButton != null){
     cancelPhotoButton.addEventListener('click', () => {
-        photoModal.classList.add('hidden'); // Cerrar el modal
+        photoModal.classList.add('hidden'); // close  modal
     });
 }

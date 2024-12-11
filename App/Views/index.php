@@ -15,7 +15,7 @@
   <div class="bg-white rounded-lg shadow-lg p-6 w-96">
     <h1 class="text-center text-xl font-bold mb-4">Acceso al sistema</h1>
     <img src="/uploads/img/logopng.png" alt="Logo" class="w-16 mx-auto mb-4">
-    <form action="/login" method="post">
+    <form action="/login" method="post"> 
       <div class="mb-4">
         <label class="block text-gray-700" for="username">Usuario</label>
         <input class="border border-gray-300 rounded w-full p-2" type="text" id="username" name="username" placeholder="Ingrese su usuario">

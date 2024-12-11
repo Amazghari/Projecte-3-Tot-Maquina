@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <!-- Modal usando solo CSS -->
+        <!-- Modal  -->
         <input type="checkbox" id="modal-toggle" class="hidden">
         <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
             id="modal"
@@ -85,10 +85,10 @@
                 </form>
             </div>
         </div>
-        <!-- script para cerrar modal al guardar form -->
+        <!-- script to close modal when saving form -->
         <script src="js/incidences.js"></script>
 
-        <!-- Tabla de users -->
+        <!-- Table of users -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="table-responsive">
                 <table class="min-w-full">

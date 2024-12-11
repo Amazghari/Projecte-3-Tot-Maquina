@@ -56,7 +56,7 @@
     </form>
 </div>
 
-<!-- Modal para tomar foto -->
+<!-- Modal to take photo -->
 <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog" aria-modal="true">
     <div class="modal-content p-4 bg-white rounded-lg shadow-lg">
         <div class="flex justify-between items-center pb-3 border-b">
