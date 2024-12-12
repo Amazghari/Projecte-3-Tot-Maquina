@@ -72,5 +72,12 @@ class Incidences{
         $stm = $this->sql->prepare($query);
         $stm->execute([":id"=>$id]);
     }
+
+    public function hoursimputed($id, $imputed_hours){
+        $query = "update incidence set imputed_hours = :imputed_hours where id = :id";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([":imputed_hours"=>$imputed_hours,":id"=>$id]);
+
+    }
 }  
       

@@ -15,7 +15,8 @@
         <h2 class="text-2xl font-bold text-custom-blue mt-8">Detalles del Mantenimiento</h2>
 
         <div class="bg-white rounded-lg shadow-lg p-6 mt-4">
-            <form class="space-y-4">
+            <form id="maintenanceForm" action="/mantenimiento/hoursImputed" method="post" class="space-y-4">
+                <input type="hidden" name="id" value="<?= $maintenance['id'] ?>">
                 <h3 class="text-lg font-semibold text-gray-800"><?= $maintenance['title'] ?></h3>
                 <div>
                     <h3 class="text-lg font-semibold text-gray-800">Información del Técnico</h3>
@@ -53,11 +54,8 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-800"></h3>
-                    <select name="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                        <option value="Completado" <?= $maintenance['state'] === 'Completado' ? 'selected' : '' ?>>Hecho</option>
-                        <option value="Programado" <?= $maintenance['state'] === 'Programado' ? 'selected' : '' ?>>Programado</option>
-                    </select>
+                    <label class="text-sm font-medium text-gray-700">Estado</label>
+                    <label class="block text-sm font-medium text-gray-700"><?= $maintenance['state'] ?></label>
                 </div>
 
                 <div>
@@ -102,47 +100,22 @@
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Fecha de Inicio</label>
-                    <input type="date" name="start_date" value="<?= $maintenance['maintentance_date'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" required>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Horas Totales Imputadas</label>
-                    <input type="number" name="total_input_hours" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" readonly value="0">
-                </div>
-
-                <div class="flex items-center space-x-3">
-                    <label class="block text-sm font-medium text-gray-700">Añadir Más Horas Imputadas</label>
-                    <input type="number" name="input_hours" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" placeholder="Horas" required>
+                    <label class="block text-sm font-medium text-gray-700"><?= $maintenance['maintentance_date'] ?></label>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Máquina Vinculada</label>
-                    <select name="linked_machine" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    <label name="linked_machine" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
                         <?php foreach ($machines as $machine) {
                             if ($machine['id'] == $maintenance['id_machine']) { ?>
                                 <option value="<?php echo $machine['id']; ?>" selected><?php echo $machine['id'] . " - " . $machine['name']; ?></option>
-                            <?php } else { ?>
-                                <option value="<?php echo $machine['id']; ?>"><?php echo $machine['id'] . " - " . $machine['name']; ?></option>
-                        <?php }
-                        } ?>
-                    </select>
+                            <?php } }?>
+                    </label>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Tipo de Mantenimiento</label>
-                    <select name="maintenance_type" id="maintenance_type" required
-                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm bg-gray-50 focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Tipo de mantenimiento">
-                        <option value="Correctivo" <?= $maintenance['type'] === 'Correctivo' ? 'selected' : '' ?>>Correctivo</option>
-                        <option value="Preventivo" <?= $maintenance['type'] === 'Preventivo' ? 'selected' : '' ?>>Preventivo</option>
-                    </select>
-                </div>
-                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                    <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
-                        Cancelar
-                    </button>
-                    <button type="submit" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
-                        Guardar
-                    </button>
+                    <label class="block text-sm font-medium text-gray-700"><?= $maintenance['type'] ?></label>
                 </div>
             </form>
         </div>

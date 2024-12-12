@@ -16,7 +16,7 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Editar Mantenimiento</h2>
-            <a href="/mantenimiento" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">
+            <a href="/mantenimientos" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors">
                 Volver
             </a>
         </div>

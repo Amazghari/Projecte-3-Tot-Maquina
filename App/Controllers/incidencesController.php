@@ -86,5 +86,20 @@ class incidencesController
             
             return $response;
         }
+
+        public function hoursImputed($request, $response, $container){
+            //dd($_POST);
+            $id = $request->get(INPUT_POST, "id");
+            $imputed_hours = $request->get(INPUT_POST, "input_hours");
+
+            $incidences = $container->get("Incidences");
+            $incidences->hoursimputed($id, $imputed_hours);
+
+            
+
+            $response->redirect("location: /mantenimientos");
+
+            return $response;
+        }
     
 }
