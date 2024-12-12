@@ -13,6 +13,7 @@
     <?php include 'Layouts/navbar.php'; ?>
 
     <div class="container mx-auto px-4">
+        <form action="/asignarmantenimientotecnico" method="post">
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Mantenimientos a Técnicos</h2>
             <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
@@ -37,35 +38,27 @@
                             <tr>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Nº serie</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Descripcion</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Técnico</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#MAQ-001</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Fresadora 1</p>
-                                </td>
-                                <td class="px-6 py-4">1231232132</td>
-                                <td class="px-6 py-4">
-                                    <form class="flex items-center">
-                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
-                                    </form>
-                                </td>
-                            </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#MAQ-002</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Fresadora 2</p>
-                                </td>
-                                <td class="px-6 py-4">9876543210</td>
-                                <td class="px-6 py-4">
-                                    <form class="flex items-center">
-                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
-                                    </form>
-                                </td>
-                            </tr>
+                        <?php foreach($maintenances as $maintenance){ ?>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 text-sm text-gray-900">#MAQ-<?php echo $maintenance['id']; ?></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        <p class="truncate max-w-[200px]"><?php echo $maintenance['title']; ?></p>
+                                    </td>
+                                    <td class="px-6 py-4"><?php echo $maintenance['description']; ?></td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center">
+                                            <input type="text" name="tech_id[]" placeholder="Asignar técnico" class="border rounded p-1 w-full"
+                                            ondrop="drop(event)" ondragover="allowDrop(event)">
+                                            <input type="hidden" name="maintenance_id[]" value="<?php echo $maintenance['id']; ?>">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -80,34 +73,30 @@
                             <tr>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Especialidad</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50" draggable="true">
-                                <td class="px-6 py-4 text-sm text-gray-900">#TEC-001</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Técnico 1</p>
-                                </td>
-                                <td class="px-6 py-4">Mecánica</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50" draggable="true">
-                                <td class="px-6 py-4 text-sm text-gray-900">#TEC-002</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Técnico 2</p>
-                                </td>
-                                <td class="px-6 py-4">Electrónica</td>
+                        <?php foreach($techs as $tech){ ?>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 text-sm text-gray-900" draggable="true" ondragstart="drag(event)"><?php echo $tech['id']; ?></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        <p class="truncate max-w-[200px]" ><?php echo $tech['name']; ?></p>
+                                    </td>
+                                </tr>
+                                <?php } ?>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        </form>
     </div>
 
     <!-- Footer -->
     <?php include 'Layouts/footer.php'; ?>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/maintenance.js"></script>
 </body>
 
 </html>

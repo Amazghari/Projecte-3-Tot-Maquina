@@ -13,6 +13,7 @@
     <?php include 'Layouts/navbar.php'; ?>
 
     <div class="container mx-auto px-4">
+        <form action="/asignarincidenciatecnico" method="post">
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue mb-4 md:mb-0">Asignación de Incidencias a Técnicos</h2>
             <button type="submit" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
@@ -42,30 +43,22 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
+                            <?php foreach ($incidences as $incidence) { ?>
                             <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#INC-001</td>
+                                <td class="px-6 py-4 text-sm text-gray-900">#INC-<?= $incidence["id"]?></td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Fallo al enceder</p>
+                                    <p class="truncate max-w-[200px]"><?= $incidence["name"]?></p>
                                 </td>
-                                <td class="px-6 py-4">Cuando enciendo la maquina no arranca</td>
+                                <td class="px-6 py-4"><?= $incidence["description"]?></td>
                                 <td class="px-6 py-4">
-                                    <form class="flex items-center">
-                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
-                                    </form>
-                                </td>
+                                        <div class="flex items-center">
+                                            <input type="text" name="tech_id[]" placeholder="Asignar técnico" class="border rounded p-1 w-full"
+                                            ondrop="drop(event)" ondragover="allowDrop(event)">
+                                            <input type="hidden" name="incidence_id[]" value="<?php echo $incidence['id']; ?>">
+                                        </div>
+                                    </td>
                             </tr>
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#INC-002</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Fallo al cortar</p>
-                                </td>
-                                <td class="px-6 py-4">Cuando Corto el material la maquina se para sola</td>
-                                <td class="px-6 py-4">
-                                    <form class="flex items-center">
-                                        <input type="text" placeholder="Asignar técnico" class="border rounded p-1 w-full">
-                                    </form>
-                                </td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -78,35 +71,29 @@
                         <thead class="bg-custom-blue text-white">
                             <tr>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Especialidad</th>
-                            </tr>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>                            </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50" draggable="true">
-                                <td class="px-6 py-4 text-sm text-gray-900">#TEC-001</td>
+                            <?php foreach ($techs as $tech){ ?>
+                            <tr class="hover:bg-gray-50" >
+                                <td class="px-6 py-4 text-sm text-gray-900" draggable="true" ondragstart="drag(event)"><?= $tech["id"]?></td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Técnico 1</p>
+                                    <p class="truncate max-w-[200px]"><?= $tech["name"]?></p>
                                 </td>
-                                <td class="px-6 py-4">Mecánica</td>
                             </tr>
-                            <tr class="hover:bg-gray-50" draggable="true">
-                                <td class="px-6 py-4 text-sm text-gray-900">#TEC-002</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Técnico 2</p>
-                                </td>
-                                <td class="px-6 py-4">Electrónica</td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+</form>
     </div>
 
     <!-- Footer -->
     <?php include 'Layouts/footer.php'; ?>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/incidence.js"></script>
 </body>
 
 </html>

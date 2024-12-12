@@ -1,106 +1,85 @@
 <?php
+
 namespace App\Controllers;
+
 use \Emeset\Contracts\Http\Request;
 use \Emeset\Contracts\Http\Response;
 use \Emeset\Contracts\Container;
 
 /**
- * Controlador de login d'exemple del Framework Emeset
- * Framework d'exemple per a M07 Desenvolupament d'aplicacions web.
+ * Example login controller for the Emeset Framework
+ * Example framework for M07 Web Application Development.
  * @author: Dani Prados dprados@cendrassos.net
  *
- * Carrega la pàgina de login
+ * Loads the login page
  *
  **/
 
 /**
- * ctrlLogin: Controlador que carrega  la pàgina de login
+ * ctrlLogin: Controller that loads the login page
  *
- * @param $request contingut de la peticó http.
- * @param $response contingut de la response http.
- * @param array $config  paràmetres de configuració de l'aplicació
+ * @param $request HTTP request content.
+ * @param $response HTTP response content.
+ * @param array $config application configuration parameters
  *
  **/
-class loginController{
+class loginController {
 
-  public Container $contenidor;
+    public Container $contenidor; // Dependency injection for the container
 
-    public function __construct(Container $contenidor)
-    {
-        $this->contenidor = $contenidor;
+    public function __construct(Container $contenidor) {
+        $this->contenidor = $contenidor; // Initialize the container
     }
     
-    public function index($request, $response, $container)
-    {
-        $response->SetTemplate("index.php");
-
-        return $response;
+    public function index($request, $response, $container) {
+        $response->setTemplate("index.php"); // Set the template for the login page
+        return $response; // Return the response
     }
 
-  function loginController(Request $request, Response $response, Container $container): Response
-  {
-    $username = $request->get(INPUT_POST, "username");
-    $password = $request->get(INPUT_POST, "password");
-    //dd($username, $password);
-    $users = $container->get("Users");
-    $currentUser= $users->getUser($username);
-    //hashedpwd $2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy
-    // dd(password_hash($password,PASSWORD_BCRYPT));
-    //dd(password_verify($password,'$2y$10$axv2WdgCaQqzp870IsMEG.L4TNSRRFD6u3W.7IIw7Tsp4PS1RMhEy'));
-    //dd($eqpwd);
-    if(!$currentUser){
-      $response->setSession("error", "Usuari o clau incorrectes!");
-      $response->setSession("logged", false);
-      $response->redirect("location:/"); 
-    }
-    else{
-      $passwordequal = password_verify($password, $currentUser["password"]);
-      //dd($username,$password,$passwordequal,$currentUser);
-      //  if($currentUser["role"]=="administrator" && $passwordequal){
-      //   $response->setSession("user",$currentUser);
-      //   $response->setSession("logged",true);
-      //   $response->setSession("isAdmin",true);
-      //   $response->redirect("location: /inicio");
-      // }
-       if($currentUser && $passwordequal){
-        if($currentUser["role"]=="administrator"){
-          $response->setSession("isAdmin",true); 
+    function loginController(Request $request, Response $response, Container $container): Response {
+        $username = $request->get(INPUT_POST, "username"); // Get username from POST request
+        $password = $request->get(INPUT_POST, "password"); // Get password from POST request
+
+        $users = $container->get("Users"); // Get Users service from container
+        $currentUser = $users->getUser($username); // Get user details by username
+
+        // Check if the user exists
+        if (!$currentUser) {
+            $response->setSession("error", "Incorrect username or password!"); // Set error message
+            $response->setSession("logged", false); // Set logged status to false
+            $response->redirect("location:/"); // Redirect to home
+        } else {
+            $passwordEqual = password_verify($password, $currentUser["password"]); // Verify password
+
+            // If the user is an administrator and the password is correct
+            if ($currentUser && $passwordEqual) {
+                if ($currentUser["role"] == "administrator") {
+                    $response->setSession("isAdmin", true); // Set admin status
+                }
+                $response->setSession("user", $currentUser); // Set user in session
+                $response->setSession("logged", true); // Set logged status to true
+                $response->redirect("location: /inicio"); // Redirect to home
+            } else {
+                $response->setSession("error", "Incorrect username or password!"); // Set error message
+                $response->setSession("logged", false); // Set logged status to false
+                $response->redirect("location:/"); // Redirect to home
+            }
         }
-        $response->setSession("user", $currentUser);
-        $response->setSession("logged", true);
-        $response->redirect("location: /inicio");
-      }
-
-      else {
-        $response->setSession("error", "Usuari o clau incorrectes!");
-        $response->setSession("logged", false);
-        $response->redirect("location:/"); 
-      }
-    }
-    
-    $response->SetTemplate("/inicio");
-
-    return $response;
-}
-
-function logout(Request $request, Response $response, Container $container): Response
-  {
-    if (isset($_SESSION["user"])) {
-
-      // If it exists, delete the user session.
-      $response->unsetSession("user");
-
-      // Redirect the user to the homepage after logging out.
-      $response->redirect("location:/");
+        
+        $response->setTemplate("/inicio"); // Set the template for the home page
+        return $response; // Return the response
     }
 
-    // If no active session, still redirect to the homepage.
-    $response->redirect("location:/");
+    function logout(Request $request, Response $response, Container $container): Response {
+        if (isset($_SESSION["user"])) {
+            // If it exists, delete the user session.
+            $response->unsetSession("user"); // Unset user session
+            // Redirect the user to the homepage after logging out.
+            $response->redirect("location:/"); // Redirect to home
+        }
 
-    // Return the final response.
-    return $response;
-  }
-
-
+        // If no active session, still redirect to the homepage.
+        $response->redirect("location:/"); // Redirect to home
+        return $response; // Return the response
+    }
 }
-

@@ -62,6 +62,15 @@ class Users
          return $users;
      }
 
+     public function listTechs(){
+        $query = "select * from users where role='tecnico';";
+        $users = [];
+        foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $user) {
+            $users[$user["id"]] = $user;
+        }
+        return $users;
+     }
+
     //  public function listProfile(){
     //     $query = "select * from users;";
     //     $profiles = [];

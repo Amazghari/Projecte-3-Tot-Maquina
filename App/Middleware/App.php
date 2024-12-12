@@ -9,21 +9,22 @@ class App {
 
     public static function execute(Request $request, Response $response, Container $container, $next) :Response
     {
-        // Code before FrontConroller
+        // Code before FrontController
 
-        $response->set("app_config", $container["config"]);
-        $user= $request->get("SESSION", "user");
-        $logged = $request->get("SESSION", "logged");
+        $response->set("app_config", $container["config"]); // Set app configuration in response
+        $user = $request->get("SESSION", "user"); // Get user from session
+        $logged = $request->get("SESSION", "logged"); // Check if user is logged in
 
         if (isset($logged) && $logged) {
-            $response->set("app_logged", $logged);
-            $response->set("app_user", $user);
+            $response->set("app_logged", $logged); // Set logged status in response
+            $response->set("app_user", $user); // Set user in response
         }
         
-        //echo "App Middleware";
-        $response = \Emeset\Middleware::next($request, $response, $container, $next);
-        // Code after FrontConroller
+        //echo "App Middleware"; // Optional debug output
+        $response = \Emeset\Middleware::next($request, $response, $container, $next); // Proceed to the next middleware
 
-        return $response;
+        // Code after FrontController
+
+        return $response; // Return the response
     }
 }

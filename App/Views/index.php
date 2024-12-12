@@ -26,9 +26,7 @@
       </div>
       <button class="bg-custom-blue text-white rounded w-full p-2 hover:bg-custom-blue" type="submit">Inicio Sesión</button>
     </form>
-    <p class="text-center text-gray-600 mt-4">
-      <a href="#" class="text-custom-blue hover:underline">¿Olvidó su contraseña?</a>
-    </p>
+   
   </div>
 </body>
 
