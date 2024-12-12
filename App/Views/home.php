@@ -25,7 +25,9 @@
     <div id="mapid"></div> <!-- Where the map will be rendered -->
 
 </section>
-<h1 class="text-2xl font-bold text-custom-blue">Clientes que confian en nosotros</h1>
+<div class="flex justify-between items-center mb-10 mt-10 ml-10">
+            <h2 class="text-2xl font-bold text-custom-blue">Estos Clientes ya confian en nosotros</h2>
+</div>
 <?php include 'Layouts/slider-inicio.php'; ?>
     <!-- Main container with padding-top to compensate for the fixed navbar -->
     <div class="container mx-auto px-4 py-8">
