@@ -28,7 +28,7 @@
 
     <div class="grid grid-cols-1 gap-4">
       <div>
-        <p class="text-base">Si has arribat aquí vol dir que alguna cosa ha fallat. hen don camaron tenemos los mejores percebes al mejor precio</p>
+        <p class="text-base">Si has arribat aquí vol dir que alguna cosa ha fallat. en don camaron tenemos los mejores percebes al mejor precio</p>
       </div>
     </div>
 
