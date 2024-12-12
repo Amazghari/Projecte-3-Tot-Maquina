@@ -245,3 +245,7 @@ html, body {
 .navbar {
     z-index: 1000;
 }
+
+#churreria{
+    gap:30vh;
+  }

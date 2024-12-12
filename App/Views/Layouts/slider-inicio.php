@@ -17,6 +17,7 @@
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
       <img src="/uploads/img-slider/amazon.png" alt="amazon" class="h-20 w-auto">
     </div>
+
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
       <img src="/uploads/img-slider/churreria.png" alt="churreria" class="h-20 w-auto">
     </div>
@@ -30,7 +31,16 @@
       <img src="/uploads/img-slider/kebab.jpg" alt="kebab" class="h-20 w-auto">
     </div>
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
-      <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
+      <img src="/uploads/img-slider/images.jpeg" alt="peluqueria" class="h-20 w-auto">
+    </div>
+    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
+      <img src="/uploads/img-slider/grow.png" alt="santoscustoms" class="h-20 w-auto">
+    </div>
+    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
+      <img src="/uploads/img-slider/ardidas.jpeg" alt="santoscustoms" class="h-20 w-auto">
+    </div>
+    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
+      <img src="/uploads/img-slider/ardidas.jpeg" alt="santoscustoms" class="h-20 w-auto">
     </div>
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
       <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
@@ -41,6 +51,11 @@
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
       <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
     </div>
+    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
+      <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
+    </div>
+    
+    
     </div>
   </div>
 </div>
