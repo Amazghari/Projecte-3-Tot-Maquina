@@ -118,7 +118,7 @@ Copiar código
 npm start  
 
 ## 👥  Som un equip divers i ple d’energia:  
-- 👳 **Ali: el marroquí del grup**  
+- 👳 **Ali: el menys marroquí del grup**  
 - 🏳️‍🌈 **Joel: el gay més creatiu 🎨**  
 - 🧑‍🦲 **Gerard: el nostre calvo preferit.**  
 - 💪 **Nil: el musculós que ho aixeca tot**  
