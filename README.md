@@ -117,7 +117,7 @@ bash
 Copiar código
 npm start  
 
-## 👥 ** Som un equip divers i ple d’energia:**  
+## 👥  Som un equip divers i ple d’energia:  
 - 👳 **Ali: el marroquí del grup**  
 - 🏳️‍🌈 **Joel: el gay més creatiu 🎨**  
 - 🧑‍🦲 **Gerard: el nostre calvo preferit.**  
