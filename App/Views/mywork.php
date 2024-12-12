@@ -63,7 +63,7 @@
                 <table class="min-w-full">
                     <thead class="bg-custom-blue text-white">
                         <tr>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold"><?= $user_maintenances['id'] ?></th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Título</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Tipo</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>

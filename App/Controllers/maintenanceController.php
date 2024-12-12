@@ -104,4 +104,15 @@ class maintenanceController {
 
         return $response; // Return the response
     }
+
+    public function myMaintenance($request, $response, $container) {
+        $maintenanceModel = $container->get("Maintenances"); // Get Maintenances model
+        $user_maintenances= $maintenanceModel->myMaintenance(); // Get User model
+        $response->set("user_maintenances", $user_maintenances); // Set maintenances in response
+        // dd($user_maintenances);
+
+        $response->setTemplate("mywork.php"); // Set the template for the response
+
+        return $response; // Return the response
+    }
 }

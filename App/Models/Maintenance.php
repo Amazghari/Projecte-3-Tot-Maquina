@@ -5,7 +5,8 @@ namespace App\Models;
 use DateInterval;
 use DateTime;
 
-class Maintenance {
+class Maintenance
+{
     private $sql;
 
     public function __construct($conn)
@@ -13,61 +14,63 @@ class Maintenance {
         $this->sql = $conn;
     }
 
-    public function getById($id){
+    public function getById($id)
+    {
         $query = "select * from maintenance where id=:id";
         $stm = $this->sql->prepare($query);
         $stm->execute([
-            ":id"=>$id
+            ":id" => $id
         ]);
         return $stm->fetch(\PDO::FETCH_ASSOC);
     }
 
-    public function add($data){
-        if(!isset($data["preventive_time"])) {
-            $query="insert into maintenance (title,state,type,frequency,description,maintentance_date,id_machine)
+    public function add($data)
+    {
+        if (!isset($data["preventive_time"])) {
+            $query = "insert into maintenance (title,state,type,frequency,description,maintentance_date,id_machine)
             values (:title ,:state,:type,:frequency,:description,:date,:idmachine)";
             $stm = $this->sql->prepare($query);
             $stm->execute([
-                ":title"=>$data["title"],
-                ":state"=>$data["status"],
-                ":type"=>$data["type"],
-                ":frequency"=>$data["preventive_time"],
-                ":description"=>$data["description"],
-                ":date"=>$data["date"],
-                ":idmachine"=>$data["id_machine"]
+                ":title" => $data["title"],
+                ":state" => $data["status"],
+                ":type" => $data["type"],
+                ":frequency" => $data["preventive_time"],
+                ":description" => $data["description"],
+                ":date" => $data["date"],
+                ":idmachine" => $data["id_machine"]
             ]);
 
             $lastInsertId = $this->sql->lastInsertId(); // to get the maintenance id
-            $query2="insert into user_maintenance (id_user,id_maintenance) values (:iduser,:idmaintenance)";
+            $query2 = "insert into user_maintenance (id_user,id_maintenance) values (:iduser,:idmaintenance)";
             $stm = $this->sql->prepare($query2);
             $stm->execute([
-                ":iduser"=>$data["id_user"],
-                ":idmaintenance"=>$lastInsertId
+                ":iduser" => $data["id_user"],
+                ":idmaintenance" => $lastInsertId
             ]);
         }
         // Here if it is preventive
         else {
-            switch($data["preventive_time"]){
+            switch ($data["preventive_time"]) {
                 case "Semanal":
-                    $interval= 'W'; // Weekly
+                    $interval = 'W'; // Weekly
                     break;
                 case "Mensual":
-                    $interval= 'M'; // Monthly
+                    $interval = 'M'; // Monthly
                     break;
                 case "Anual":
-                    $interval= 'Y'; // Yearly
+                    $interval = 'Y'; // Yearly
                     break;
             }
-            for ($i = 0; $i < 4; $i++) { 
+            for ($i = 0; $i < 4; $i++) {
                 // Create a new DateTime object for each iteration
                 $date = new DateTime($data["date"]);
-                
+
                 // Add the interval for the current iteration
                 $date->add(new DateInterval("P" . ($i + 1) . $interval)); // Increment by 1 month for each iteration
-            
+
                 // Format the date to 'Y-m-d'
                 $dateFormatted = $date->format("Y-m-d");
-            
+
                 // Prepare and execute the insert query
                 $query = "insert into maintenance (title, state, type, frequency, description, maintentance_date, id_machine)
                           values (:title, :state, :type, :frequency, :description, :date, :idmachine)";
@@ -81,20 +84,21 @@ class Maintenance {
                     ":date" => $dateFormatted, // Use the formatted date
                     ":idmachine" => $data["id_machine"]
                 ]);
-            
+
                 $lastInsertId = $this->sql->lastInsertId(); // Get the last inserted ID
                 $query2 = "insert into user_maintenance (id_user, id_maintenance) values (:iduser, :idmaintenance)";
                 $stm = $this->sql->prepare($query2);
                 $stm->execute([
                     ":iduser" => $data["id_user"],
                     ":idmaintenance" => $lastInsertId
-                ]);  
+                ]);
             }
-        }   
+        }
     }
 
     // List of all maintenances for the admin/tech/supervisor views
-    public function list (){
+    public function list()
+    {
         $query = "select * from maintenance;";
         $maintenances = [];
         foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $maintenance) {
@@ -103,20 +107,46 @@ class Maintenance {
         return $maintenances;
     }
 
-    public function update($id,$title,$state,$description){
-        $query="update maintenance set title=:title,state=:state,description=:description where id=:id";
+    public function update($id, $title, $state, $description)
+    {
+        $query = "update maintenance set title=:title,state=:state,description=:description where id=:id";
         $stm = $this->sql->prepare($query);
         $stm->execute([
-            ":title"=>$title,
-            ":state"=>$state,
-            ":description"=>$description,
-            ":id"=>$id
+            ":title" => $title,
+            ":state" => $state,
+            ":description" => $description,
+            ":id" => $id
         ]);
     }
 
-    public function delete($id){
-        $query="delete from maintenance where id=:id;";
+    public function delete($id)
+    {
+        $query = "delete from maintenance where id=:id;";
         $stm = $this->sql->prepare($query);
-        $stm->execute([":id"=>$id]);
+        $stm->execute([":id" => $id]);
+    }
+
+    public function myMaintenance()
+    {
+        // Recupera el ID del usuario de la sesión
+        $userId = $_SESSION['user']['id'];
+            
+        // Consulta para obtener los mantenimientos relacionados con el usuario
+        $query = "select m.* from maintenance m inner join user_maintenance um on m.id = um.id_maintenance WHERE um.id_user = :userId;
+        ";
+    
+        $maintenances = [];
+    
+        // Preparar y ejecutar la consulta con PDO
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindParam(':userId', $userId, \PDO::PARAM_INT);
+        $stmt->execute();
+    
+        // Recorrer los resultados y almacenarlos en un array
+        foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $maintenance) {
+            $maintenances[$maintenance["id"]] = $maintenance;
+        }
+    
+        return $maintenances;
     }
 }
