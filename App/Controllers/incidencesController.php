@@ -11,10 +11,13 @@ class incidencesController
 
     public function incidencesController($request, $response, $container)
     {
+        $machinesModel = $container->get("Machines"); // Get Machines model
+        $machines = $machinesModel->list(); // List all machines
         $incidencesModel = $container->get("Incidences"); // Get Incidences model
         $incidences = $incidencesModel->list(); // List all incidences
 
         $response->set("incidences", $incidences); // Set incidences in response
+        $response->set("machines",$machines);
         $response->setTemplate("incidences.php"); // Set the template for the response
 
         return $response; // Return the response
