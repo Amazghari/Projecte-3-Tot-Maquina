@@ -39,21 +39,12 @@
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
       <img src="/uploads/img-slider/ardidas.jpeg" alt="santoscustoms" class="h-20 w-auto">
     </div>
-    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
-      <img src="/uploads/img-slider/ardidas.jpeg" alt="santoscustoms" class="h-20 w-auto">
-    </div>
+    
     <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
       <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
-    </div>
-    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
-      <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
-    </div>
-    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
-      <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
-    </div>
-    <div class="carousel-item flex-shrink-0 w-auto flex items-center justify-center text-white">
-      <img src="/uploads/img-slider/peluqueria.jfif" alt="peluqueria" class="h-20 w-auto">
-    </div>
+
+ 
+
     
     
     </div>
