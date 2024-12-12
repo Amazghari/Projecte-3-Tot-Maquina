@@ -53,6 +53,24 @@ class Container extends EmesetContainer {
             return $maintenances;
         };
 
+        $this["User_machine"] = function ($c) {
+            $db= $c->get("db");
+            $user_machine = new \App\Models\User_machine($db->getConnection());
+            return $user_machine;
+        };
+
+        $this["User_maintenance"] = function ($c) {
+            $db= $c->get("db");
+            $user_maintenance = new \App\Models\User_maintenance($db->getConnection());
+            return $user_maintenance;
+        };
+
+        $this["User_incidences"] = function ($c) {
+            $db= $c->get("db");            
+            $user_incidences = new \App\Models\User_incidences($db->getConnection());
+            return $user_incidences;
+        };
+
     }
 
 

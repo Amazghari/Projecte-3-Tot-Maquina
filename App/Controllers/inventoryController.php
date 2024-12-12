@@ -9,6 +9,8 @@ class inventoryController {
 
     public function index($request, $response, $container){
         $machinesModel = $container->get("Machines"); // Get Machines model
+        
+        $relationModel = $container->get("User_machine");
 
         $machines = $machinesModel->list(); // List all machines
 

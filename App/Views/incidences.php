@@ -16,8 +16,8 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h1 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h1>
-            <?php if(isset($_SESSION['user']) && $_SESSION['user']['role'] != 'usuario'){?>
-            <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Asignar Técnico">
+            <?php if(isset($app_user) && $app_user['role'] != 'usuario'){?>
+            <a href="/asignartecnico" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Asignar Técnico">
                 Asignar Técnico
             </a>
             <?php } ?>
