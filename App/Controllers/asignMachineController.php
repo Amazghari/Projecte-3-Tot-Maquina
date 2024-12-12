@@ -18,12 +18,12 @@ class asignMachineController {
 
     public function asignMachineTech($request, $response, $container){
         $relationTable = $container->get("User_machine");
-        $prueba=$request->getRaw(INPUT_POST,"tech_id");
-        dd($prueba,$_POST);
+        //$prueba=$request->getRaw(INPUT_POST,"tech_id");
+        //dd($prueba,$_POST);
         // Get the arrays from POST using the correct array notation
-        $tech_ids = $_POST['tech_id'];
+        $tech_ids = $request->get(INPUT_POST,  "tech_id", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
     
-        $machine_ids = $_POST['machine_id'];
+        $machine_ids = $request->get(INPUT_POST,  "machine_id", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         //dd($tech_ids, $machine_ids);
 
         

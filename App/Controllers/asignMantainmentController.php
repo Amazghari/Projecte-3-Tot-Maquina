@@ -20,9 +20,9 @@ class asignMantainmentController {
         //dd($_POST);
         $relationTable = $container->get("User_maintenance");
         // Get the arrays from POST using the correct array notation
-        $tech_ids = $_POST['tech_id'];
+        $tech_ids = $request->get(INPUT_POST,  "tech_id", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
     
-        $maintenance_ids = $_POST['maintenance_id'];
+        $maintenance_ids = $request->get(INPUT_POST,  "maintenance_id", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         //dd($tech_ids, $machine_ids);
 
         
@@ -33,7 +33,7 @@ class asignMantainmentController {
             }
         }
 
-        $response->redirect("location: /inventario");
+        $response->redirect("location: /mantenimientos");
 
         return $response;
         
