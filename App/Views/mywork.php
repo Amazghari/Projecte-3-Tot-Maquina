@@ -63,7 +63,7 @@
                 <table class="min-w-full">
                     <thead class="bg-custom-blue text-white">
                         <tr>
-                            <th class="px-6 py-3 text-left text-sm font-semibold"><?= $user_maintenances['id'] ?></th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Título</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Tipo</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
@@ -73,23 +73,24 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
+                        <?php foreach($user_maintenances as $user_maintenance) {?>
                         <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-sm text-gray-900">#MNT-001</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">#MNT-<?= $user_maintenance['id'] ?></td>
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]">Cambio De Aceite</p>
+                                <p class="truncate max-w-[200px]"><?= $user_maintenance['title'] ?></p>
                             </td>
                             <td class="px-6 py-4">
                                 <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">
-                                    Preventivo
+                                <?= $user_maintenance['type'] ?>
                                 </span>
                             </td>
                             <td class="px-6 py-4">
                                 <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-                                    Completado
+                                <?= $user_maintenance['state'] ?>
                                 </span>
                             </td>
-                            <td class="px-6 py-4 text-sm text-gray-900">MAQ-123</td>
-                            <td class="px-6 py-4 text-sm text-gray-900">15/03/2024</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">MAQ-<?= $user_maintenance['id_machine'] ?></p></td>
+                            <td class="px-6 py-4 text-sm text-gray-900"><?= $user_maintenance['maintentance_date'] ?></td>
                             <td class="px-6 py-4 text-sm">
                                 <div class="flex space-x-3">
                                     <button class="text-blue-600 hover:text-blue-800">
@@ -105,6 +106,7 @@
                                 </div>
                             </td>
                         </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -137,23 +139,23 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                    <?php foreach ($incidences as $incidence) { ?>
+                    <?php foreach ($user_incidences as $user_incidence) { ?>
                         <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 text-sm text-gray-900">#INC-<?= $incidence['id'] ?></td>
+                            <td class="px-6 py-4 text-sm text-gray-900">#INC-<?= $user_incidence['id'] ?></td>
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]"><?= $incidence['name'] ?></p>
+                                <p class="truncate max-w-[200px]"><?= $user_incidence['name'] ?></p>
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-900">
-                                <p class="truncate max-w-[200px]"><?= $incidence['description'] ?></p>
+                                <p class="truncate max-w-[200px]"><?= $user_incidence['description'] ?></p>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['priority'] ?></span>
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $user_incidence['priority'] ?></span>
                             </td> 
                             <td class="px-6 py-4">
-                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['state'] ?></span>
+                                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $user_incidence['state'] ?></span>
                             </td>
-                            <td class="px-6 py-4 text-sm text-gray-900"></td>
-                            <td class="px-6 py-4 text-sm text-gray-900"></td>
+                            <td class="px-6 py-4 text-sm text-gray-900"><?= $_SESSION['user']['id'] ?></td>
+                            <td class="px-6 py-4 text-sm text-gray-900"><?= $_SESSION['user']['name'] ?></td>
                             <td class="px-6 py-4 text-sm">
                                 <div class="flex space-x-3">
                                     <button class="text-blue-600 hover:text-blue-800">
@@ -198,15 +200,15 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
-                    <?php foreach ($machines as $machine) { ?>
-                        <tr id="machine<?= $machine["id"] ?>" class="hover:bg-gray-50" role="row">
-                            <td class="px-6 py-4 text-sm text-gray-900" role="cell">#MAQ-<?= $machine["id"] ?></td>
+                    <?php foreach ($user_machines as $user_machine) { ?>
+                        <tr id="machine<?= $user_machine["id"] ?>" class="hover:bg-gray-50" role="row">
+                            <td class="px-6 py-4 text-sm text-gray-900" role="cell">#MAQ-<?= $user_machine["id"] ?></td>
                             <td class="px-6 py-4 text-sm text-gray-900" role="cell">
-                                <p class="truncate max-w-[200px]"><?= $machine["name"] ?></p>
+                                <p class="truncate max-w-[200px]"><?= $user_machine["name"] ?></p>
                             </td>
-                            <td class="px-6 py-4" role="cell"><?= $machine["serial_num"] ?></td>
-                            <td class="px-6 py-4 text-sm text-gray-900" role="cell">USR-123</td>
-                            <td class="px-6 py-4 text-sm text-gray-900" role="cell">Miguelito</td>
+                            <td class="px-6 py-4" role="cell"><?= $user_machine["serial_num"] ?></td>
+                            <td class="px-6 py-4 text-sm text-gray-900" role="cell">USR-<?= $_SESSION['user']['id'] ?></td>
+                            <td class="px-6 py-4 text-sm text-gray-900" role="cell"><?= $_SESSION['user']['name'] ?></td>
                             <td class="px-6 py-4 text-sm" role="cell">
                                 <div class="flex space-x-3">
                                     <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/maquina/<?= $machine["id"] ?>'" aria-label="Ver detalles de máquina #MAQ-<?= $machine["id"] ?>">

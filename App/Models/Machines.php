@@ -119,6 +119,30 @@ class Machines
         return $machines;
     }
 
+    public function myMachine()
+    {
+        // Recupera el ID del usuario de la sesión
+        $userId = $_SESSION['user']['id'];
+            
+        // Consulta para obtener los mantenimientos relacionados con el usuario
+        $query = "select m.* from machines m inner join user_machine um on m.id = um.id_machine WHERE um.id_user = :userId;
+        ";
+    
+        $maintenances = [];
+    
+        // Preparar y ejecutar la consulta con PDO
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindParam(':userId', $userId, \PDO::PARAM_INT);
+        $stmt->execute();
+    
+        // Recorrer los resultados y almacenarlos en un array
+        foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $machine) {
+            $maintenances[$machine["id"]] = $machine;
+        }
+    
+        return $maintenances;
+    }
+
    
     
 }

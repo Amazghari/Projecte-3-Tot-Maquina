@@ -79,5 +79,29 @@ class Incidences{
         $stm->execute([":imputed_hours"=>$imputed_hours,":id"=>$id]);
 
     }
+
+    public function myIncidence()
+    {
+        // Recupera el ID del usuario de la sesión
+        $userId = $_SESSION['user']['id'];
+            
+        // Consulta para obtener los mantenimientos relacionados con el usuario
+        $query = "select i.* from incidence i inner join user_incidence ui on i.id = ui.id_incidence WHERE ui.id_user = :userId;
+        ";
+    
+        $maintenances = [];
+    
+        // Preparar y ejecutar la consulta con PDO
+        $stmt = $this->sql->prepare($query);
+        $stmt->bindParam(':userId', $userId, \PDO::PARAM_INT);
+        $stmt->execute();
+    
+        // Recorrer los resultados y almacenarlos en un array
+        foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $incidence) {
+            $maintenances[$incidence["id"]] = $incidence;
+        }
+    
+        return $maintenances;
+    }
 }  
       
