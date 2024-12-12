@@ -117,15 +117,11 @@ bash
 Copiar código
 npm start  
 
-
-👥 Equip
-Som un equip divers i ple d’energia:
-
-🇲🇦 Ali: el marroquí del grup 🌍
-🧑‍🦲 Gerard: el nostre calvo preferit 🕶️
-🏳️‍🌈 Joel: el gay més creatiu 🎨
-💪 Nil: el musculós que ho aixeca tot 🏋️‍♂️
-A aquest projecte hi treballem perquè les màquines no s’aturin mai! 🚀
+## 👥 ** Som un equip divers i ple d’energia:**  
+- 👳 **Ali: el marroquí del grup**  
+- 🏳️‍🌈 **Joel: el gay més creatiu 🎨**  
+- 🧑‍🦲 **Gerard: el nostre calvo preferit.**  
+- 💪 **Nil: el musculós que ho aixeca tot**  
 
 
 
