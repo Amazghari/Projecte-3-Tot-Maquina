@@ -13,6 +13,8 @@
 
     <!-- Includes the CSS for Leaflet to display the map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.6.5/dist/flowbite.min.js"></script>
+
     
 </head>
 <body class="bg-custom-light-gray">
@@ -23,6 +25,8 @@
     <div id="mapid"></div> <!-- Where the map will be rendered -->
 
 </section>
+<h1 class="text-2xl font-bold text-custom-blue">Clientes que confian en nosotros</h1>
+<?php include 'Layouts/slider-inicio.php'; ?>
     <!-- Main container with padding-top to compensate for the fixed navbar -->
     <div class="container mx-auto px-4 py-8">
         <!-- Title and new issue button -->
