@@ -8,28 +8,14 @@ use \Emeset\Contracts\Container;
 
 class myworkController {
 
-    public function myworkController($request, $response, $container){
-
-        $response->setTemplate("mywork.php");
-
-        $machinesModel = $container->get("Machines");
-
-        $machines = $machinesModel->list();
-
-        $response->set("machines", $machines);
-        $incidencesModel = $container->get("Incidences");
-    
-        $incidences = $incidencesModel->list();
-
-        $response->set("incidences", $incidences);
-
-        return $response;
-    }
-
     public function myWork($request, $response, $container) {
         $maintenanceModel = $container->get("Maintenances"); // Get Maintenances model
         $incidenceModel = $container->get("Incidences"); // Get Incidences model
         $machineModel = $container->get("Machines"); // Get Machines model
+
+        $machinesModel = $container->get("Machines");
+        $machines = $machinesModel->list();
+        $response->set("machines", $machines);
 
         $user_maintenances= $maintenanceModel->myMaintenance(); // Get User model
         $user_incidences = $incidenceModel->myIncidence(); // Get User model
