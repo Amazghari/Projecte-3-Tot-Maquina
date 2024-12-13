@@ -36,8 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Incidencias Totales</h2>
-                <p class="text-4xl font-bold">150</p>
-            </div>
+                <?php echo $totalIncidences; ?>        </div> <!-- For get the result of the count -->
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Incidencias Completadas</h2>
                 <p class="text-4xl font-bold">120</p>
