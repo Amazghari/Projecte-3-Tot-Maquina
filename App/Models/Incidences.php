@@ -80,6 +80,21 @@ class Incidences{
 
     }
 
+    // Method for count the incidences
+    public function countIncidences()
+    {
+        // Write the SQL query for count the incidences
+        $query = "SELECT COUNT(*) as total FROM incidence";
+
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+
+        // we return the result (the total of incidences)
+        return $result['total'];
+    }
+
+
+
     public function myIncidence()
     {
         // Recupera el ID del usuario de la sesión

@@ -53,7 +53,10 @@ $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class
 $app->route("/incidencia/editar/{id}", [\App\Controllers\incidencesController::class, "editIncidence"]);
 $app->post("/incidencia/updateIncidence", [\App\Controllers\incidencesController::class, "updateIncidence"]);
 $app->get("/incidencia/eliminar/{id}", [\App\Controllers\incidencesController::class, "deleteIncidence"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->get('/incidencia/count', [\App\Controllers\incidencesController::class, 'listCount']);
+
 $app->route("/perfil/updateProfile", [\App\Controllers\profileController::class, "updateProfile"]);
+
 $app->route("/incidencia/{id}", [\App\Controllers\incidenceController::class, "incidenceController"]);
 // $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myworkController"]);
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
