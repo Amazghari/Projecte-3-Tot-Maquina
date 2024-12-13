@@ -19,11 +19,11 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
             <div class="bg-red-600 text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h3 class="text-xl font-semibold">Prioridad Alta</h3>
-                <p class="text-4xl font-bold">10</p>
+                <p class="text-4xl font-bold"><?php echo $totalHighPriorityIncidences; ?></p>
             </div>
             <div class="bg-[#c88802] text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h3 class="text-xl font-semibold">Prioridad Media</h3>
-                <p class="text-4xl font-bold">15</p>
+                <p class="text-4xl font-bold"><?php echo $totalMediumPriorityIncidences; ?></p>
             </div>
             <div class="bg-green-600 text-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h3 class="text-xl font-semibold">Prioridad Baja</h3>
@@ -39,27 +39,27 @@
                 <p class="text-4xl font-bold"><?php echo $totalIncidences; ?></p>        </div> <!-- For get the result of the count -->
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Incidencias Completadas</h2>
-                <p class="text-4xl font-bold">120</p>
+                <p class="text-4xl font-bold"><?php echo $totalCompletedIncidences; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Incidencias Abiertas</h2>
-                <p class="text-4xl font-bold">30</p>
+                <p class="text-4xl font-bold"><?php echo $totalOpenedIncidences; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Mantenimientos Totales</h2>
-                <p class="text-4xl font-bold">75</p>
+                <p class="text-4xl font-bold"><?php echo $totalMaintenance; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Mantenimientos Completados</h2>
-                <p class="text-4xl font-bold">50</p>
+                <p class="text-4xl font-bold"><?php echo $totalCompletedMaintenance; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Usuarios Totales</h2>
-                <p class="text-4xl font-bold">200</p>
+                <p class="text-4xl font-bold"><?php echo $totalUsers; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Máquinas Totales</h2>
-                <p class="text-4xl font-bold">50</p>
+                <p class="text-4xl font-bold"><?php echo $totalMachines; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Máquinas Fuera de Servicio</h2>
