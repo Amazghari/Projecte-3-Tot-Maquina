@@ -37,7 +37,7 @@ $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"
 $app->get("/inventario", [\App\Controllers\inventoryController::class, "index"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"],[[\App\Middleware\auth::class, "isAdmin"]]);
-$app->route("/paneladministrador2", [\App\Controllers\admindashboardController::class, "admindashboardController2"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->route("/paneladministrador", [\App\Controllers\admindashboardController2::class, "admindashboardController2"],[[\App\Middleware\auth::class, "isAdmin"]]);
 
 $app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class, "admininventoryController"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController::class, "adminmaintenanceController"],[[\App\Middleware\auth::class, "isAdmin"]]);
