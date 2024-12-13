@@ -12,14 +12,36 @@ class admindashboardController {
 
         // call the method countIncidences() of model
         $totalIncidences = $incidencesModel->countIncidences();
-        var_dump($totalIncidences); // Verifica el valor de $totalIncidences
+        $totalLowPriorityIncidences =$incidencesModel->countLowPriorityIncidences();
+        $totalMediumPriorityIncidences =$incidencesModel->countMediumPriorityIncidences();
+        $totalHighPriorityIncidences =$incidencesModel->countHighPriorityIncidences();
+        $totalCompletedIncidences =$incidencesModel->countCompletedIncidences();
+        $totalOpenedIncidences =$incidencesModel->countOpenedIncidences();
+        $totalMaintenance =$incidencesModel->countMaintenance();
+        $totalCompletedMaintenance =$incidencesModel->countCompletedMaintenance();
+        $totalUsers = $incidencesModel->countUsers();
+        $totalMachines = $incidencesModel->countMachines();
+
+
         $response->set('totalIncidences', $totalIncidences);
-        
+        $response->set('totalLowPriorityIncidences',$totalLowPriorityIncidences);
+        $response->set('totalMediumPriorityIncidences',$totalMediumPriorityIncidences);
+        $response->set('totalHighPriorityIncidences',$totalHighPriorityIncidences);
+        $response->set('totalCompletedIncidences',$totalCompletedIncidences);
+        $response->set('totalOpenedIncidences',$totalOpenedIncidences);
+        $response->set('totalMaintenance',$totalMaintenance);
+        $response->set('totalCompletedMaintenance',$totalCompletedMaintenance);
+        $response->set('totalUsers',$totalUsers);
+        $response->set('totalMachines',$totalMachines);
+
+
 
         // set the view what do we want to render
         $response->setTemplate('admindashboard.php');
 
         return $response;
     }
+
+
 
 }
