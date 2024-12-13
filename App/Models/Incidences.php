@@ -93,7 +93,7 @@ class Incidences{
         return $result['total'];
     }
 
-
+ 
 
     public function myIncidence()
     {
