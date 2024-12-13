@@ -14,7 +14,7 @@ create table machines (
 	first_answer VARCHAR(255)
 );
 insert into machines (model,manufacturer,serial_num,installation_date,longitude,latitude,image_url,first_answer) 
-values("model1","manufacturer1","serialNumbe1",CURDATE(),"123","123""image1","first_answer");
+values("model1","manufacturer1","serialNumbe1",CURDATE(),"123","123","image1","first_answer");
 -- select * from machines;
 create table users(
 	id int AUTO_INCREMENT PRIMARY KEY,
