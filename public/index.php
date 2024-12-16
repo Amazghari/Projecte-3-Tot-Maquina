@@ -81,13 +81,12 @@ $app->route("/mantenimiento/editar/{id}", [\App\Controllers\maintenanceControlle
 $app->route("/mantenimiento/updateMantenimiento", [\App\Controllers\maintenanceController::class, "updateMaintenance"]);
 $app->get("/mantenimiento/eliminar/{id}", [\App\Controllers\maintenanceController::class, "deleteMaintenance"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
-$app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
-$app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
 
-$app->post("/asignarmaquinatecnico",[\App\Controllers\asignMachineController::class, "asignMachineTech"]);
-$app->post("/asignarmantenimientotecnico",[\App\Controllers\asignMantainmentController::class, "asignMaintenanceTech"]);
-$app->post("/asignarincidenciatecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidenceTech"]);
-$app->route("/asignartecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidencesController"]);
+
+$app->post("/asignarmaquinatecnico",[\App\Controllers\asignMachineController::class, "asignMachineTech"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->post("/asignarmantenimientotecnico",[\App\Controllers\asignMantainmentController::class, "asignMaintenanceTech"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->post("/asignarincidenciatecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidenceTech"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->route("/asignartecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidencesController"],[[\App\Middleware\auth::class, "isUser"]]);
 
 
 

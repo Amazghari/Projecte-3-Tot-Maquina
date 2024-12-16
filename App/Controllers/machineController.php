@@ -9,10 +9,17 @@ use \Emeset\Contracts\Container;
 class machineController {
 
     public function machineController($request, $response, $container) {
+        $maintenanceModel = $container->get("Maintenances");
+        $incidencesModel = $container->get("Incidences");
+        // Get machine ID from request
+        $id = $request->getParam("id");
+        $maintenances=$maintenanceModel->listByMachine($id);
+        $incidences=$incidencesModel->listByMachine($id);
         $machinesModel = $container->get("Machines"); // Get Machines model
-        $id = $request->getParam("id"); // Get machine ID from request
-        $machine = $machinesModel->getById($id); // Get machine details by ID
         
+        $machine = $machinesModel->getById($id); // Get machine details by ID
+        $response->set("incidences", $incidences); // Set incidences in response
+        $response->set("maintenances", $maintenances); // Set maintenances in response
         $response->set("machine", $machine); // Set machine details in response
         $response->setTemplate("machine.php"); // Set the template for the response
 

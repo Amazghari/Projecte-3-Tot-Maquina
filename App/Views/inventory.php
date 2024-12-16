@@ -126,13 +126,19 @@
                     <label class="block text-sm font-medium text-gray-700">Fecha instalación</label>
                     <input type="date" name="installationDate" id="installationDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
+                <!------
+                hacer script para comprovar longitud y latitud
+                latitud= [-90,90]
+                longtiud= [-180,180]
+                
+                --->
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Longitud</label>
-                    <input type="text" name="longitude" id="longitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
+                    <input type="number" name="longitude" id="longitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Latitud</label>
-                    <input type="text" name="latitude" id="latitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
+                    <input type="number" name="latitude" id="latitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Imagen</label>
@@ -144,7 +150,7 @@
                         class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
                         Cancelar
                     </label>
-                    <button type="submit"
+                    <button type="submit" id="submit-button-machine"
                         class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
                         Guardar
                     </button>
