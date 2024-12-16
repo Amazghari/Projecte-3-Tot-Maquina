@@ -7,7 +7,7 @@
     <link href="/main.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="../../uploads/img/logopng.png">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <title>Informacion Maquina</title>
 </head>
 
@@ -19,7 +19,7 @@
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <div class="flex flex-col md:flex-row">
                 <div class="flex-shrink-0 w-full md:w-1/2">
-                    <img src="<?= $machine['image_url']?>" alt="Máquina" class="h-auto w-full object-cover rounded-lg">
+                    <img src="<?= $machine['image_url'] ?>" alt="Máquina" class="h-auto w-full object-cover rounded-lg">
                 </div>
 
                 <div class="ml-4 w-full md:w-1/2 flex flex-col justify-between">
@@ -52,11 +52,11 @@
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label class="text-xl text-gray-600">Longitud:</label>
-                                <input type="text" name="latitude" value="<?= $machine['longitude']?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Longitud">
+                                <input type="text" name="latitude" value="<?= $machine['longitude'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Longitud">
                             </div>
                             <div class="w-1/2">
                                 <label class="text-xl text-gray-600">Latitud:</label>
-                                <input type="text" name="longitude" value="<?= $machine['latitude']?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Latitud">
+                                <input type="text" name="longitude" value="<?= $machine['latitude'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Latitud">
                             </div>
                         </div>
                         <button type="submit" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200" aria-label="Guardar cambios">Guardar Cambios</button>
@@ -80,46 +80,36 @@
                             <tr>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">ID Incidencia</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Nºserie</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Prioridad</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">ID Trabajador</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Trabajador</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Trabajador Asignado</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#INC-001</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Incidencia 1</p>
-                                </td>
-                                <td class="px-6 py-4">1231232132</td>
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Media</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">En Proceso</span>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-900">USR-123</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <div class="flex space-x-3">
-                                        <button class="text-blue-600 hover:text-blue-800" aria-label="Editar incidencia" title="Editar incidencia">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                            </svg>
-                                            <span class="sr-only">Editar incidencia</span>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-800" aria-label="Eliminar incidencia" title="Eliminar incidencia">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                            <span class="sr-only">Eliminar incidencia</span>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php foreach ($incidences as $incidence) { ?>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 text-sm text-gray-900">#INC-<?= $incidence['id'] ?></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        <p class="truncate max-w-[200px]"><?= $incidence['name'] ?></p>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['priority'] ?></span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['state'] ?></span>
+                                    </td>
+                                        <td class="px-6 py-4 text-sm text-gray-900">
+                                            <select name="assignedusers" id="assignedusers"
+                                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
+                                                aria-required="true">
+                                                <?php foreach ($incidence["users"] as $user) { ?>
+                                                    <option value="<?php echo $user['id']; ?>"><?php echo $user['id'] . " - " . $user['name']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </td>
+                                  
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -141,72 +131,50 @@
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Título</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Tipo</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">ID Máquina</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 text-sm text-gray-900">#MNT-001</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">
-                                    <p class="truncate max-w-[200px]">Cambio De Aceite</p>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">Preventivo</span>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Completado</span>
-                                </td>
-                                <td class="px-6 py-4 text-sm text-gray-900">MAQ-123</td>
-                                <td class="px-6 py-4 text-sm text-gray-900">15/03/2024</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <div class="flex space-x-3">
-                                        <button class="text-blue-600 hover:text-blue-800" aria-label="Editar mantenimiento" title="Editar mantenimiento">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                            </svg>
-                                            <span class="sr-only">Editar mantenimiento</span>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-800" aria-label="Eliminar mantenimiento" title="Eliminar mantenimiento">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                            <span class="sr-only">Eliminar mantenimiento</span>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php foreach ($maintenances as $maintenance) { ?>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-6 py-4 text-sm text-gray-900">#MNT-<?= $maintenance['id'] ?></td>
+                                    <td class="px-6 py-4 text-sm text-gray-900">
+                                        <p class="truncate max-w-[200px]"><?= $maintenance['title'] ?></p>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800"><?= $maintenance['type'] ?></span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $maintenance['state'] ?></span>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-900"><?= $maintenance['maintentance_date'] ?></td>
+                                  
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="/js/machine.js"></script>
     <script>
-    // Inicializa el mapa
-    var map = L.map('map', { 
-        // Mejora la accesibilidad añadiendo un título
-        title: 'Mapa de ubicación de la máquina'
-    }).setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
+        // Inicializa el mapa
+        var map = L.map('map').setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
 
-    // Capa de los tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
+        // Capa de los tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
 
-    // Agregar un marcador
-    var marker = L.marker([51.505, -0.09], {
-        // Añadir un aria-label para accesibilidad
-        title: 'Ubicación de la máquina'
-    }).addTo(map); // Cambia las coordenadas del marcador
-    marker.bindPopup('Estoy Aqui.').openPopup();
-</script>
+        // Agregar un marcador
+        var marker = L.marker([51.505, -0.09]).addTo(map); // Cambia las coordenadas del marcador
+        marker.bindPopup('Hola Calvo.').openPopup();
+    </script>
     <!-- Footer -->
 </body>
 

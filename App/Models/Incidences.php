@@ -61,6 +61,37 @@ class Incidences{
         ]);
     }
 
+
+    public function listByMachine($id){
+
+        $subquery="select users.name,users.id, id_incidence from user_incidence join users on users.id=user_incidence.id_user where id_incidence=:id;";
+        //dd($subquery);
+        $query = "select * from incidence where id_machine=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":id"=>$id
+        ]);
+        $incidences = [];
+        $users = [];
+        foreach ($stm->fetchAll(\PDO::FETCH_ASSOC) as $incidence) {
+            $stm=$this->sql->prepare($subquery);
+            $result=$stm->execute([
+                ":id"=>$incidence["id"]
+            ]);
+            foreach ($stm->fetchAll(\PDO::FETCH_ASSOC) as $user) {
+                $users[$user["id"]] = $user;
+            }
+    
+            $incidences[$incidence["id"]] = $incidence;
+            $incidences[$incidence["id"]]["users"] = $users;
+        }
+        return $incidences;
+    }
+
+
+
+
+
     public function updateIncidence($id,$name,$state,$priority,$description,$id_machine){
         $query="update machines set name='{$name}',state='{$state}',priority='{$priority}',description='{$description}',id_machine='{$id_machine}' where id='{$id}'";
         $stm = $this->sql->prepare($query);
@@ -216,6 +247,34 @@ class Incidences{
         // Execute the query and get the result
         $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
  
+        // we return the result (the total of total machines)
+        return $result['total'];
+    }      
+
+
+    // Method for count total maintenance
+    public function countProgrammedMaintenance()
+    {
+        // Write the SQL query for count total maintenance
+        $query = "SELECT COUNT(*) as total FROM maintenance WHERE state='programado'";
+    
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+     
+        // we return the result (the total of total maintenance)
+        return $result['total'];
+    }      
+
+
+    // Method for count total machines
+    public function countTechnics()
+    {
+        // Write the SQL query for count total machines
+        $query = "SELECT COUNT(*) as total FROM users WHERE role='tecnico'";
+        
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+         
         // we return the result (the total of total machines)
         return $result['total'];
     }      

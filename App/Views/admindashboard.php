@@ -50,6 +50,10 @@
                 <p class="text-4xl font-bold"><?php echo $totalMaintenance; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
+                <h2 class="text-xl font-semibold text-custom-blue">Mantenimientos Programados</h2>
+                <p class="text-4xl font-bold"><?php echo $totalProgrammedMaintenance; ?></p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
                 <h2 class="text-xl font-semibold text-custom-blue">Mantenimientos Completados</h2>
                 <p class="text-4xl font-bold"><?php echo $totalCompletedMaintenance; ?></p>
             </div>
@@ -62,12 +66,8 @@
                 <p class="text-4xl font-bold"><?php echo $totalMachines; ?></p>
             </div>
             <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
-                <h2 class="text-xl font-semibold text-custom-blue">Máquinas Fuera de Servicio</h2>
-                <p class="text-4xl font-bold">5</p>
-            </div>
-            <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-transform transform hover:scale-105">
-                <h2 class="text-xl font-semibold text-custom-blue">Máquinas Operativas</h2>
-                <p class="text-4xl font-bold">45</p>
+                <h2 class="text-xl font-semibold text-custom-blue">Técnicos Totales</h2>
+                <p class="text-4xl font-bold"><?php echo $totalTechnics; ?></p>
             </div>
         </div>
 

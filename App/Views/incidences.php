@@ -43,8 +43,20 @@
         </div>
         
         <form id="incident-form" class="space-y-4 mt-4" action="/incidencia/añadir" method="post" enctype="multipart/form-data">
-            <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Título</label>
+        <div>
+                <label class="block text-sm font-medium text-gray-700">Id Maquina</label>
+                <select name="id_machine" id="id_machine"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
+                            aria-required="true">
+                            <option value="" selected disabled hidden>Elige id maquina</option>
+                            <?php foreach ($machines as $machine) { ?>
+                                <option value="<?php echo $machine['id']; ?>"><?php echo $machine['id'] . " - " . $machine['name']; ?></option>
+                            <?php } ?>
+                        </select> 
+            </div>    
+        
+        <div>
+                <label class="block text-sm font-medium text-gray-700">Título</label>
                 <input type="text" name="name" id="name" required
                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Título de la incidencia">
             </div>
@@ -72,11 +84,7 @@
                 <input type="text" name="description" id="description" required
                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Descripción de la incidencia">
             </div>
-            <div>
-                <label for="id_machine" class="block text-sm font-medium text-gray-700">ID Máquina</label>
-                <input type="text" name="id_machine" id="id_machine"
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="ID de la máquina">
-            </div>
+           
 
             <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
                 <label for="modal-toggle" 

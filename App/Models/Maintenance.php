@@ -107,6 +107,24 @@ class Maintenance
         return $maintenances;
     }
 
+   
+
+    public function listByMachine($id){
+
+       
+
+        $query="select * from maintenance where id_machine=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":id"=>$id
+        ]);
+        $maintenances = [];
+        foreach ($stm->fetchAll(\PDO::FETCH_ASSOC) as $maintenance) {
+            $maintenances[$maintenance["id"]] = $maintenance;
+        }
+        return $maintenances;
+    }
+
     public function update($id, $title, $state, $description)
     {
         $query = "update maintenance set title=:title,state=:state,description=:description where id=:id";
