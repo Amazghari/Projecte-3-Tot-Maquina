@@ -32,10 +32,11 @@ class Machines
         $query = "select * from machines;";
         $machines = [];
         foreach ($this->sql->query($query, \PDO::FETCH_ASSOC) as $machine) {
-            $machines[$machine["id"]] = $machine;
+            $machines[] = $machine;
         }
         return $machines;
     }
+
 //update machines
     public function update($id,$name,$model,$manufacturer,$serial_num,$longitude,$latitude,$image_url){
         $query="update machines set name=:name,model=:model,manufacturer=:manufacturer,serial_num=:serial_num,

@@ -37,7 +37,7 @@ class machineController {
         $machines = $container->get("Machines"); // Get Machines service from container
         $machines->updateMachine($id, $name, $model, $manufacturer, $longitude, $latitude); // Update machine details
 
-        $response->redirect("location: /machine/$id"); // Redirect to the updated machine's page
+        $response->redirect("location: /maquina/$id"); // Redirect to the updated machine's page
 
         return $response; // Return the response
     }
