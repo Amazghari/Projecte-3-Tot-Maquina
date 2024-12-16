@@ -42,7 +42,7 @@
             </label>
         </div>
         
-        <form id="incident-form" class="space-y-4 mt-4" action="/incidencia/añadir" method="post" enctype="multipart/form-data">
+        <form id="incident-form" class="space-y-4 mt-4" action="/incidencias/añadir" method="post" enctype="multipart/form-data">
             <div>
                 <label class="block text-sm font-medium text-gray-700">Título</label>
                 <input type="text" name="name" id="name" required
