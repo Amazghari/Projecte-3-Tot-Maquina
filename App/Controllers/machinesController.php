@@ -26,7 +26,7 @@ class machinesController {
         $image_url = $request->get(INPUT_POST, "image");
 
         // Debugging output for POST data
-        dd($_POST);
+        // dd($_POST);
 
         $machines = $container->get("Machines"); // Get Machines service from container
         $machines->add($model, $manufacturer, $serial_num, $installation_date, $location, $image_url); // Add new machine

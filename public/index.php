@@ -79,6 +79,7 @@ $app->get("/mantenimiento/eliminar/{id}", [\App\Controllers\maintenanceControlle
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
+$app->route("inventario/uploadCSV", [\App\Controllers\inventoryController::class, "uploadCSV"]);
 
 $app->post("/asignarmaquinatecnico",[\App\Controllers\asignMachineController::class, "asignMachineTech"]);
 $app->post("/asignarmantenimientotecnico",[\App\Controllers\asignMantainmentController::class, "asignMaintenanceTech"]);

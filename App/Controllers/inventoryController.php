@@ -1,15 +1,18 @@
 <?php
 
 namespace App\Controllers;
+
 use \Emeset\Contracts\Http\Request;
 use \Emeset\Contracts\Http\Response;
 use \Emeset\Contracts\Container;
 
-class inventoryController {
+class inventoryController
+{
 
-    public function index($request, $response, $container){
+    public function index($request, $response, $container)
+    {
         $machinesModel = $container->get("Machines"); // Get Machines model
-        
+
         $relationModel = $container->get("User_machine");
 
         $machines = $machinesModel->list(); // List all machines
@@ -21,18 +24,20 @@ class inventoryController {
         return $response; // Return the response
     }
 
-    public function editMachine($request, $response, $container){
+    public function editMachine($request, $response, $container)
+    {
         $machines = $container->get("Machines"); // Get Machines model
         $id = $request->getParam("id"); // Get machine ID from request
         $machine = $machines->getById($id); // Get machine details by ID
-        
+
         $response->set("machine", $machine); // Set machine details in response
 
         $response->setTemplate("editmachine.php"); // Set the template for editing machine
         return $response; // Return the response
     }
 
-    public function updateMachine($request, $response, $container){
+    public function updateMachine($request, $response, $container)
+    {
         $directory = "/uploads/machines/"; // Directory for machine uploads
         $id = $request->get(INPUT_POST, "id"); // Get machine ID from POST request
         $name = $request->get(INPUT_POST, "name"); // Get machine name from POST request
@@ -54,32 +59,33 @@ class inventoryController {
         return $response; // Return the response
     }
 
-    public function addMachine(Request $request, Response $response, Container $container) :Response
+    public function addMachine(Request $request, Response $response, Container $container): Response
     {
-        $directory="/uploads/machines/"; // Directory for machine uploads
-       $name=$request->get(INPUT_POST,"machineName"); // Get machine name from POST request
-       $model=$request->get(INPUT_POST,"model"); // Get machine model from POST request
-       $manufacturer=$request->get(INPUT_POST,"manufacturer"); // Get manufacturer from POST request
-       $serial_num=$request->get(INPUT_POST,"serialNumber"); // Get serial number from POST request
-       $installation_date=$request->get(INPUT_POST,"installationDate"); // Get installation date from POST request
-       $longitude=$request->get(INPUT_POST,"longitude"); // Get longitude from POST request
-       $latitude=$request->get(INPUT_POST,"latitude"); // Get latitude from POST request
-       $image=$request->get("FILES","image"); // Get uploaded image
-       $image_url=$directory.$image["name"]; // Set image URL
-       move_uploaded_file($image["tmp_name"],"uploads/machines//".$image["name"]); // Move uploaded file
-       //dd($_POST,$_FILES,$image_url);
-       $machines = $container->get("Machines"); // Get Machines model
-       $machines->add($name,$model,$manufacturer,$serial_num,$installation_date,$longitude,$latitude,$image_url); // Add new machine
-  
+        $directory = "/uploads/machines/"; // Directory for machine uploads
+        $name = $request->get(INPUT_POST, "machineName"); // Get machine name from POST request
+        $model = $request->get(INPUT_POST, "model"); // Get machine model from POST request
+        $manufacturer = $request->get(INPUT_POST, "manufacturer"); // Get manufacturer from POST request
+        $serial_num = $request->get(INPUT_POST, "serialNumber"); // Get serial number from POST request
+        $installation_date = $request->get(INPUT_POST, "installationDate"); // Get installation date from POST request
+        $longitude = $request->get(INPUT_POST, "longitude"); // Get longitude from POST request
+        $latitude = $request->get(INPUT_POST, "latitude"); // Get latitude from POST request
+        $image = $request->get("FILES", "image"); // Get uploaded image
+        $image_url = $directory . $image["name"]; // Set image URL
+        move_uploaded_file($image["tmp_name"], "uploads/machines//" . $image["name"]); // Move uploaded file
+        //dd($_POST,$_FILES,$image_url);
+        $machines = $container->get("Machines"); // Get Machines model
+        $machines->add($name, $model, $manufacturer, $serial_num, $installation_date, $longitude, $latitude, $image_url); // Add new machine
+
         $response->redirect("location: /inventario"); // Redirect to inventory page
         return $response; // Return the response
     }
 
-    public function deleteMachine($request, $response, $container){
+    public function deleteMachine($request, $response, $container)
+    {
         try {
             $id = $request->getParam('id'); // Get machine ID from request
             error_log("Received ID to delete: " . $id); // Log the received ID
-            
+
             if (!$id) {
                 error_log("ID not received"); // Log if ID is not received
                 $response->setStatus(400); // Set response status to 400
@@ -88,12 +94,12 @@ class inventoryController {
 
             $machines = $container->get("Machines"); // Get Machines model
             $result = $machines->delete($id); // Delete machine by ID
-          
-            
+
+
             return $response; // Return the response
         } catch (\Exception $e) {
             error_log("Error deleting machine: " . $e->getMessage()); // Log any errors
-            
+
             return $response; // Return the response
         }
     }
@@ -112,7 +118,7 @@ class inventoryController {
             }
 
             $results = $machines->searchByName($query); // Search machines by name
-            
+
             header('Content-Type: application/json');
             echo json_encode($results); // Return search results as JSON
             exit();
@@ -122,5 +128,41 @@ class inventoryController {
             echo json_encode(['error' => 'Search error']); // Return error message as JSON
             exit();
         }
+    }
+
+    public function uploadCSV($request, $response, $container)
+    {
+        $csvFile = $request->get("FILES", "csvFile"); // Get CSV file from POST request
+
+        if (isset($_FILES['csvFile']) && $_FILES['csvFile']['error'] === UPLOAD_ERR_OK) {
+            $csvFile = $_FILES['csvFile']; // Información del archivo
+
+            $filePath = $csvFile['tmp_name']; // Ruta del archivo
+
+            if (($handle = fopen($filePath, 'r')) !== false) {
+                $machines = $container->get("Machines");
+            }
+            $headers = fgetcsv($handle, 1000, ',');
+
+            // Procesar cada línea del archivo
+            while (($row = fgetcsv($handle, 1000, ',')) !== false) {
+                $data = array_combine($headers, $row);
+
+                $machines->addMachine([
+                    'name' => $data['name'],
+                    'model' => $data['model'],
+                    'manufacturer' => $data['manufacturer'],
+                    'serial_num' => $data['serial_num'],
+                    'installation_date' => $data['installation_date'],
+                    'longitude' => $data['longitude'],
+                    'latitude' => $data['latitude']
+                ]);
+            }
+            fclose($handle);
+            return $response->withJson(['success' => true, 'message' => 'Archivo procesado correctamente.']);
+        } else {
+            return $response->withJson(['success' => false, 'message' => 'No se pudo abrir el archivo.'], 400);
+        }
+        return $response->withJson(['success' => false, 'message' => 'No se subió ningún archivo o ocurrió un error.'], 400);
     }
 }

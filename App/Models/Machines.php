@@ -142,7 +142,18 @@ class Machines
     
         return $maintenances;
     }
-
-   
-    
+    public function addCsv($name,$model,$manufacturer,$serial_num,$installation_date,$longitude,$latitude)
+    {
+        $query="insert into machines (name,model,manufacturer,serial_num,installation_date,longitude,latitude) values (:name,:model,:manufacturer,:serial_num,:installation_date,:longitude,:latitude)"; 
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":name"=>$name,
+            ":model"=>$model,
+            ":manufacturer"=>$manufacturer,
+            ":serial_num"=>$serial_num,
+            ":installation_date"=>$installation_date,
+            ":longitude"=>$longitude,
+            ":latitude"=>$latitude,
+        ]);
+    }
 }
