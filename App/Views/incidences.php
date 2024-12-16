@@ -55,7 +55,11 @@
                         </select> 
             </div>    
         
-      
+        <div>
+                <label class="block text-sm font-medium text-gray-700">Título</label>
+                <input type="text" name="name" id="name" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+            </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Prioridad</label>
                 <select name="priority" id="priority" required
