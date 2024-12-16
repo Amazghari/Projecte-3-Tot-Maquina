@@ -30,7 +30,6 @@
                 <p class="text-4xl font-bold"><?php echo $totalLowPriorityIncidences; ?></p>
             </div>
         </div>
-        a
         
         <h1 class="text-4xl font-bold text-custom-blue text-center mb-6 mt-8">Estadísticas de Uso</h1>
 
