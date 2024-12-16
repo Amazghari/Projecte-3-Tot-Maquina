@@ -37,6 +37,7 @@ $app->route("/inicio", [\App\Controllers\homeController::class, "homeController"
 $app->get("/inventario", [\App\Controllers\inventoryController::class, "index"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/incidencias", [\App\Controllers\incidencesController::class, "incidencesController"],[[\App\Middleware\auth::class, "auth"]]);
 $app->route("/paneladministrador", [\App\Controllers\admindashboardController::class, "admindashboardController"],[[\App\Middleware\auth::class, "isAdmin"]]);
+
 $app->route("/adminmaquinas", [\App\Controllers\admininventoryController::class, "admininventoryController"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/adminmantenimiento", [\App\Controllers\adminmaintenanceController::class, "adminmaintenanceController"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/adminusuarios", [\App\Controllers\adminusersController::class, "adminusersController"],[[\App\Middleware\auth::class, "isAdmin"]]);
@@ -53,7 +54,10 @@ $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class
 $app->route("/incidencia/editar/{id}", [\App\Controllers\incidencesController::class, "editIncidence"]);
 $app->post("/incidencia/updateIncidence", [\App\Controllers\incidencesController::class, "updateIncidence"]);
 $app->get("/incidencia/eliminar/{id}", [\App\Controllers\incidencesController::class, "deleteIncidence"],[[\App\Middleware\auth::class, "isAdmin"]]);
+$app->get('/incidencia/count', [\App\Controllers\incidencesController::class, 'listCount']);
+
 $app->route("/perfil/updateProfile", [\App\Controllers\profileController::class, "updateProfile"]);
+
 $app->route("/incidencia/{id}", [\App\Controllers\incidenceController::class, "incidenceController"]);
 // $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myworkController"]);
 $app->route("/adminusarios/añadir",[\App\Controllers\adminusersController::class, "addUser"],[[\App\Middleware\auth::class, "isAdmin"]]);
@@ -77,14 +81,13 @@ $app->route("/mantenimiento/editar/{id}", [\App\Controllers\maintenanceControlle
 $app->route("/mantenimiento/updateMantenimiento", [\App\Controllers\maintenanceController::class, "updateMaintenance"]);
 $app->get("/mantenimiento/eliminar/{id}", [\App\Controllers\maintenanceController::class, "deleteMaintenance"],[[\App\Middleware\auth::class, "isAdmin"]]);
 $app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
-$app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
-$app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
+
 $app->route("inventario/uploadCSV", [\App\Controllers\inventoryController::class, "uploadCSV"]);
 
-$app->post("/asignarmaquinatecnico",[\App\Controllers\asignMachineController::class, "asignMachineTech"]);
-$app->post("/asignarmantenimientotecnico",[\App\Controllers\asignMantainmentController::class, "asignMaintenanceTech"]);
-$app->post("/asignarincidenciatecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidenceTech"]);
-$app->route("/asignartecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidencesController"]);
+$app->post("/asignarmaquinatecnico",[\App\Controllers\asignMachineController::class, "asignMachineTech"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->post("/asignarmantenimientotecnico",[\App\Controllers\asignMantainmentController::class, "asignMaintenanceTech"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->post("/asignarincidenciatecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidenceTech"],[[\App\Middleware\auth::class, "isUser"]]);
+$app->route("/asignartecnico",[\App\Controllers\asignIncidencesController::class, "asignIncidencesController"],[[\App\Middleware\auth::class, "isUser"]]);
 
 
 

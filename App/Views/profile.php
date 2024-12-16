@@ -23,13 +23,11 @@
 
             <form action="/perfil/updateProfile" method="post" enctype="multipart/form-data">
                 <div class="mb-4 flex justify-center">
-                    <input hidden name="iduser" value="<?= $userData["id"] ?>">
+                    <input type="hidden" name="iduser" value="<?= $userData["id"] ?>" aria-label="ID de usuario">
                     <div class="flex flex-col items-center">
-                        <!-- Label stylized as a button -->
                         <label for="image" class="nav-button-custom flex items-center justify-center cursor-pointer">
                             Cambiar Foto de Perfil
                         </label>
-                        <!-- Hidden field to upload file -->
                         <input type="file" id="image" name="image" class="hidden" aria-label="Foto de perfil">
                     </div>
                 </div>
@@ -50,8 +48,8 @@
                         <input type="text" id="username" name="username" aria-label="Nombre de Usuario" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?= $userData['username'] ?>" required>
                     </div>
                     <div class="flex-1">
-                        <label class="block text-sm font-medium text-gray-700">Rol</label>
-                        <input type="text" name="role" class="mt-1 block w-full border border-gray-300 rounded-md p-2 bg-gray-100" value="<?= $userData['role'] ?>" readonly aria-label="Rol" aria-readonly="true">
+                        <label for="role" class="block text-sm font-medium text-gray-700">Rol</label>
+                        <input type="text" id="role" name="role" class="mt-1 block w-full border border-gray-300 rounded-md p-2 bg-gray-100" value="<?= $userData['role'] ?>" readonly aria-label="Rol" aria-readonly="true">
                     </div>
                 </div>
                 <div class="flex justify-center mt-4">

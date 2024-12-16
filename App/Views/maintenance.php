@@ -52,10 +52,9 @@
                 <form class="space-y-4 mt-4" aria-labelledby="modal-title" action="/mantenimiento/añadir" method="post">
                     <input type="hidden" name="iduser" value="<?= $app_user["id"] ?>">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700" for="machine-id">ID Máquina</label>
-                        <select name="id_machine" id="id_machine"
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50"
-                            aria-required="true">
+                        <label for="id_machine" class="block text-sm font-medium text-gray-700">ID Máquina</label>
+                        <select name="id_machine" id="id_machine" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="ID de la máquina">
                             <option value="" selected disabled hidden>Elige id maquina</option>
                             <?php foreach ($machines as $machine) { ?>
                                 <option value="<?php echo $machine['id']; ?>"><?php echo $machine['id'] . " - " . $machine['name']; ?></option>
@@ -69,24 +68,27 @@
                             aria-required="true">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700" for="type">Tipo</label>
-                        <select id="type" name="type" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-required="true">
+                        <label for="type" class="block text-sm font-medium text-gray-700">Tipo</label>
+                        <select id="type" name="type" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Tipo de mantenimiento">
                             <option value="Preventivo">Preventivo</option>
                             <option value="Correctivo" selected>Correctivo</option>
                         </select>
                     </div>
                     <div id="preventive_time_div">
-                        <label class="block text-sm font-medium text-gray-700" for="type">Tipo</label>
-                        <select id="preventive_time" name="preventive_time" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-required="true">
-                            <option value=NULL selected disabled hidden></option>
+                        <label for="preventive_time" class="block text-sm font-medium text-gray-700">Frecuencia Preventiva</label>
+                        <select id="preventive_time" name="preventive_time" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Frecuencia preventiva">
+                            <option value="" selected disabled hidden></option>
                             <option value="Semanal">Semanal</option>
                             <option value="Mensual">Mensual</option>
                             <option value="Anual">Anual</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700" for="status">Estado</label>
-                        <select id="status" name="status" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-required="true">
+                        <label for="status" class="block text-sm font-medium text-gray-700">Estado</label>
+                        <select id="status" name="status" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Estado del mantenimiento">
                             <option value="Completado">Hecho</option>
                             <option value="Programado" selected>Programado</option>
                         </select>

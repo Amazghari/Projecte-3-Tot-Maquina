@@ -38,28 +38,28 @@
         
         <form id="incident-form" class="space-y-4 mt-4">
             <div>
-                <label class="block text-sm font-medium text-gray-700">Título</label>
+                <label for="title" class="block text-sm font-medium text-gray-700">Título</label>
                 <input type="text" name="title" id="title" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Título de la incidencia">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Descripción</label>
+                <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
                 <input type="text" name="description" id="description" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Descripción de la incidencia">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Prioridad</label>
+                <label for="priority" class="block text-sm font-medium text-gray-700">Prioridad</label>
                 <select name="priority" id="priority" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Prioridad de la incidencia">
                     <option value="low">Baja</option>
                     <option value="mid">Media</option>
                     <option value="high">Alta</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Estado</label>
+                <label for="status" class="block text-sm font-medium text-gray-700">Estado</label>
                 <select name="status" id="status" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Estado de la incidencia">
                     <option value="notstarted">No iniciado</option>
                     <option value="inprogress">En proceso</option>
                     <option value="finalized">Finalizado</option>

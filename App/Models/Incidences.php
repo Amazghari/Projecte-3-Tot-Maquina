@@ -61,6 +61,37 @@ class Incidences{
         ]);
     }
 
+
+    public function listByMachine($id){
+
+        $subquery="select users.name,users.id, id_incidence from user_incidence join users on users.id=user_incidence.id_user where id_incidence=:id;";
+        //dd($subquery);
+        $query = "select * from incidence where id_machine=:id;";
+        $stm = $this->sql->prepare($query);
+        $stm->execute([
+            ":id"=>$id
+        ]);
+        $incidences = [];
+        $users = [];
+        foreach ($stm->fetchAll(\PDO::FETCH_ASSOC) as $incidence) {
+            $stm=$this->sql->prepare($subquery);
+            $result=$stm->execute([
+                ":id"=>$incidence["id"]
+            ]);
+            foreach ($stm->fetchAll(\PDO::FETCH_ASSOC) as $user) {
+                $users[$user["id"]] = $user;
+            }
+    
+            $incidences[$incidence["id"]] = $incidence;
+            $incidences[$incidence["id"]]["users"] = $users;
+        }
+        return $incidences;
+    }
+
+
+
+
+
     public function updateIncidence($id,$name,$state,$priority,$description,$id_machine){
         $query="update machines set name='{$name}',state='{$state}',priority='{$priority}',description='{$description}',id_machine='{$id_machine}' where id='{$id}'";
         $stm = $this->sql->prepare($query);
@@ -79,6 +110,175 @@ class Incidences{
         $stm->execute([":imputed_hours"=>$imputed_hours,":id"=>$id]);
 
     }
+
+
+    // Method for count the incidences
+    public function countIncidences()
+    {
+        // Write the SQL query for count the incidences
+        $query = "SELECT COUNT(*) as total FROM incidence";
+
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+
+        // we return the result (the total of incidences)
+        return $result['total'];
+    }
+
+
+    // Method for count low priority from incidences
+    public function countLowPriorityIncidences()
+    {
+        // Write the SQL query for count low priority from incidences
+        $query = "SELECT COUNT(*) as total FROM incidence where priority='baja'";
+
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+
+        // we return the result (the total of low priority incidences)
+        return $result['total'];
+    }
+
+
+    // Method for count high priority from incidences
+    public function countHighPriorityIncidences()
+    {
+        // Write the SQL query for count high priority from incidences
+        $query = "SELECT COUNT(*) as total FROM incidence where priority='alta'";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of high priority incidences)
+        return $result['total'];
+    }
+
+
+    // Method for count medium priority from incidences
+    public function countMediumPriorityIncidences()
+    {
+        // Write the SQL query for count medium priority from incidences
+        $query = "SELECT COUNT(*) as total FROM incidence where priority='media'";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of medium priority incidences)
+        return $result['total'];
+    }
+
+
+    // Method for count completed incidences
+    public function countCompletedIncidences()
+    {
+        // Write the SQL query for count completed incidences
+        $query = "SELECT COUNT(*) as total FROM incidence where state='finalizado'";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of completed incidences)
+        return $result['total'];
+    }
+
+
+    // Method for count opened incidences
+    public function countOpenedIncidences()
+    {
+        // Write the SQL query for count opened incidences
+        $query = "SELECT COUNT(*) as total FROM incidence where state='en proceso'";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of opened incidences)
+        return $result['total'];
+    }
+    
+
+    // Method for count total maintenance
+    public function countMaintenance()
+    {
+        // Write the SQL query for count total maintenance
+        $query = "SELECT COUNT(*) as total FROM maintenance";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of total maintenance)
+        return $result['total'];
+    }    
+
+
+    // Method for count completed maintenance
+    public function countCompletedMaintenance()
+    {
+        // Write the SQL query for count completed maintenance
+        $query = "SELECT COUNT(*) as total FROM maintenance WHERE state='completado'";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of completed maintenance)
+        return $result['total'];
+    }       
+
+
+    // Method for count total users
+    public function countUsers()
+    {
+        // Write the SQL query for count total users
+        $query = "SELECT COUNT(*) as total FROM users";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of total users)
+        return $result['total'];
+    }       
+
+
+    // Method for count total machines
+    public function countMachines()
+    {
+        // Write the SQL query for count total machines
+        $query = "SELECT COUNT(*) as total FROM machines";
+ 
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+ 
+        // we return the result (the total of total machines)
+        return $result['total'];
+    }      
+
+
+    // Method for count total maintenance
+    public function countProgrammedMaintenance()
+    {
+        // Write the SQL query for count total maintenance
+        $query = "SELECT COUNT(*) as total FROM maintenance WHERE state='programado'";
+    
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+     
+        // we return the result (the total of total maintenance)
+        return $result['total'];
+    }      
+
+
+    // Method for count total machines
+    public function countTechnics()
+    {
+        // Write the SQL query for count total machines
+        $query = "SELECT COUNT(*) as total FROM users WHERE role='tecnico'";
+        
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+         
+        // we return the result (the total of total machines)
+        return $result['total'];
+    }      
+
 
     public function myIncidence()
     {
