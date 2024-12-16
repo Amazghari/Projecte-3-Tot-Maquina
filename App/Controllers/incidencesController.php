@@ -25,7 +25,6 @@ class incidencesController
 
     public function addIncidences(Request $request, Response $response, Container $container): Response
     {
-        $name = $request->get(INPUT_POST, "name"); // Get name from POST request
         $state = $request->get(INPUT_POST, "state"); // Get state from POST request
         $priority = $request->get(INPUT_POST, "priority"); // Get priority from POST request
         $description = $request->get(INPUT_POST, "description"); // Get description from POST request
