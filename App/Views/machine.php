@@ -189,7 +189,10 @@
     <script src="/js/machine.js"></script>
     <script>
     // Inicializa el mapa
-    var map = L.map('map').setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
+    var map = L.map('map', { 
+        // Mejora la accesibilidad añadiendo un título
+        title: 'Mapa de ubicación de la máquina'
+    }).setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
 
     // Capa de los tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -198,8 +201,11 @@
     }).addTo(map);
 
     // Agregar un marcador
-    var marker = L.marker([51.505, -0.09]).addTo(map); // Cambia las coordenadas del marcador
-    marker.bindPopup('Hola Calvo.').openPopup();
+    var marker = L.marker([51.505, -0.09], {
+        // Añadir un aria-label para accesibilidad
+        title: 'Ubicación de la máquina'
+    }).addTo(map); // Cambia las coordenadas del marcador
+    marker.bindPopup('Estoy Aqui.').openPopup();
 </script>
     <!-- Footer -->
 </body>

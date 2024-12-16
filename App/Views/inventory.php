@@ -107,35 +107,35 @@
 
             <form class="space-y-4 mt-4" action="/inventario/añadir" method="post" enctype="multipart/form-data">
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Nombre</label>
+                    <label for="machineName" class="block text-sm font-medium text-gray-700">Nombre</label>
                     <input type="text" name="machineName" id="machineName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Nº Serie</label>
+                    <label for="serialNumber" class="block text-sm font-medium text-gray-700">Nº Serie</label>
                     <input type="text" name="serialNumber" id="serialNumber" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Modelo</label>
+                    <label for="model" class="block text-sm font-medium text-gray-700">Modelo</label>
                     <input type="text" name="model" id="model" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Fabricante</label>
+                    <label for="manufacturer" class="block text-sm font-medium text-gray-700">Fabricante</label>
                     <input type="text" name="manufacturer" id="manufacturer" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Fecha instalación</label>
+                    <label for="installationDate" class="block text-sm font-medium text-gray-700">Fecha instalación</label>
                     <input type="date" name="installationDate" id="installationDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Longitud</label>
+                    <label for="longitude" class="block text-sm font-medium text-gray-700">Longitud</label>
                     <input type="text" name="longitude" id="longitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Latitud</label>
+                    <label for="latitude" class="block text-sm font-medium text-gray-700">Latitud</label>
                     <input type="text" name="latitude" id="latitude" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50 bg-custom-light-gray" required>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Imagen</label>
+                    <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
                     <input type="file" name="image" id="image" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" capture="camera" required>
                 </div>
 
@@ -155,63 +155,54 @@
 
     <!-- Modal to edit -->
     <?php if (isset($machine)) { ?>
-        <?php foreach ($machines as $machine) { ?>
-    <input type="checkbox" id="modal-editar" class="hidden">
-    <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
-        <div class="modal-content p-4 mt-20">
-            <div class="flex justify-between items-center pb-3 border-b">
-                <h3 class="text-xl font-semibold text-gray-900">Editar Maquina</h3>
-                <label for="modal-editar" class="cursor-pointer text-gray-600 hover:text-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </label>
-            </div>
-            <form class="space-y-4 mt-4" action="/inventario/updateMachine" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?= $machine['id'] ?>">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Nombre</label>
-                    <input type="text" name="name" id="name" value="<?= $machine['name'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Nº Serie</label>
-                    <input type="text" name="serial_num" id="serial_num" value="<?= $machine['serial_num'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Modelo</label>
-                    <input type="text" name="model" id="model" value="<?= $machine['model'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Fabricante</label>
-                    <input type="text" name="manufacturer" id="manufacturer" value="<?= $machine['manufacturer'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Fecha instalación</label>
-                    <input type="date" name="installation_date" id="installation_date" value="<?= $machine['installation_date'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Localización</label>
-                    <input type="text" name="location" id="location" value="<?= $machine['location'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Imagen</label>
-                    <input type="file" name="image" id="image" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
-                </div>
-
-                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                    <label for="modal-editar"
-                        class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
-                        Cancelar
+        <input type="checkbox" id="modal-editar-<?= $machine['id'] ?>" class="hidden">
+        <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal-editar-<?= $machine['id'] ?>" role="dialog" aria-modal="true">
+            <div class="modal-content p-4 mt-20">
+                <div class="flex justify-between items-center pb-3 border-b">
+                    <h3 class="text-xl font-semibold text-gray-900">Editar Máquina</h3>
+                    <label for="modal-editar-<?= $machine['id'] ?>" class="cursor-pointer text-gray-600 hover:text-gray-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
                     </label>
-                    <button type="submit"
-                        class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
-                        Guardar
-                    </button>
                 </div>
-            </form>
+                <form class="space-y-4 mt-4" action="/inventario/updateMachine" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $machine['id'] ?>">
+                    <div>
+                        <label for="editMachineName-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Nombre</label>
+                        <input type="text" name="name" id="editMachineName-<?= $machine['id'] ?>" value="<?= $machine['name'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="editSerialNumber-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Nº Serie</label>
+                        <input type="text" name="serial_num" id="editSerialNumber-<?= $machine['id'] ?>" value="<?= $machine['serial_num'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="editModel-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Modelo</label>
+                        <input type="text" name="model" id="editModel-<?= $machine['id'] ?>" value="<?= $machine['model'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="editManufacturer-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Fabricante</label>
+                        <input type="text" name="manufacturer" id="editManufacturer-<?= $machine['id'] ?>" value="<?= $machine['manufacturer'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="editInstallationDate-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Fecha instalación</label>
+                        <input type="date" name="installation_date" id="editInstallationDate-<?= $machine['id'] ?>" value="<?= $machine['installation_date'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="editLocation-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Localización</label>
+                        <input type="text" name="location" id="editLocation-<?= $machine['id'] ?>" value="<?= $machine['location'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="editImage-<?= $machine['id'] ?>" class="block text-sm font-medium text-gray-700">Imagen</label>
+                        <input type="file" name="image" id="editImage-<?= $machine['id'] ?>" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                    </div>
+                    <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
+                        <label for="modal-editar-<?= $machine['id'] ?>" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">Cancelar</label>
+                        <button type="submit" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        </div>
-        <?php } ?>
     <?php } ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

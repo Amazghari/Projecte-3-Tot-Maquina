@@ -59,8 +59,9 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Descripción</label>
-                    <textarea name="description" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" required><?= $maintenance['description'] ?></textarea>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
+                    <textarea name="description" id="description" rows="4" required
+                              class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Descripción del mantenimiento"><?= $maintenance['description'] ?></textarea>
                 </div>
 
                 <div>
@@ -116,6 +117,15 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700">Tipo de Mantenimiento</label>
                     <label class="block text-sm font-medium text-gray-700"><?= $maintenance['type'] ?></label>
+                </div>
+
+                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
+                    <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
+                        Guardar
+                    </button>
                 </div>
             </form>
         </div>

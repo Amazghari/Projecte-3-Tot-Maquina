@@ -44,23 +44,23 @@
         
         <form id="incident-form" class="space-y-4 mt-4" action="/incidencia/añadir" method="post" enctype="multipart/form-data">
             <div>
-                <label class="block text-sm font-medium text-gray-700">Título</label>
+                <label for="name" class="block text-sm font-medium text-gray-700">Título</label>
                 <input type="text" name="name" id="name" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Título de la incidencia">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Prioridad</label>
+                <label for="priority" class="block text-sm font-medium text-gray-700">Prioridad</label>
                 <select name="priority" id="priority" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Prioridad de la incidencia">
                     <option value="Baja">Baja</option>
                     <option value="Media">Media</option>
                     <option value="Alta">Alta</option>
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Estado</label>
+                <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
                 <select name="state" id="state" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Estado de la incidencia">
                     <option value="No iniciada">No iniciado</option>
                     <option value="En proceso">En proceso</option>
                     <option value="Finalizado">Finalizado</option>
@@ -68,14 +68,14 @@
                 </select>
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Descripción</label>
+                <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
                 <input type="text" name="description" id="description" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Descripción de la incidencia">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700">Id Maquina</label>
+                <label for="id_machine" class="block text-sm font-medium text-gray-700">ID Máquina</label>
                 <input type="text" name="id_machine" id="id_machine"
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50">
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="ID de la máquina">
             </div>
 
             <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
