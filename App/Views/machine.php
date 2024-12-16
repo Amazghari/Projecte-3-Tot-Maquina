@@ -163,7 +163,7 @@
     <script src="/js/machine.js"></script>
     <script>
         // Inicializa el mapa
-        var map = L.map('map').setView([51.505, -0.09], 13); // Cambia las coordenadas a las que necesites
+        var map = L.map('map').setView([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>], 13); // Cambia las coordenadas a las que necesites
 
         // Capa de los tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -172,7 +172,7 @@
         }).addTo(map);
 
         // Agregar un marcador
-        var marker = L.marker([51.505, -0.09]).addTo(map); // Cambia las coordenadas del marcador
+        var marker = L.marker([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>]).addTo(map); // Cambia las coordenadas del marcador
         marker.bindPopup('Hola Calvo.').openPopup();
     </script>
     <!-- Footer -->

@@ -21,7 +21,8 @@
 <?php include 'Layouts/navbar.php'; ?>
 
 <section id="map"> <!-- Adds padding to separate from the navbar -->
-        <script src="../../js/mapahome.js"></script>
+    <input type="hidden" value='<?php echo json_encode($machines);?>' id="machinesmap">
+        <script src="/js/mapahome.js"></script>
     <div id="mapid"></div> <!-- Where the map will be rendered -->
 
 </section>
