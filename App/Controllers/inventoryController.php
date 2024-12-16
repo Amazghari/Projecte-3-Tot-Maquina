@@ -132,37 +132,29 @@ class inventoryController
 
     public function uploadCSV($request, $response, $container)
     {
-        $csvFile = $request->get("FILES", "csvFile"); // Get CSV file from POST request
-
-        if (isset($_FILES['csvFile']) && $_FILES['csvFile']['error'] === UPLOAD_ERR_OK) {
-            $csvFile = $_FILES['csvFile']; // Información del archivo
-
-            $filePath = $csvFile['tmp_name']; // Ruta del archivo
-
+        if (isset($_FILES['csvFile']) && $_FILES['csvFile']['error'] == 0) {
+            $filePath = $_FILES['csvFile']['tmp_name'];
+            $machineModel = $container->get('Machines');
+            
             if (($handle = fopen($filePath, 'r')) !== false) {
-                $machines = $container->get("Machines");
-            }
-            $headers = fgetcsv($handle, 1000, ',');
+                fgetcsv($handle, 1000, ",");
 
-            // Procesar cada línea del archivo
-            while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-                $data = array_combine($headers, $row);
+                // Procesar cada línea del archivo
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    $name = $data[0];
+                    $model = $data[1];
+                    $manufacturer = $data[2];
+                    $serialNumber = $data[3];
+                    $installation_date = $data[4];
+                    $longitude = $data[5];
+                    $latitude = $data[6];
 
-                $machines->addMachine([
-                    'name' => $data['name'],
-                    'model' => $data['model'],
-                    'manufacturer' => $data['manufacturer'],
-                    'serial_num' => $data['serial_num'],
-                    'installation_date' => $data['installation_date'],
-                    'longitude' => $data['longitude'],
-                    'latitude' => $data['latitude']
-                ]);
+                    $machineModel->addCsv($data[0], $data[1], $data[2], $data[3], $data[4], $data[5], $data[6]);
+                }
+                fclose($handle);
             }
-            fclose($handle);
-            return $response->withJson(['success' => true, 'message' => 'Archivo procesado correctamente.']);
-        } else {
-            return $response->withJson(['success' => false, 'message' => 'No se pudo abrir el archivo.'], 400);
         }
-        return $response->withJson(['success' => false, 'message' => 'No se subió ningún archivo o ocurrió un error.'], 400);
+        $response->setHeader("Location: /inventario");
+        return $response;
     }
 }
