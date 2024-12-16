@@ -12,16 +12,17 @@ class admindashboardController {
 
         // call the method countIncidences() of model
         $totalIncidences = $incidencesModel->countIncidences();
-        $totalLowPriorityIncidences =$incidencesModel->countLowPriorityIncidences();
-        $totalMediumPriorityIncidences =$incidencesModel->countMediumPriorityIncidences();
-        $totalHighPriorityIncidences =$incidencesModel->countHighPriorityIncidences();
-        $totalCompletedIncidences =$incidencesModel->countCompletedIncidences();
-        $totalOpenedIncidences =$incidencesModel->countOpenedIncidences();
-        $totalMaintenance =$incidencesModel->countMaintenance();
-        $totalCompletedMaintenance =$incidencesModel->countCompletedMaintenance();
+        $totalLowPriorityIncidences = $incidencesModel->countLowPriorityIncidences();
+        $totalMediumPriorityIncidences = $incidencesModel->countMediumPriorityIncidences();
+        $totalHighPriorityIncidences = $incidencesModel->countHighPriorityIncidences();
+        $totalCompletedIncidences = $incidencesModel->countCompletedIncidences();
+        $totalOpenedIncidences = $incidencesModel->countOpenedIncidences();
+        $totalMaintenance = $incidencesModel->countMaintenance();
+        $totalCompletedMaintenance = $incidencesModel->countCompletedMaintenance();
         $totalUsers = $incidencesModel->countUsers();
         $totalMachines = $incidencesModel->countMachines();
-
+        $totalProgrammedMaintenance = $incidencesModel->countProgrammedMaintenance();
+        $totalTechnics = $incidencesModel->countTechnics();
 
         $response->set('totalIncidences', $totalIncidences);
         $response->set('totalLowPriorityIncidences',$totalLowPriorityIncidences);
@@ -33,7 +34,8 @@ class admindashboardController {
         $response->set('totalCompletedMaintenance',$totalCompletedMaintenance);
         $response->set('totalUsers',$totalUsers);
         $response->set('totalMachines',$totalMachines);
-
+        $response->set('totalProgrammedMaintenance',$totalProgrammedMaintenance);
+        $response->set('totalTechnics',$totalTechnics);
 
 
         // set the view what do we want to render

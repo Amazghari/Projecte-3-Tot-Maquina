@@ -221,6 +221,34 @@ class Incidences{
     }      
 
 
+    // Method for count total maintenance
+    public function countProgrammedMaintenance()
+    {
+        // Write the SQL query for count total maintenance
+        $query = "SELECT COUNT(*) as total FROM maintenance WHERE state='programado'";
+    
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+     
+        // we return the result (the total of total maintenance)
+        return $result['total'];
+    }      
+
+
+    // Method for count total machines
+    public function countTechnics()
+    {
+        // Write the SQL query for count total machines
+        $query = "SELECT COUNT(*) as total FROM users WHERE role='tecnico'";
+        
+        // Execute the query and get the result
+        $result = $this->sql->query($query, \PDO::FETCH_ASSOC)->fetch();
+         
+        // we return the result (the total of total machines)
+        return $result['total'];
+    }      
+
+
     public function myIncidence()
     {
         // Recupera el ID del usuario de la sesión
