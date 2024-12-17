@@ -48,64 +48,136 @@
         <div class="mb-4">
             <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
             <input type="file" id="image" name="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            <button type="button" class="mt-2 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors" id="open-camera">
-                Tomar Foto
-            </button>
-        </div> 
-
-
-    <!-- Campo oculto para la imagen capturada -->
-    <input type="hidden" name="captured_photo" id="captured_photo">
-
-        <!-- Modal to take photo -->
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog" aria-modal="true">
-
-            <div class="flex flex-col items-center">
-                <video id="video" class="w-3/4 rounded-md" autoplay></video>
-                <p id="capture" class="mt-4 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Hacer Foto</p>
-                <canvas id="canvas" class="hidden"></canvas>
-                <img id="photo" class="mt-4 rounded-md hidden" alt="Captured Photo" />
-                
-            </div>
-
-            <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                <button type="submit" id="save-photo" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar Foto</button>
-            </div>
-            </div>
+            <button type="button" class="mt-2 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors" id="open-camera">Tomar Foto</button>        
             <button type="submit" class="nav-button-invertido">Guardar Cambios</button>
+
+            <!-- Modal to take photo -->
+            <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog">
+
+                <div class="flex flex-col items-center">
+                    <video id="video" class="w-3/4 rounded-md" autoplay></video>
+                    <p id="capture" class="mt-4 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Hacer Foto</p>
+                    <canvas id="canvas" class="hidden"></canvas>
+                    <img id="photo" class="mt-4 rounded-md hidden" alt="Captured Photo" />
+                    
+                </div>
+
+                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
+                    <button id="save-photo" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar Foto</button>
+                    
+                </div>
+            </div>
         </div>
     </form>
 </div>
 
-<!-- Modal to take photo -->
-<!-- <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog" aria-modal="true">
-    <div class="modal-content p-4 bg-white rounded-lg shadow-lg">
-        <div class="flex justify-between items-center pb-3 border-b">
-            <h3 class="text-xl font-semibold text-gray-900">Tomar Foto</h3>
-            <button id="close-modal" class="cursor-pointer text-gray-600 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-
-        <div class="flex flex-col items-center">
-            <video id="video" class="w-3/4 rounded-md" autoplay></video>
-            <button id="capture" class="mt-4 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Hacer Foto</button>
-            <canvas id="canvas" class="hidden"></canvas>
-            <img id="photo" class="mt-4 rounded-md hidden" alt="Captured Photo" />
-        </div>
-
-        <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-            <button id="save-photo" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar Foto</button>
-            <button id="cancel-photo" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">Cancelar</button>
-        </div>
-    </div>
-</div> -->
-
-<?php include 'Layouts/footer.php'; ?>
-
 <script src="/js/bundle.js"></script>
+<script>
+document.getElementById('open-camera').addEventListener('click', function () {
+    // Show the modal to capture the photo
+    document.getElementById('photo-modal').classList.remove('hidden');
+
+    // Access the video and canvas elements to capture the photo
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const captureButton = document.getElementById('capture');
+
+    // Access the device's camera
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            video.srcObject = stream;
+        })
+        .catch(err => {
+            console.log("Error accessing the camera:", err);
+        });
+
+    captureButton.addEventListener('click', function () {
+        // Set the canvas size to match the video size
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        // Draw the image from the video onto the canvas
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Convert the canvas to base64 and display the image
+        const imageData = canvas.toDataURL('image/png');
+        const photo = document.getElementById('photo');
+        photo.src = imageData;
+        photo.classList.remove('hidden');
+
+        // Convert the base64 image to a Blob
+        fetch(imageData)
+            .then(res => res.blob())
+            .then(blob => {
+                // Create a Blob image file
+                const file = new File([blob], "photo.png", { type: "image/png" });
+
+                // Assign the file to the file input element
+                const inputImage = document.getElementById('image');
+                const dataTransfer = new DataTransfer(); // Object to simulate a selected file
+                dataTransfer.items.add(file); // Add the file to the input
+                inputImage.files = dataTransfer.files; // Assign the files to the input
+            });
+    });
+});
+
+// Save the captured photo in the form
+document.getElementById('save-photo').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const canvas = document.getElementById('canvas');
+    canvas.toBlob(function (blob) {
+        const formData = new FormData();
+        formData.append('image', blob, 'photo.png');
+
+        // Add other form fields to the FormData
+        const formElements = document.querySelector('form').elements;
+        for (let i = 0; i < formElements.length; i++) {
+            const el = formElements[i];
+            if (el.name && el.type !== 'file') {
+                formData.append(el.name, el.value);
+            }
+        }
+
+        // Send the FormData with fetch
+        fetch('/inventario/updateMachine', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error saving the photo.');
+        });
+    }, 'image/png');
+});
+
+// Close the modal after saving the photo
+document.getElementById('save-photo').addEventListener('click', function () {
+    document.getElementById('photo-modal').classList.add('hidden');
+});
+</script>
+
+<script>
+// Function to close the modal and stop the camera
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('photo-modal');
+    modal.classList.add('hidden'); // Add 'hidden' class to hide the modal
+}
+
+// Function to handle the "Save Photo" event
+document.getElementById('save-photo').addEventListener('click', function () {
+    // Show the alert
+
+    // Close the modal after the user closes the alert
+    closeModal();
+});
+</script>
 
 </body>
 </html>
