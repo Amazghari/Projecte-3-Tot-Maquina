@@ -15,73 +15,9 @@
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h2>
-            <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
-                Nueva Incidencia
-            </label>
         </div>
 
-<!-- Modal  -->
-<input type="checkbox" id="modal-toggle" class="hidden">
-<div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" 
-     id="modal"
-     role="dialog"
-     aria-modal="true">
-    <div class="modal-content p-6">
-        <div class="flex justify-between items-center pb-3 border-b">
-            <h3 class="text-xl font-semibold text-gray-900">Nueva Incidencia</h3>
-            <label for="modal-toggle" class="cursor-pointer text-gray-600 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </label>
-        </div>
-        
-        <form id="incident-form" class="space-y-4 mt-4">
-            <div>
-                <label for="title" class="block text-sm font-medium text-gray-700">Título</label>
-                <input type="text" name="title" id="title" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Título de la incidencia">
-            </div>
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <input type="text" name="description" id="description" required
-                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Descripción de la incidencia">
-            </div>
-            <div>
-                <label for="priority" class="block text-sm font-medium text-gray-700">Prioridad</label>
-                <select name="priority" id="priority" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Prioridad de la incidencia">
-                    <option value="low">Baja</option>
-                    <option value="mid">Media</option>
-                    <option value="high">Alta</option>
-                </select>
-            </div>
-            <div>
-                <label for="status" class="block text-sm font-medium text-gray-700">Estado</label>
-                <select name="status" id="status" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Estado de la incidencia">
-                    <option value="notstarted">No iniciado</option>
-                    <option value="inprogress">En proceso</option>
-                    <option value="finalized">Finalizado</option>
-                    
-                </select>
-            </div>
 
-            <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                <label for="modal-toggle" 
-                       class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
-                    Cancelar
-                </label>
-                <button type="submit" id="submit-button" 
-                        class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
-                    Guardar
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- script   modal    -->
-<script src="js/incidences.js"></script>
 
         <!-- table of inventario -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
