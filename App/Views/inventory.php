@@ -9,12 +9,23 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <link rel="icon" href="../../uploads/img/logopng.png">
 </head>
 
 <body class="bg-custom-light-gray">
-    <?php include 'Layouts/navbar.php'; ?>
+    <?php
+
+    use chillerlan\QRCode\QRCode;
+    use chillerlan\QRCode\QROptions;
+
+    $options = new QROptions([
+        'version'      => 5, // Versión del QR
+        'outputType'   => QRCode::OUTPUT_MARKUP_SVG,
+        'ecc'          => QRCode::ECC_L, // Error Correction Level
+    ]);
+
+    include 'Layouts/navbar.php'; ?>
 
     <div class="container mx-auto px-4">
         <div class="flex flex-col items-center mb-6 mt-8">
@@ -61,7 +72,15 @@
                     </thead>
 
                     <tbody class="divide-y divide-gray-200" id="default">
-                        <?php foreach ($machines as $machine) { ?>
+                        <?php foreach ($machines as $machine) {
+                            $qrCode = new QRCode($options);
+                            
+                            $qrCodeData = '/maquina/' . $machine["id"]; // URL para el código QR
+                            $qrCodeImage = $qrCode->render($qrCodeData);
+                            //dd($qrCodeImage);
+                            //dd($qrCodeData,$qrCodeImage);
+
+                        ?>
                             <tr class="hover:bg-gray-50">
                                 <td class="px-6 py-4 text-sm text-gray-900">#MAQ-<?= $machine["id"] ?></td>
                                 <td class="px-6 py-4 text-sm text-gray-900">
@@ -84,6 +103,11 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                             </svg>
                                         </button>
+                                        <div>
+    <button class="focus:outline-none" onclick="openModal('<?= $qrCodeImage ?>')">
+        Abrir QR Code
+    </button>
+</div>
                                     </div>
                                 </td>
                             </tr>
@@ -95,7 +119,15 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal for displaying QR code -->
+    <div id="qrModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center" role="dialog" aria-modal="true">
+    <div class="modal-content p-4">
+        <span class="close-modal cursor-pointer text-gray-600 hover:text-gray-800" aria-label="Close modal">&times;</span>
+        <div class="flex justify-center">
+            <img id="modalQrImage" src="" alt="Código QR" class="max-w-full h-auto">
+        </div>
+    </div>
+</div>
     <!-- Modal  -->
     <input type="checkbox" id="modal-toggle" class="hidden">
     <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
