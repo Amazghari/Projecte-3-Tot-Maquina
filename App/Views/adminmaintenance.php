@@ -16,9 +16,7 @@
     <div class="container mx-auto px-4 ">
         <div class="flex justify-between items-center mb-6 mt-8">
             <h2 class="text-2xl font-bold text-custom-blue">Lista de Mantenimientos</h2>
-            <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer">
-                Nuevo Mantenimiento
-            </label>
+
         </div>
 
         <!-- Modal usando solo CSS -->
@@ -91,7 +89,7 @@
             </div>
         </div>
 
-        <!-- Table pf mantinances -->
+        <!-- Table 0f mantinances -->
 
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
 
