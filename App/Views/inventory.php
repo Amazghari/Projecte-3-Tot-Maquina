@@ -54,7 +54,7 @@
                         <tr>
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nºserie</th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Nº serie</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Encargado</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
                         </tr>
@@ -71,7 +71,7 @@
                                 <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
                                 <td class="px-6 py-4 text-sm">
                                     <div class="flex space-x-3">
-                                        <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/maquina/<?= $machine["id"] ?>'" aria-label="Ver detalles de máquina #MAQ-<?= $machine["id"] ?>">
+                                        <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/maquina/<?= $machine['id'] ?>'" aria-label="Ver detalles de máquina #MAQ-<?= $machine["id"] ?>">
                                             <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
                                         </button>
                                         <a href="/inventario/editar/<?= $machine["id"] ?>" class="cursor-pointer text-blue-600 hover:text-blue-800" aria-label="Editar máquina #MAQ-<?= $machine["id"] ?>">
