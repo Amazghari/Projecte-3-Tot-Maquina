@@ -20,9 +20,7 @@
         <a href="/asignar" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Asignar técnico">
             Asignar Técnico
         </a>
-        <label for="modal-toggle" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors cursor-pointer" aria-label="Nueva máquina">
-            Nueva Máquina
-        </label>
+    
     </div>
 
     <!-- table of inventary -->
