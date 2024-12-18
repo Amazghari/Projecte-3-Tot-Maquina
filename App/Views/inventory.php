@@ -38,7 +38,7 @@
                 ($app_user['role'] == 'administrator' ||
                     $app_user['role'] == 'supervisor')
             ) { ?>
-                <form action="/inventar/importar" method="post" enctype="multipart/form-data" class="mt-4">
+                <form action="inventario/uploadCSV" method="post" enctype="multipart/form-data" class="mt-4">
                     <label for="csvFile" class="nav-button-custom cursor-pointer">Seleccionar CSV</label>
                     <input type="file" name="csvFile" id="csvFile" accept=".csv" class="hidden" required>
                     <button type="submit" class="nav-button-custom">Guardar </button>
