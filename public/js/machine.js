@@ -1,4 +1,15 @@
 $(document).ready(function() {
+
+    // latitud= [-90,90]
+    // longtiud= [-180,180]
+    //comprovar que la lat y long estan bien
+
+
+
+
+
+
+
     $(document).on('click', '#eliminarMaquina', function(e){
         e.preventDefault();
         console.log("Clic en eliminar");
@@ -139,6 +150,31 @@ function drop(ev){
     ev.target.value = data;
 }
 
+
+//42.27384596752772, 2.9646268810954606
+var map = L.map('mapadd').setView([42.27384596752772, 2.9646268810954606], 15); // Set initial view to a global view
+
+    // Add OpenStreetMap tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+    var marker= null;
+    // Add a marker on click
+    map.on('click', function(e) {
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
+
+        // Update hidden inputs
+        document.getElementById('latitude').value = lat;
+        document.getElementById('longitude').value = lng;
+        if(marker){
+            map.removeLayer(marker);
+        }
+        // Add marker
+         marker=L.marker([lat, lng]).addTo(map).bindPopup("Lat: " + lat + "<br>Lng: " + lng).openPopup();
+        
+      
+    });
 
 
 
