@@ -151,6 +151,25 @@ function drop(ev){
 }
 
 
+function openModal(imageSrc) {
+    document.getElementById('modalQrImage').src = imageSrc; // Set the image source
+    document.getElementById('qrModal').classList.remove('hidden'); // Show the modal
+}
+
+// Close modal when clicking on the close button
+document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('qrModal').classList.add('hidden'); // Hide the modal
+}
+
+// Close modal when clicking outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById('qrModal');
+    if (event.target === modal) {
+        modal.classList.add('hidden'); // Hide the modal
+    }
+}
+
+
 //42.27384596752772, 2.9646268810954606
 var map = L.map('mapadd').setView([42.27384596752772, 2.9646268810954606], 15); // Set initial view to a global view
 
