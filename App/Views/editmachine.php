@@ -46,10 +46,12 @@
             <input type="text" id="latitude" name="latitude" value="<?= $machine['latitude'] ?>" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
         </div>
         <div class="mb-4">
+        <button type="button" class="mt-2 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors" id="open-camera">Tomar Foto</button>        
+
             <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
             <input type="file" id="image" name="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            <button type="button" class="mt-2 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors" id="open-camera">Tomar Foto</button>        
-            <button type="submit" class="nav-button-invertido">Guardar Cambios</button>
+           
+            <button type="submit" class="nav-button-invertido mt-4">Guardar Cambios</button>
 
             <!-- Modal to take photo -->
             <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog">
