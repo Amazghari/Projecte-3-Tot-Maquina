@@ -4,7 +4,8 @@ import hola from "./hola.js";
 import "./cam.js";
 
 import "./navbar.js";
-import "./mapahome.js"
+import "./mapahome.js";
+import "./pdf.js";
 
  
 
