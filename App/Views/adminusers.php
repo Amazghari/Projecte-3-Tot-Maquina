@@ -72,11 +72,14 @@
                         <input type="text" name="username" id="username" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Nombre de usuario">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                    <div class="mb-4">
+                        <label for="passwordUser" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                        
                         <input type="password" name="passwordUser" id="passwordUser" required
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Contraseña del usuario">
-                    </div>
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Contraseña del usuario">
+                               <p class="text-sm text-gray-500 mb-2">La Contraseña tiene que tener entre 6 y 13 letras, números y guiones, mínimo 1 letra y 1 número</p>
+
+                            </div>
                     <div class="flex justify-end">
                         <button type="submit" id="saveUserButton" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors" aria-label="Guardar nuevo usuario">
                             Guardar
