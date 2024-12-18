@@ -53,18 +53,18 @@
 
             <!-- Modal to take photo -->
             <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center hidden" id="photo-modal" role="dialog">
+                <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+                    <div class="flex flex-col items-center">
+                        <video id="video" class="w-full rounded-md border-2 border-gray-300" autoplay></video>
+                        <p id="capture" class="mt-4 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors cursor-pointer">Hacer Foto</p>
+                        <canvas id="canvas" class="hidden"></canvas>
+                        <img id="photo" class="mt-4 rounded-md hidden border-2 border-gray-300" alt="Captured Photo" />
+                    </div>
 
-                <div class="flex flex-col items-center">
-                    <video id="video" class="w-3/4 rounded-md" autoplay></video>
-                    <p id="capture" class="mt-4 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Hacer Foto</p>
-                    <canvas id="canvas" class="hidden"></canvas>
-                    <img id="photo" class="mt-4 rounded-md hidden" alt="Captured Photo" />
-                    
-                </div>
-
-                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                    <button id="save-photo" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar Foto</button>
-                    
+                    <div class="flex justify-between space-x-3 mt-6 pt-4 border-t">
+                        <button id="save-photo" class="flex-1 px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">Guardar Foto</button>
+                        <button class="flex-1 px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition-colors" onclick="document.getElementById('photo-modal').classList.add('hidden');">Cancelar</button>
+                    </div>
                 </div>
             </div>
         </div>
