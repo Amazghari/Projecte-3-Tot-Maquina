@@ -69,7 +69,7 @@
                             <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID Máquina</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold"></th>
+                            <th class="px-6 py-3 text-left text-sm font-semibold">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
@@ -93,6 +93,11 @@
                                 </td>
                                 <td class="px-6 py-4 text-sm text-gray-900"><?= $user_maintenance['maintentance_date'] ?></td>
                                 <td class="px-6 py-4 text-sm">
+                                    <div class="flex space-x-3">
+                                        <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/mantenimiento/<?= $user_maintenance["id"] ?>'" aria-label="Ver detalles del mantenimiento #MNT-<?= $user_maintenance["id"] ?>">
+                                            <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -154,9 +159,6 @@
                         <?php } ?>
                     </tbody>
                 </table>
-                <?php if($user_incidence == null) { ?>
-                        <p>No se encontraron incidencias asignadas.</p>
-                    <?php } ?>
             </div>
         </div>
 
