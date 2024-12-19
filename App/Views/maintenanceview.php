@@ -34,19 +34,20 @@
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200">
+                                <?php foreach($user_maintenances as $user_maintenance) { ?>
                                     <tr class="hover:bg-gray-50">
-                                        <td class="px-6 py-4 text-sm text-gray-900">#USR-001</td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">Juan</td>
-                                        <td class="px-6 py-4">Pérez</td>
+                                        <td class="px-6 py-4 text-sm text-gray-900">#USR-<?= $user_maintenance['id'] ?></td>
+                                        <td class="px-6 py-4 text-sm text-gray-900"><?= $user_maintenance['name'] ?></td>
+                                        <td class="px-6 py-4"><?= $user_maintenance['surname'] ?></td>
                                         <td class="px-6 py-4">
-                                            <p class="truncate max-w-[200px]">juan.perez@example.com</p>
+                                            <p class="truncate max-w-[200px]"><?= $user_maintenance['surname'] ?></p>
                                         </td>
                                         <td class="px-6 py-4">
-                                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Técnico</span>
+                                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $user_maintenance['role'] ?></span>
                                         </td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
-
+                                        <td class="px-6 py-4 text-sm text-gray-900"><?= $user_maintenance['username'] ?></td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -62,41 +63,6 @@
                     <label for="description" class="block text-sm font-medium text-gray-700">Descripción</label>
                     <textarea name="description" id="description" rows="4" required
                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Descripción del mantenimiento"><?= $maintenance['description'] ?></textarea>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold text-gray-800">Usuario que ha creado el mantenimiento</h3>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden mt-8">
-                        <div class="table-responsive">
-                            <table class="min-w-full">
-                                <thead class="bg-custom-blue text-white">
-                                    <tr>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">ID Usuario</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Apellido</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Email</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Rol</th>
-                                        <th class="px-6 py-3 text-left text-sm font-semibold">Nombre de Usuario</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200">
-                                    <tr class="hover:bg-gray-50">
-                                        <td class="px-6 py-4 text-sm text-gray-900">#USR-001</td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">Juan</td>
-                                        <td class="px-6 py-4">Pérez</td>
-                                        <td class="px-6 py-4">
-                                            <p class="truncate max-w-[200px]">juan.perez@example.com</p>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Técnico</span>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-900">juanp</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
 
                 <div>
@@ -119,14 +85,6 @@
                     <label class="block text-sm font-medium text-gray-700"><?= $maintenance['type'] ?></label>
                 </div>
 
-                <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                    <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
-                        Cancelar
-                    </button>
-                    <button type="submit" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
-                        Guardar
-                    </button>
-                </div>
             </form>
         </div>
     </div>
