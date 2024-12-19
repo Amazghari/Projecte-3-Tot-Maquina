@@ -75,6 +75,7 @@
                         <?php foreach ($machines as $machine) {
                             $qrCode = new QRCode($options);
                             
+                            
                             $qrCodeData = '/maquina/' . $machine["id"]; // URL para el código QR
                             $qrCodeImage = $qrCode->render($qrCodeData);
                             //dd($qrCodeImage);
