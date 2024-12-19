@@ -138,8 +138,6 @@
                             <td class="px-6 py-4 text-sm text-gray-900"></td>
                             <td class="px-6 py-4 text-sm text-gray-900"></td>
                             <td class="px-6 py-4 text-sm">
-
-                            
                                 <div class="flex space-x-3">
                                     <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/incidencia/<?= $incidence['id'] ?>'" aria-label="Ver detalles de máquina #MAQ-2">
                                         <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
