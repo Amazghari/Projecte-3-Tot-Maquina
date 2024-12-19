@@ -178,7 +178,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Agregar un marcador
 var marker = L.marker([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>]).addTo(map); // Cambia las coordenadas del marcador
-marker.bindPopup('Hola Calvo.').openPopup();
+marker.bindPopup('<?php echo $machine['name']; ?>').openPopup();
 </script>
 <!-- Footer -->
 </body>
