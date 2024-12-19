@@ -98,6 +98,9 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <?php if($user_maintenance == null) { ?>
+                        <p>No se encontraron mantenimientos asignados.</p>
+                    <?php } ?>
             </div>
         </div>
 
@@ -151,6 +154,9 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <?php if($user_incidence == null) { ?>
+                        <p>No se encontraron incidencias asignadas.</p>
+                    <?php } ?>
             </div>
         </div>
 
@@ -197,6 +203,9 @@
                                 <?php } ?>
                         </tbody>
                     </table>
+                    <?php if($user_machines == null) { ?>
+                        <p>No se encontraron maquinas asignadas.</p>
+                    <?php } ?>
                 </div>
             </div>
         </div>
