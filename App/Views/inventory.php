@@ -59,7 +59,6 @@
                             <th class="px-6 py-3 text-left text-sm font-semibold">ID</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nombre</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Nº serie</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Encargado</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
                         </tr>
                     </thead>
@@ -77,7 +76,6 @@
                                     <p class="truncate max-w-[200px]"><?= $machine["name"] ?></p>
                                 </td>
                                 <td class="px-6 py-4"><?= $machine["serial_num"] ?></td>
-                                <td class="px-6 py-4 text-sm text-gray-900">Miguelito</td>
                                 <td class="px-6 py-4 text-sm">
                                     <div class="flex space-x-3">
                                         <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/maquina/<?= $machine['id'] ?>'" aria-label="Ver detalles de máquina #MAQ-<?= $machine["id"] ?>">
