@@ -20,31 +20,49 @@
         <div class="hidden  w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col md:flex-row md:space-x-8 items-center">
                 <li>
-                    <a href="/inicio" class="nav-button mb-2">Inicio</a>
+                    <a href="/inicio" class="nav-button mb-2 flex items-center">
+                        <i class="bi bi-house-fill mr-2"></i>
+                        Inicio
+                    </a>
                 </li>
                 <?php if(isset($app_user) && $app_user['role'] != 'usuario'){?>
                 <li>
-                    <a href="/mitrabajo" class="nav-button ">Mi Trabajo</a>
+                    <a href="/mitrabajo" class="nav-button flex items-center">
+                        <i class="bi bi-briefcase-fill mr-2"></i>
+                        Mi Trabajo
+                    </a>
                 </li>
                 <?php } ?>
                 <li>
-                    <a href="/inventario" class="nav-button">Inventario</a>
+                    <a href="/inventario" class="nav-button flex items-center">
+                        <i class="bi bi-box-fill mr-2"></i>
+                        Inventario
+                    </a>
                 </li>
                 <?php if(isset($app_user) && $app_user['role'] != 'usuario'){?>
                 <li>
-                    <a href="/mantenimientos" class="nav-button">Mantenimiento</a>
+                    <a href="/mantenimientos" class="nav-button flex items-center">
+                        <i class="bi bi-tools mr-2"></i>
+                        Mantenimiento
+                    </a>
                 </li>
                 <?php } ?>
                 <li>
-                    <a href="/incidencias" class="nav-button">Incidencias</a>
+                    <a href="/incidencias" class="nav-button flex items-center">
+                        <i class="bi bi-exclamation-circle-fill mr-2"></i>
+                        Incidencias
+                    </a>
                 </li>
                 <?php if(isset($app_user) && $app_user['role'] == 'administrator'){?>
                 <li>
-                    <a href="/paneladministrador" class="nav-button">Admin</a>
+                    <a href="/paneladministrador" class="nav-button flex items-center">
+                        <i class="bi bi-shield-fill mr-2"></i>
+                        Admin
+                    </a>
                 </li>
                 <?php } ?>
                 <li class="ml-6">
-                    <a href="/perfil" class="block">
+                    <a href="/perfil" class="block flex items-center">
                         <img src="<?= $app_user['img'] ?>" alt="Foto de perfil" class="w-10 h-10 rounded-full border-2 border-white">
                     </a>
                 </li>
