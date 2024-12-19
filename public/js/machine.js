@@ -151,8 +151,8 @@ function drop(ev){
 }
 
 
-function openModal(imageSrc) {
-    document.getElementById('modalQrImage').src = imageSrc; // Set the image source
+function openModal(id) {
+    document.getElementById('modalQrImage').src = '/qr/'+id; // Set the image source
     document.getElementById('qrModal').classList.remove('hidden'); // Show the modal
 }
 
