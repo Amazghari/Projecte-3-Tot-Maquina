@@ -48,7 +48,8 @@ class machineController
 
     public function qrGenerator (Request $request, Response $response, Container $container) {
         $id = $request->getParam("id");
-       
+        $config=$container->get("config");
+        $url=$config["url"]["server"];
     
         // $options = new QROptions([
         //     'version'      => 5, // Versión del QR
@@ -60,7 +61,7 @@ class machineController
         $options->outputBase64=false;
         $qrCode = new QRCode($options);
                             
-        $qrCodeData = '/maquina/'.$id;// URL para el código QR
+        $qrCodeData = $url.'maquina/'.$id;// URL para el código QR
         $qrCodeImage = $qrCode->render($qrCodeData);
         $response->setHeader("Content-Type: image/svg+xml");
         $response->setBody($qrCodeImage);
