@@ -103,9 +103,6 @@
                 </div>
 
                 <div class="flex justify-end space-x-3 mt-6 pt-4 border-t">
-                    <button type="button" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 cursor-pointer">
-                        Cancelar
-                    </button>
                     <button type="submit" class="px-4 py-2 bg-custom-blue text-white rounded-md hover:bg-blue-800 transition-colors">
                         Guardar
                     </button>
