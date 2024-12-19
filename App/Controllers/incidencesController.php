@@ -91,18 +91,19 @@ class incidencesController
         }
 
         public function hoursImputed($request, $response, $container){
-            //dd($_POST);
+            //  dd($_POST);
             $id = $request->get(INPUT_POST, "id");
+            $priority = $request->get(INPUT_POST, "priority");
+            $state = $request->get(INPUT_POST, "state");
             $imputed_hours = $request->get(INPUT_POST, "input_hours");
+            $first_answer = $request->get(INPUT_POST, "first_answer");
+            $end_date = $request->get(INPUT_POST, "end_date");
 
             $incidences = $container->get("Incidences");
-            $incidences->hoursimputed($id, $imputed_hours);
+            $incidences->hoursimputed($id, $priority, $state,$imputed_hours, $first_answer, $end_date);
 
-            
-
-            $response->redirect("location: /mantenimientos");
+            $response->redirect("location: /incidencias");
 
             return $response;
         }
-    
 }
