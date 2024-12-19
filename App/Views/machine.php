@@ -46,10 +46,7 @@
                             <label class="text-xl text-gray-600">Técnico Responsable:</label>
                             <input type="text" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Técnico responsable">
                         </div>
-                        <div>
-                            <label class="text-xl text-gray-600">Número de Incidencias:</label>
-                            <span class="text-gray-800">5</span>
-                        </div>
+                      
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label class="text-xl text-gray-600">Longitud:</label>
@@ -69,9 +66,7 @@
 
             <div class="flex justify-between items-center mb-6 mt-8">
                 <h2 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h2>
-                <label class="bg-custom-blue text-white px-4 py-2 rounded-lg">
-                    Incidencias completadas: 1
-                </label>
+               
             </div>
 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -113,14 +108,15 @@
                             <?php } ?>
                         </tbody>
                     </table>
+                    <?php if($incidences == null) { ?>
+                        <p>No se encontraron incidencias para esta máquina.</p>
+                    <?php } ?>
                 </div>
             </div>
 
             <div class="flex justify-between items-center mb-6 mt-8">
                 <h2 class="text-2xl font-bold text-custom-blue">Lista de Mantenimientos</h2>
-                <label class="bg-custom-blue text-white px-4 py-2 rounded-lg">
-                    Mantenimientos Completados: 1
-                </label>
+              
             </div>
 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -154,6 +150,9 @@
                             <?php } ?>
                         </tbody>
                     </table>
+                    <?php if($maintenances == null) { ?>
+                        <p>No se encontraron mantenimientos para esta máquina.</p>
+                    <?php } ?>
                 </div>
             </div>
             <button id="generate-pdf" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200" aria-label="Generar PDF"">Generar PDF</button>
