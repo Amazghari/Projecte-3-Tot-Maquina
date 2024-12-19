@@ -114,8 +114,6 @@
                             <th class="px-6 py-3 text-left text-sm font-semibold">Descripcion</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Prioridad</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">ID Trabajador</th>
-                            <th class="px-6 py-3 text-left text-sm font-semibold">Nombre Trabajador</th>
                             <th class="px-6 py-3 text-left text-sm font-semibold">Opciones</th>
                         </tr>
                     </thead>
@@ -135,8 +133,6 @@
                             <td class="px-6 py-4">
                                 <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $incidence['state'] ?></span>
                             </td>
-                            <td class="px-6 py-4 text-sm text-gray-900"></td>
-                            <td class="px-6 py-4 text-sm text-gray-900"></td>
                             <td class="px-6 py-4 text-sm">
                                 <div class="flex space-x-3">
                                     <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/incidencia/<?= $incidence['id'] ?>'" aria-label="Ver detalles de máquina #MAQ-2">
