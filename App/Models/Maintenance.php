@@ -168,25 +168,20 @@ class Maintenance
         return $maintenances;
     }
 
-    public function myMaintenanceUser()
+    public function myMaintenanceUser($id)
     {
-        // Recupera el ID del usuario de la sesión
-        $userId = $_SESSION['user']['id'];
-            
         // Consulta para obtener los mantenimientos relacionados con el usuario
-        $query = "select u.* from users u inner join user_maintenance um on u.id = um.id_maintenance WHERE um.id_user = :userId;
-        ";
+        $query = "select u.* from users u join user_maintenance um on u.id = um.id_user and um.id_maintenance = :id;";
     
         $maintenances = [];
     
         // Preparar y ejecutar la consulta con PDO
         $stmt = $this->sql->prepare($query);
-        $stmt->bindParam(':userId', $userId, \PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt->execute([":id" => $id]);
     
         // Recorrer los resultados y almacenarlos en un array
         foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $maintenance) {
-            $maintenances[$maintenance["id"]] = $maintenance;
+            $maintenances[] = $maintenance;
         }
     
         return $maintenances;

@@ -26,15 +26,17 @@ class maintenanceController {
     public function maintenanceView($request, $response, $container){
 
         $maintenanceModel = $container->get("Maintenances");
-        $user_maintenances = $maintenanceModel->myMaintenanceUser();
-        $id=$request->getParam("id");
+        $id = $request->getParam("id");
+        
+        $user_maintenances = $maintenanceModel->myMaintenanceUser($id);
+        
+        $response->set("user_maintenances", $user_maintenances);
 
         $maintenance = $maintenanceModel->getById($id);
         $machinesModel = $container->get("Machines");
         $machines = $machinesModel->list();
         
         
-        $response->set("user_maintenances", $user_maintenances);
         $response->set("machines", $machines);
         $response->set("maintenance", $maintenance);
 

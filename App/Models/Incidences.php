@@ -312,26 +312,23 @@ class Incidences
         return $maintenances;
     }
 
-    public function myIncidenceView()
+    public function myIncidenceView($id)
     {
-        // Recupera el ID del usuario de la sesión
-        $userId = $_SESSION['user']['id'];
 
         // Consulta para obtener los mantenimientos relacionados con el usuario
-        $query = "select u.* from users u inner join user_incidence ui on u.id = ui.id_incidence WHERE ui.id_user = :userId;
-        ";
-
+        $query = "select u.* from users u join user_incidence ui on u.id = ui.id_user and ui.id_incidence = :id;";
+        
         $maintenances = [];
 
         // Preparar y ejecutar la consulta con PDO
         $stmt = $this->sql->prepare($query);
-        $stmt->bindParam(':userId', $userId, \PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt->execute([":id" => $id]);
 
         // Recorrer los resultados y almacenarlos en un array
         foreach ($stmt->fetchAll(\PDO::FETCH_ASSOC) as $incidence) {
-            $maintenances[$incidence["id"]] = $incidence;
+            $maintenances[] = $incidence;
         }
+        //dd($maintenances);
 
         return $maintenances;
     }
