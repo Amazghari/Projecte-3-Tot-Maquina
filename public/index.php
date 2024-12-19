@@ -50,6 +50,7 @@ $app->route("/inventario/editar/{id}", [\App\Controllers\inventoryController::cl
 $app->post("/inventario/updateMachine", [\App\Controllers\inventoryController::class, "updateMachine"]);
 $app->route("/maquina/{id}", [\App\Controllers\machineController::class, "machineController"]);
 $app->post("/maquina/{id}", [\App\Controllers\machineController::class, "updateMachine"]);
+$app->route("/incidencia/hoursImputed", [\App\Controllers\incidencesController::class, "hoursImputed"]);
 $app->route("/incidencia/añadir", [\App\Controllers\incidencesController::class, "addIncidences"]);
 $app->route("/incidencia/editar/{id}", [\App\Controllers\incidencesController::class, "editIncidence"]);
 $app->post("/incidencia/updateIncidence", [\App\Controllers\incidencesController::class, "updateIncidence"]);
@@ -73,7 +74,6 @@ $app->route("/incidencia", [\App\Controllers\incidenceController::class, "incide
 $app->route("/asignarincidencia", [\App\Controllers\asignIncidencesController::class, "asignIncidencesController"]);
 $app->route("/mantenimiento/añadir",[\App\Controllers\maintenanceController::class, "addMaintenance"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->route("/mantenimiento/updateMantenimiento", [\App\Controllers\maintenanceController::class, "updateMaintenance"]);
-$app->route("/mantenimiento/hoursImputed", [\App\Controllers\incidencesController::class, "hoursImputed"]);
 $app->route("/mantenimiento/{id}", [\App\Controllers\maintenanceController::class, "maintenanceView"],[[\App\Middleware\auth::class, "isUser"]]);
 $app->route("/asignMantainment", [\App\Controllers\asignMantainmentController::class, "asignMantainmentController"]);
 $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "asignTechnicController"]);
