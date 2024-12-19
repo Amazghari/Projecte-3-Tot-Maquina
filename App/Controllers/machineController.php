@@ -5,6 +5,8 @@ namespace App\Controllers;
 use \Emeset\Contracts\Http\Request;
 use \Emeset\Contracts\Http\Response;
 use \Emeset\Contracts\Container;
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
 
 class machineController
 {
@@ -42,5 +44,26 @@ class machineController
         $response->redirect("location: /maquina/$id"); // Redirect to the updated machine's page
 
         return $response; // Return the response
+    }
+
+    public function qrGenerator (Request $request, Response $response, Container $container) {
+        $id = $request->getParam("id");
+       
+    
+        // $options = new QROptions([
+        //     'version'      => 5, // Versión del QR
+        //     'outputType'   => QRCode::OUTPUT_MARKUP_SVG,
+        //     'ecc'          => QRCode::ECC_L, // Error Correction Level
+        // ]);
+        $options= new QROptions();
+        $options->version=7;
+        $options->outputBase64=false;
+        $qrCode = new QRCode($options);
+                            
+        $qrCodeData = '/maquina/'.$id;// URL para el código QR
+        $qrCodeImage = $qrCode->render($qrCodeData);
+        $response->setHeader("Content-Type: image/svg+xml");
+        $response->setBody($qrCodeImage);
+        return $response;
     }
 }

@@ -80,7 +80,8 @@ $app->route("/asignTechnic", [\App\Controllers\asignTechnicController::class, "a
 $app->route("/mantenimiento/editar/{id}", [\App\Controllers\maintenanceController::class, "maintenanceEdit"]);
 $app->route("/mantenimiento/updateMantenimiento", [\App\Controllers\maintenanceController::class, "updateMaintenance"]);
 $app->get("/mantenimiento/eliminar/{id}", [\App\Controllers\maintenanceController::class, "deleteMaintenance"],[[\App\Middleware\auth::class, "isAdmin"]]);
-$app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"]);
+$app->route("/mitrabajo", [\App\Controllers\myworkController::class, "myWork"],[[\App\Middleware\auth::class, "auth"]]);
+$app->route("/qr/{id}", [\App\Controllers\machineController::class, "qrGenerator"]);
 
 $app->route("inventario/uploadCSV", [\App\Controllers\inventoryController::class, "uploadCSV"]);
 

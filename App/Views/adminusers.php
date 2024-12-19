@@ -72,11 +72,14 @@
                         <input type="text" name="username" id="username" required
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Nombre de usuario">
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                    <div class="mb-4">
+                        <label for="passwordUser" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                        
                         <input type="password" name="passwordUser" id="passwordUser" required
-                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Contraseña del usuario">
-                    </div>
+                               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-custom-blue focus:ring focus:ring-custom-blue focus:ring-opacity-50" aria-label="Contraseña del usuario">
+                               <p class="text-sm text-gray-500 mb-2">La Contraseña tiene que tener entre 6 y 13 letras, números y guiones, mínimo 1 letra y 1 número</p>
+
+                            </div>
                     <div class="flex justify-end">
                         <button type="submit" id="saveUserButton" class="bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors" aria-label="Guardar nuevo usuario">
                             Guardar
@@ -121,11 +124,7 @@
                                 <td class="px-6 py-4 text-sm text-gray-900"><?= $user["username"] ?></td>
                                 <td class="px-6 py-4 text-sm">
                                     <div class="flex space-x-3">
-                                        <button class="text-blue-600 hover:text-blue-800" aria-label="Editar usuario #USR-<?= $user["id"] ?>">
-                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                            </svg>
-                                        </button>
+                                       
                                         <a href="/adminusuarios/eliminar/<?= $user["id"] ?>" aria-label="Eliminar usuario #USR-<?= $user["id"] ?>">
                                             <button class="text-red-600 hover:text-red-800" aria-label="Eliminar usuario #USR-<?= $user["id"] ?>">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -8,7 +8,7 @@
   <link href="main.css" rel="stylesheet">
   <link rel="icon" href="/uploads/img/logopng.png" type="image/x-icon">
   
-  <title>Acceso al sistema</title>
+  <title>Login</title>
 </head>
 
 <body class="bg-custom-light-gray flex items-center justify-center h-screen"> 

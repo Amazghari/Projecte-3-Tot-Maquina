@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Incidencias </title>
+        <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/incidence.js"></script>
 
     <link rel="stylesheet" href="main.css">
