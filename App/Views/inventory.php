@@ -95,7 +95,7 @@
                                         </button>
                                         <div>
     <button class="focus:outline-none" onclick="openModal('<?= $machine['id'] ?>')">
-        Abrir QR Code
+    <i class="bi-qr-code-scan"></i>
     </button>
 </div>
                                     </div>
