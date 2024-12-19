@@ -46,15 +46,15 @@
                             <label class="text-xl text-gray-600">Técnico Responsable:</label>
                             <input type="text" name="manufacturer" value="<?= $machine['manufacturer'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Técnico responsable">
                         </div>
-                      
+
                         <div class="flex space-x-4">
                             <div class="w-1/2">
                                 <label class="text-xl text-gray-600">Longitud:</label>
-                                <input type="text" name="latitude" value="<?= $machine['longitude'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Longitud">
+                                <input type="text" name="latitude" value="<?= $machine['latitude'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Longitud">
                             </div>
                             <div class="w-1/2">
                                 <label class="text-xl text-gray-600">Latitud:</label>
-                                <input type="text" name="longitude" value="<?= $machine['latitude'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Latitud">
+                                <input type="text" name="longitude" value="<?= $machine['longitude'] ?>" class="border rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Latitud">
                             </div>
                         </div>
                         <button type="submit" class="mt-4 bg-custom-blue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-200" aria-label="Guardar cambios">Guardar Cambios</button>
@@ -66,7 +66,7 @@
 
             <div class="flex justify-between items-center mb-6 mt-8">
                 <h2 class="text-2xl font-bold text-custom-blue">Lista de Incidencias</h2>
-               
+
             </div>
 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -79,6 +79,7 @@
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Prioridad</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Estado</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Trabajador Asignado</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -103,12 +104,18 @@
                                             <?php } ?>
                                         </select>
                                     </td>
+                                    <td class="px-6 py-4 text-sm">
+                                        <div class="flex space-x-3">
+                                            <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/incidencia/<?= $incidence['id'] ?>'" aria-label="Ver detalles de máquina #MAQ-2">
+                                                <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
+                                            </button>
+                                    </td>
 
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
-                    <?php if($incidences == null) { ?>
+                    <?php if ($incidences == null) { ?>
                         <p>No se encontraron incidencias para esta máquina.</p>
                     <?php } ?>
                 </div>
@@ -116,7 +123,7 @@
 
             <div class="flex justify-between items-center mb-6 mt-8">
                 <h2 class="text-2xl font-bold text-custom-blue">Lista de Mantenimientos</h2>
-              
+
             </div>
 
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -129,6 +136,7 @@
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Tipo</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Status</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold">Fecha</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -145,12 +153,19 @@
                                         <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800"><?= $maintenance['state'] ?></span>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-900"><?= $maintenance['maintentance_date'] ?></td>
+                                    <td class="px-6 py-4 text-sm">
+                                        <div class="flex space-x-3">
+                                            <button class="text-gray-600 hover:text-gray-800" onclick="window.location='/mantenimiento/<?= $maintenance["id"] ?>'" aria-label="Ver detalles del mantemiento #MNT-<?= $maintenance["id"] ?>">
+                                                <strong><i class="bi bi-eye w-5 h-5" aria-hidden="true"></i></strong>
+                                            </button>
 
+                                        </div>
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
-                    <?php if($maintenances == null) { ?>
+                    <?php if ($maintenances == null) { ?>
                         <p>No se encontraron mantenimientos para esta máquina.</p>
                     <?php } ?>
                 </div>
@@ -161,25 +176,25 @@
 
     </div>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="/js/bundle.js"></script>
+                <script src="/js/bundle.js"></script>
 
                 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
                 <script src="/js/machine.js"></script>
                 <script>
-                   // Inicializa el mapa
-        var map = L.map('map').setView([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>], 13); // Cambia las coordenadas a las que necesites
+                    // Inicializa el mapa
+                    var map = L.map('map').setView([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>], 13); // Cambia las coordenadas a las que necesites
 
-// Capa de los tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
+                    // Capa de los tiles
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '© OpenStreetMap'
+                    }).addTo(map);
 
-// Agregar un marcador
-var marker = L.marker([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>]).addTo(map); // Cambia las coordenadas del marcador
-marker.bindPopup('<?php echo $machine['name']; ?>').openPopup();
-</script>
-<!-- Footer -->
+                    // Agregar un marcador
+                    var marker = L.marker([<?php echo $machine['latitude']; ?>, <?php echo $machine['longitude']; ?>]).addTo(map); // Cambia las coordenadas del marcador
+                    marker.bindPopup('<?php echo $machine['name']; ?>').openPopup();
+                </script>
+                <!-- Footer -->
 </body>
 
 
