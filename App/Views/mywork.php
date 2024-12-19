@@ -171,9 +171,6 @@
                         <?php } ?>
                     </tbody>
                 </table>
-                <?php if($user_incidence == null) { ?>
-                        <p>No se encontraron incidencias asignadas.</p>
-                    <?php } ?>
             </div>
         </div>
 
