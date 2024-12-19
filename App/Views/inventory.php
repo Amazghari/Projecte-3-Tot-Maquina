@@ -16,14 +16,7 @@
 <body class="bg-custom-light-gray">
     <?php
 
-    use chillerlan\QRCode\QRCode;
-    use chillerlan\QRCode\QROptions;
-
-    $options = new QROptions([
-        'version'      => 5, // Versión del QR
-        'outputType'   => QRCode::OUTPUT_MARKUP_SVG,
-        'ecc'          => QRCode::ECC_L, // Error Correction Level
-    ]);
+  
 
     include 'Layouts/navbar.php'; ?>
 
@@ -73,10 +66,7 @@
 
                     <tbody class="divide-y divide-gray-200" id="default">
                         <?php foreach ($machines as $machine) {
-                            $qrCode = new QRCode($options);
-                            
-                            $qrCodeData = '/maquina/' . $machine["id"]; // URL para el código QR
-                            $qrCodeImage = $qrCode->render($qrCodeData);
+                          
                             //dd($qrCodeImage);
                             //dd($qrCodeData,$qrCodeImage);
 
@@ -104,7 +94,7 @@
                                             </svg>
                                         </button>
                                         <div>
-    <button class="focus:outline-none" onclick="openModal('<?= $qrCodeImage ?>')">
+    <button class="focus:outline-none" onclick="openModal('<?= $machine['id'] ?>')">
         Abrir QR Code
     </button>
 </div>
@@ -119,6 +109,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal for displaying QR code -->
     <div id="qrModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center" role="dialog" aria-modal="true">
     <div class="modal-content p-4">
@@ -128,6 +119,8 @@
         </div>
     </div>
 </div>
+
+
     <!-- Modal  -->
     <input type="checkbox" id="modal-toggle" class="hidden">
     <div class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" id="modal" role="dialog" aria-modal="true">
