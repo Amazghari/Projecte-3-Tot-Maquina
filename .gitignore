@@ -8,7 +8,6 @@ vendor
 dist/
 build/ 
 
-/bundle.js
 /bundle.js.LICENSE.txt
 
 /public/output.css
@@ -16,12 +15,10 @@ build/
 public\main.css
 .tailwindcache/
 
-public/js/bundle.js
 public/js/bundle.js.LICENSE.txt
 
 
 public/main.css
-public/js/bundle.js
 public/js/bundle.js.LICENSE.txt
 
 App/config.php
