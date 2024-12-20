@@ -29,7 +29,7 @@
                     <label class="block text-sm font-medium text-gray-700" for="title">Título</label>
                     <input type="text" id="title" name="title" value="<?= $maintenance['title'] ?>" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-opacity-50 focus:ring-custom-blue" required>
                 </div>
-
+ 
                 <div>
                     <label class="block text-sm font-medium text-gray-700" for="status">Estado</label>
                     <select id="state" name="state" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-opacity-50 focus:ring-custom-blue">
